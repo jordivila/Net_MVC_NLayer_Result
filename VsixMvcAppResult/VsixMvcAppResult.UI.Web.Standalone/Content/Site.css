@@ -18,8 +18,8 @@ h1 {margin:1em 0 0 0 ;}
 .ui-site-accountBar { width:100%;height:100%;border:0; }
 .ui-sitePage{width:98%; margin-left: auto;margin-right: auto;position:relative;}
 .ui-siteVersion {float:left;margin:0.5em;}
-.ui-siteMenu-autoClose { height:1.7em;width:2em;float:right;margin:.1em 0em 0 0em;border:0 !important; }
-.ui-widget {font-size:1em !important;}
+.ui-siteMenu-autoClose { height:1.7em;width:2em;float:right;margin:.,1em 0em 0 0em;border:0 !important; }
+.ui-widget {font-size:1em !important;font-family: inherit !important}
 .ui-widget-header {font-weight:bold;padding:1.5em;}
 .ui-dialog-content { padding:3em 0em 3em 1em !important; }
 .ui-carriageReturn {clear:both;float:none !important;}
