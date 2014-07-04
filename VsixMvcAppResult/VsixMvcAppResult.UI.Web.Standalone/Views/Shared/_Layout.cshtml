@@ -15,28 +15,15 @@
             *{font-weight:normal !important; font-style:normal !important;font-family: 'Open Sans', sans-serif !important;}
         </style>
         <style type="text/css">
-            @@font-face {
-            font-family: font;
-            src: url('/fonts/font.eot');
-            src: url('/fonts/font.eot?#iefix') format('embedded-opentype'),
-            url('/fonts/font.svg#font') format('svg'),
-            url('/fonts/font.otf') format('opentype'),
-            url('/fonts/font.ttf') format('truetype'),
-            url('/fonts/font.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            }
+body { background:green;  font-size:1em; }  
 
-            @@media screen and (-webkit-min-device-pixel-ratio:0) {
-            @@font-face {
-            font-family: font;
-            src: url('/fonts/font.svg') format('svg');
-            }
-            }
+@@media only screen and (max-width: 71.25em) {
+  body { background:yellow;  font-size:.85em; }
+}
 
-            body {
-            -webkit-font-smoothing: antialiased;
-            }
+@@media only screen and (max-width: 48em) {
+  body { background:red; font-size:.75em; }
+}
         </style>
         @RenderSection(HtmlHelperExtensions.SectionInlineStyles, true)
     </head>
