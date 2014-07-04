@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{558EAEC4-5F4B-4994-B62B-96E8D725BF8C}</ProjectGuid>
+    <ProjectGuid>{979FFB7F-6067-4DF7-B78B-0E0289BD400C}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -101,9 +101,6 @@
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>.\..\..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
@@ -123,6 +120,9 @@
       <Private>True</Private>
       <HintPath>.\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>.\..\..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -133,9 +133,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="WebGrease">
-      <HintPath>.\..\..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\ApplicationServicesProvider\MembershipUpdateLastActivityAttribute.cs" />
@@ -248,6 +245,9 @@
     <Content Include="Areas\UserAdministration\Views\UserAdministration\Details.cshtml" />
     <Content Include="Areas\UserAdministration\Views\UserAdministration\Index.cshtml" />
     <Content Include="Areas\UserAdministration\Views\Web.config" />
+    <Content Include="blogrss.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="CDN\Css\Template.CDN.Common.css" />
     <Content Include="CDN\Scripts\Template.CDN.Common.en-GB.js" />
     <Content Include="CDN\Scripts\Template.CDN.Common.en-US.js" />
@@ -1072,7 +1072,7 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>2159</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55106/</IISUrl>
+          <IISUrl>http://localhost:53466/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

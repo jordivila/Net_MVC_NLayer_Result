@@ -5,7 +5,7 @@
     <DeploymentItem filename="VsixMvcAppResult\VsixMvcAppResult.UI.Web\web.config" />
     <DeploymentItem filename="VsixMvcAppResult\VsixMvcAppResult.WCF.ServicesHost\bin\Debug\" />
   </Deployment>
-  <Scripts setupScript="c:\users\jv.io\documents\visual studio 2013\Projects\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.Tests.Integration\Template.Tests.Integration.StartScript.bat" cleanupScript="c:\users\jv.io\documents\visual studio 2013\Projects\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.Tests.Integration\Template.Tests.Integration.EndScript.bat" />
+  <Scripts setupScript="C:\Users\jv.io\Documents\GitHub\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.Tests.Integration\Template.Tests.Integration.StartScript.bat" cleanupScript="C:\Users\jv.io\Documents\GitHub\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.Tests.Integration\Template.Tests.Integration.EndScript.bat" />
   <Execution>
     <TestTypeSpecific>
       <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
