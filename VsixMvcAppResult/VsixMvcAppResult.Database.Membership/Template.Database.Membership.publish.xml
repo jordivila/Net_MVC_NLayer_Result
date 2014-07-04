@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>CurlyDevelopmentMembership</TargetDatabaseName>
+    <DeployScriptFileName>VsixMvcAppResult.Database.Membership.sql</DeployScriptFileName>
+    <TargetConnectionString>Data Source=IO_JV;Integrated Security=True;Pooling=False</TargetConnectionString>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+  </PropertyGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="ApplicationAdminEmail">
+      <Value>admin@admin.com</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="ApplicationAdminPassword">
+      <Value>123456</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="ApplicationName">
+      <Value>VsixMvcAppResult</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>

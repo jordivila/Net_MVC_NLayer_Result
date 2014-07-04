@@ -1,0 +1,23 @@
+﻿@using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
+@using VsixMvcAppResult.UI.Web.Areas.UserAccount;
+@model VsixMvcAppResult.UI.Web.Areas.Error.Models.SessionExpiredModel
+
+@{
+    Layout = "~/Areas/Error/Views/Shared/LayOut.cshtml";
+}
+
+@section InlineStyles{
+
+}
+
+@section ScriptsToAdd
+{
+
+}
+
+@section ErrorDescriptionContainer
+{
+    <p>@VsixMvcAppResult.Resources.General.GeneralTexts.SessionExpiredPleaseLogin</p><br />
+
+    @Html.LogOnButton()
+}

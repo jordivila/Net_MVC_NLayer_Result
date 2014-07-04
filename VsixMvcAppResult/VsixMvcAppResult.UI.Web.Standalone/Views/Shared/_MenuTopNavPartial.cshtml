@@ -1,0 +1,16 @@
+﻿@using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
+@using VsixMvcAppResult.UI.Web.Areas.Home;
+@using VsixMvcAppResult.UI.Web.Areas.UserAdministration;
+@using VsixMvcAppResult.UI.Web.Areas.Error;
+@using VsixMvcAppResult.UI.Web.Models;
+
+@model   VsixMvcAppResult.UI.Web.Models.baseViewModel
+
+
+<div class="ui-siteMenu-TopNav ui-siteMenu ui-menuNav ui-widget-content ui-corner-all ui-state-default" 
+    data-widget="menuNav" 
+    data-widget-controllerSelected="@this.ViewContext.Controller.ControllerContext.RouteData.Values["controller"].ToString()"
+    data-widget-controllerAction="@this.ViewContext.Controller.ControllerContext.RouteData.Values["action"].ToString()">
+    @Html.MenuGet().Render()
+    <div class="ui-carriageReturn"></div>
+</div>

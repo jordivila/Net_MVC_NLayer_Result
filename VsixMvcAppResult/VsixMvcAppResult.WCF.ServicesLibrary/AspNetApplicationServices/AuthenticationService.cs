@@ -1,0 +1,45 @@
+﻿using System.Web.Security;
+using VsixMvcAppResult.BL.AuthenticationServices;
+using VsixMvcAppResult.Models.Authentication;
+
+namespace VsixMvcAppResult.WCF.ServicesLibrary.AspNetApplicationServices
+{
+    public class AuthenticationService : BaseServiceWithCustomMessageHeaders, IAuthenticationProxy
+    {
+        IAuthenticationBL authBL = null;
+
+        public AuthenticationService()
+        {
+            authBL = new AuthenticationBL();
+        }
+        public override void Dispose()
+        {
+            if (this.authBL != null)
+            {
+                this.authBL.Dispose();
+            }
+
+            base.Dispose();
+        }
+        public FormsIdentity GetFormsIdentity()
+        {
+            return this.authBL.GetFormsIdentity();
+        }
+        public bool IsLoggedIn()
+        {
+            return this.authBL.IsLoggedIn();
+        }
+        public bool LogIn(string userName, string password, string customCredential, bool isPersistent)
+        {
+            return this.authBL.LogIn(userName, password, customCredential, isPersistent);
+        }
+        public void LogOut()
+        {
+            this.authBL.LogOut();
+        }
+        public bool ValidateUser(string userName, string password, string customCredential)
+        {
+            return this.authBL.ValidateUser(userName, password, customCredential);
+        }
+    }
+}

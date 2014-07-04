@@ -1,0 +1,4 @@
+﻿.ui-siteMenu-TopNav {}
+.ui-siteMenu-TopNav .ui-widget-header {border:0 !important;padding:1em 1em 1em 1em ;}
+.ui-siteMenu-TopNav .ui-siteMenu-TopNav-content {border:0 !important;}
+.ui-siteMenu-TopNav .ui-siteMenu-TopNav-content  ul li {/*float:none;*/padding:.2em .2em .2em .2em;}

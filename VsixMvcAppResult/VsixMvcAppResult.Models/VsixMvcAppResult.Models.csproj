@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{893BC36D-2348-404D-BDB1-6A19A9CCFF68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VsixMvcAppResult.Models</RootNamespace>
+    <AssemblyName>VsixMvcAppResult.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging.Database, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EnterpriseLibrary.Logging.Database.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\..\..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.1304.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\..\..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.1304.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\..\..\packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>.\..\..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.1304.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\..\..\packages\Unity.3.0.1304.1\lib\NET45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.0.1304.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\..\..\packages\Unity.Interception.3.0.1304.0\lib\NET45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>.\..\..\packages\Unity.Interception.3.0.1304.0\lib\NET45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\IAuthenticationProxy.cs" />
+    <Compile Include="Authentication\IAuthenticationBL.cs" />
+    <Compile Include="Collections\CollectionHelpers.cs" />
+    <Compile Include="Common\BaseDataCommonResults.cs" />
+    <Compile Include="Configuration\ApplicationConfiguration.cs" />
+    <Compile Include="Common\BaseDataResult.cs" />
+    <Compile Include="Common\BaseModel.cs" />
+    <Compile Include="Configuration\ConfigSections\ClientResources\ClientResourcesConfiguration.cs" />
+    <Compile Include="Configuration\ConfigSections\DomainInfo\DomainInfoConfiguration.cs" />
+    <Compile Include="Configuration\ConfigSections\Mailing\MailingConfiguration.cs" />
+    <Compile Include="Configuration\ConnectionProviders\ConnectionProvidersConfig.cs" />
+    <Compile Include="Cryptography\CryptoHelper.cs" />
+    <Compile Include="DataAnnotationsAttributes\DateAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\DateGreaterThanAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\DigitsAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\DisplayAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\EmailAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\EqualToAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\FileExtensionsAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\IntegerAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\MaxAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\MinAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\NumericAttribute.cs" />
+    <Compile Include="DataAnnotationsAttributes\UrlAttribute.cs" />
+    <Compile Include="Enumerations\EnumExtensions.cs" />
+    <Compile Include="Enumerations\Enums.cs" />
+    <Compile Include="Globalization\GlobalizationHelper.cs" />
+    <Compile Include="Logging\CustomTraceListenerDatabase.cs" />
+    <Compile Include="Logging\CustomTraceListenerInterface.cs" />
+    <Compile Include="Logging\CustomTraceListenerRollingXml.cs" />
+    <Compile Include="Logging\CustomTraceListenerProxiedWCF.cs" />
+    <Compile Include="Logging\LoggingHelper.cs" />
+    <Compile Include="Logging\LogMessage.cs" />
+    <Compile Include="Logging\LogMessageFilter.cs" />
+    <Compile Include="Logging\ILoggingProxy.cs" />
+    <Compile Include="Logging\ILoggingBL.cs" />
+    <Compile Include="Logging\ILoggingDAL.cs" />
+    <Compile Include="Membership\DataFilterUserList.cs" />
+    <Compile Include="Membership\DataResultProviderSettings.cs" />
+    <Compile Include="Membership\DataResultUser.cs" />
+    <Compile Include="Membership\DataResultUserActivate.cs" />
+    <Compile Include="Membership\DataResultUserCantAccess.cs" />
+    <Compile Include="Membership\DataResultUserCreateResult.cs" />
+    <Compile Include="Membership\DataResultUserList.cs" />
+    <Compile Include="Membership\DataResultUserSearch.cs" />
+    <Compile Include="Membership\IMembershipProxy.cs" />
+    <Compile Include="Membership\IMembershipDAL.cs" />
+    <Compile Include="Membership\IMembershipBL.cs" />
+    <Compile Include="Membership\MembershipSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Authentication\AuthenticationProxy.cs" />
+    <Compile Include="ProxyProviders\ProviderProxyBase.cs" />
+    <Compile Include="Logging\LoggingProxy.cs" />
+    <Compile Include="Membership\MembershipProxy.cs" />
+    <Compile Include="Profile\IProfileBL.cs" />
+    <Compile Include="Profile\IProfileDAL.cs" />
+    <Compile Include="Profile\IProfileProxy.cs" />
+    <Compile Include="Profile\Profile.cs" />
+    <Compile Include="Profile\ProfileProxy.cs" />
+    <Compile Include="Roles\IRoleAdminBL.cs" />
+    <Compile Include="Roles\IRoleAdminDAL.cs" />
+    <Compile Include="Roles\IRoleManagerProxy.cs" />
+    <Compile Include="Roles\IRolesProxy.cs" />
+    <Compile Include="Roles\RoleManagerProxy.cs" />
+    <Compile Include="Roles\RolesProxy.cs" />
+    <Compile Include="RepositoryPattern\RepositoryPattern.cs" />
+    <Compile Include="SmtpModels\SmtpClientProxy.cs" />
+    <Compile Include="Syndication\DataFilterSyndication.cs" />
+    <Compile Include="Syndication\ISyndicationProxy.cs" />
+    <Compile Include="Syndication\ISyndicationDAL.cs" />
+    <Compile Include="Syndication\ISyndicationBL.cs" />
+    <Compile Include="Syndication\SyndicationEqualityComparer.cs" />
+    <Compile Include="Syndication\SyndicationHelpers.cs" />
+    <Compile Include="Syndication\SyndicationProxy.cs" />
+    <Compile Include="TokenPersistence\TokenPersistence.cs" />
+    <Compile Include="TokenPersistence\ITokenPersistenceDAL.cs" />
+    <Compile Include="Unity\UnityHelper.cs" />
+    <Compile Include="UserRequestModel\UserRequest.cs" />
+    <Compile Include="UserSessionPersistence\UserSessionHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataAnnotationsAttributes\aa_Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SmtpModels\Contracts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VsixMvcAppResult.Resources\VsixMvcAppResult.Resources.csproj">
+      <Project>{31EA2808-81A4-48CB-8730-6B8883886587}</Project>
+      <Name>VsixMvcAppResult.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

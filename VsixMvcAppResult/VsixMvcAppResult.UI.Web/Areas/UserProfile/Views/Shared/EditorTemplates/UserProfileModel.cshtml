@@ -1,0 +1,35 @@
+﻿@model VsixMvcAppResult.Models.Profile.UserProfileModel
+@using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
+@using VsixMvcAppResult.UI.Web.Areas.UserProfile;
+@using VsixMvcAppResult.Models.Enumerations;
+@using VsixMvcAppResult.Models.Globalization;
+@using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
+
+
+@{
+    using (MvcWidgetBox divBox = Html.BeginWidgetBox())
+    {
+        using (MvcWidgetBox divBoxHeader = Html.BeginWidgetBoxHeader())
+        { 
+            @VsixMvcAppResult.Resources.Account.AccountResources.ProfileEdit
+        }
+        using (MvcWidgetBox divBoxContent = Html.BeginWidgetBoxContent())
+        {
+        <text>
+            @Html.FormItem(model => model.FirstName)
+            @Html.FormItem(model => model.LastName)
+            @Html.FormItem(model => model.BirthDate)
+            @Html.FormItem(model => model.Gender)
+            @Html.FormItem(model => model.Culture,
+                                    FormsExtension.DropDownListFor(Html, model => model.Culture, this.Model.Culture.ToSelectList(), new { }),
+                                    string.Empty)
+            @Html.FormItem(model => model.Theme
+                                        , new
+                                        {
+                                            onchange = @"jQuery(document).find('.ui-themeSwitcher:first').menuThemes('setTheme', jQuery(this).val());"
+                                        })
+        </text>
+        }
+    }
+}
+

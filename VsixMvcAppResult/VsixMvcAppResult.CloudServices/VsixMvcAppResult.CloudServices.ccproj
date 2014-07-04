@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>2.3</ProductVersion>
+    <ProjectGuid>e6db647b-9e9e-417a-a491-403e55f75b4b</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VsixMvcAppResult.CloudServices</RootNamespace>
+    <AssemblyName>VsixMvcAppResult.CloudServices</AssemblyName>
+    <StartDevelopmentStorage>True</StartDevelopmentStorage>
+    <Name>VsixMvcAppResult.CloudServices</Name>
+    <UseEmulatorExpressByDefault>False</UseEmulatorExpressByDefault>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- Items for the project -->
+  <ItemGroup>
+    <ServiceDefinition Include="ServiceDefinition.csdef" />
+    <ServiceConfiguration Include="ServiceConfiguration.Local.cscfg" />
+    <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VsixMvcAppResult.WCF.ServicesHostWorkerRole\VsixMvcAppResult.WCF.ServicesHostWorkerRole.csproj">
+      <Name>VsixMvcAppResult.WCF.ServicesHostWorkerRole</Name>
+      <Project>{790f2b30-3000-44ce-bf73-2f4342805bb6}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>VsixMvcAppResult.WCF.ServicesHostWorkerRole</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\VsixMvcAppResult.UI.Web\VsixMvcAppResult.UI.Web.csproj">
+      <Name>VsixMvcAppResult.UI.Web</Name>
+      <Project>{609ecaee-9e8f-49fd-aa7c-2e62d72098b8}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>VsixMvcAppResult.UI.Web</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="VsixMvcAppResult.UI.WebContent\" />
+    <Folder Include="VsixMvcAppResult.WCF.ServicesHostWorkerRoleContent\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="VsixMvcAppResult.UI.WebContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="VsixMvcAppResult.WCF.ServicesHostWorkerRoleContent\diagnostics.wadcfg">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <!-- Import the target files for this project template -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <CloudExtensionsDir Condition=" '$(CloudExtensionsDir)' == '' ">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Windows Azure Tools\2.3\</CloudExtensionsDir>
+  </PropertyGroup>
+  <Import Project="$(CloudExtensionsDir)Microsoft.WindowsAzure.targets" />
+</Project>

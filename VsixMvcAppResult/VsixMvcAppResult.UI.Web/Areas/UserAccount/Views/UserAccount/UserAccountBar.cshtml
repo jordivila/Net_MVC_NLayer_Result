@@ -1,0 +1,15 @@
+﻿@using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
+@using VsixMvcAppResult.UI.Web.Areas.UserAccount;
+@using VsixMvcAppResult.UI.Web.Areas.Error;
+@model VsixMvcAppResult.UI.Web.Models.baseViewModel
+@{ Layout = null; }
+
+    <div class="ui-site-header ui-widget-header ui-widget-content ui-corner-all">
+        <div class="ui-siteVersion">
+            @VsixMvcAppResult.UI.Web.MvcApplication.Version
+        </div>
+        @Html.PartialMenuPreferences()
+        @Html.PartialLogOnPartial()
+    </div>
+    <div class="ui-carriageReturn"></div>
+    @Html.PartialMenuPreferencesSwitchers()
