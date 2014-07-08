@@ -252,6 +252,7 @@
     <Content Include="CDN\Scripts\Template.CDN.Common.en-GB.js" />
     <Content Include="CDN\Scripts\Template.CDN.Common.en-US.js" />
     <Content Include="CDN\Scripts\Template.CDN.Common.es.js" />
+    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.mobile.css" />
     <Content Include="Areas\UserAccount\Views\UserAccount\Activate.cshtml" />
     <Content Include="Areas\UserAccount\Views\UserAccount\ResetPassword.cshtml" />

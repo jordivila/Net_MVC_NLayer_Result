@@ -11,6 +11,17 @@
         <title>@this.Model.BaseViewModelInfo.Title</title>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         @Html.PartialResourcesStylesheetsCommonRender()
+        <style type="text/css">
+            * {
+                font-size: 14pt !important;
+                font-weight: normal !important;
+            }
+
+            h1 {
+                font-size: 1.9em !important;
+                font-weight: normal !important;
+            }
+        </style>
         @RenderSection(HtmlHelperExtensions.SectionInlineStyles, true)
     </head>
     <body class="ui-widget-content">

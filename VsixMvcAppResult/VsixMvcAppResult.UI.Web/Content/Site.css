@@ -1,4 +1,5 @@
 ﻿* { outline:transparent solid 0em;}
+/*
 html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input,hr {margin:0; padding:0;}
 pre,code,address,caption,cite,code,em,strong,th {font-size:1em; font-weight:normal; font-style:normal;}
 ul,ol {list-style:none;}
@@ -10,7 +11,7 @@ pre.ui-widget-content{font-size:1em !important;padding:0.5em;}
 input[type=text], input[type=password], input[type=email], select {padding:0.5em 0em 0.5em 0.5em;margin:0 0 0 0;font-weight:normal !important;}
 select {padding:0.5em 0.5em 0.5em 0.5em;}
 input[type=checkbox].ui-widget-content { border:0px solid transparent !important; }
-
+*/
 
 h1 {margin:1em 0 0 0 ;}
 
