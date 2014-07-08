@@ -44,7 +44,7 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
         {
             get
             {
-                return new string[1] { "~/Areas/UserAccount/Content/UserAccount.css" };
+                return new string[0];
             }
         }
         protected override void Dispose(bool disposing)
