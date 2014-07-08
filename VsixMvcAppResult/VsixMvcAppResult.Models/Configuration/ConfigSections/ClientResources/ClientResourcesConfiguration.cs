@@ -127,7 +127,7 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
             get
             {
                 return new List<string>() { "~/Content/reset.css",
-                                            "~/Content/bootstrap.css",
+                                            //"~/Content/bootstrap.css",
                                             "~/Content/Site.css", 
                                             "~/Scripts/ui-widgetMsg/ui-widgetMsg.css" ,
                                             "~/Scripts/ui-dateSelector/ui-dateSelector.css" ,
