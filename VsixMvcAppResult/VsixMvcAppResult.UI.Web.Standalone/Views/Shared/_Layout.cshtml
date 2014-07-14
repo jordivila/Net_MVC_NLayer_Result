@@ -33,9 +33,9 @@
 
                        @if (HttpContext.Current.Request.Browser.IsMobileDevice)
                        { 
-                            <text>
-                                IsMobileDevice
-                            </text>
+                        <text>
+                            <link href="@Url.Content("~/Content/Site.mobile.css")" rel="stylesheet" type="text/css"  />        
+                        </text>
                        }
 
                     @RenderBody()
