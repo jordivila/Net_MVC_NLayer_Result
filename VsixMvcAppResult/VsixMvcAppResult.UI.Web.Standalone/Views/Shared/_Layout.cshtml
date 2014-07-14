@@ -30,6 +30,14 @@
             @Html.PartialBreadcrumb()
             <div class="ui-siteContent ">
                 <div class="ui-siteContent-Container ">
+
+                       @if (HttpContext.Current.Request.Browser.IsMobileDevice)
+                       { 
+                            <text>
+                                IsMobileDevice
+                            </text>
+                       }
+
                     @RenderBody()
                 </div>
             </div>
