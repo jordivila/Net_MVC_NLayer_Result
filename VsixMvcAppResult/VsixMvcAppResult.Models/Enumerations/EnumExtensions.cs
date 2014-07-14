@@ -25,8 +25,7 @@ namespace VsixMvcAppResult.Models.Enumerations
 
         public static string ToUri(this ThemesAvailable themeSelected)
         {
-            return string.Empty;
-            //return string.Format("http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/{0}/jquery-ui.css", themeSelected.ToString().Replace("_", "-").ToLower());
+            return string.Format("http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/{0}/jquery-ui.css", themeSelected.ToString().Replace("_", "-").ToLower());
         }
 
         public static string ToEnumMemberString(this Enum valueSelected)
