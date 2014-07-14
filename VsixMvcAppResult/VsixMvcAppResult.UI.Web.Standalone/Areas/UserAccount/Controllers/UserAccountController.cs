@@ -34,10 +34,6 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
             get
             {
                 return new string[0];
-                //return new string[3] {"~/Areas/UserAccount/Content/VsixMvcAppResult.WCF.UserAccount.js"
-                //                                            ,"~/Areas/UserAccount/Content/VsixMvcAppResult.Widget.LogOn.js"
-                //                                            , "~/Areas/UserAccount/Content/VsixMvcAppResult.Widget.logOnRegister.js" 
-                //};
             }
         }
         public string[] GetControllerStyleSheetResources

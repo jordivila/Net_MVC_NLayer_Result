@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{979FFB7F-6067-4DF7-B78B-0E0289BD400C}</ProjectGuid>
+    <ProjectGuid>{DEC538DB-DF3F-4645-B326-B89C98F9197E}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -245,14 +245,10 @@
     <Content Include="Areas\UserAdministration\Views\UserAdministration\Details.cshtml" />
     <Content Include="Areas\UserAdministration\Views\UserAdministration\Index.cshtml" />
     <Content Include="Areas\UserAdministration\Views\Web.config" />
-    <Content Include="blogrss.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="CDN\Css\Template.CDN.Common.css" />
     <Content Include="CDN\Scripts\Template.CDN.Common.en-GB.js" />
     <Content Include="CDN\Scripts\Template.CDN.Common.en-US.js" />
     <Content Include="CDN\Scripts\Template.CDN.Common.es.js" />
-    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.mobile.css" />
     <Content Include="Areas\UserAccount\Views\UserAccount\Activate.cshtml" />
     <Content Include="Areas\UserAccount\Views\UserAccount\ResetPassword.cshtml" />
@@ -1073,7 +1069,7 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>2159</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53466/</IISUrl>
+          <IISUrl>http://localhost:53198/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

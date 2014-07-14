@@ -9,13 +9,8 @@
 <html>
     <head>
         <title>@this.Model.BaseViewModelInfo.Title</title>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        @*@Html.PartialResourcesStylesheetsCommonRender()*@
+        @Html.PartialResourcesStylesheetsCommonRender()
         @RenderSection(HtmlHelperExtensions.SectionInlineStyles, true)
-        <style type="text/css">
-            html, * {font-size:100% !important;}
-
-        </style>
     </head>
     <body class="ui-widget-content">
         <div class="ui-sitePage ui-widget">
@@ -30,14 +25,6 @@
             @Html.PartialBreadcrumb()
             <div class="ui-siteContent ">
                 <div class="ui-siteContent-Container ">
-
-                       @if (HttpContext.Current.Request.Browser.IsMobileDevice)
-                       { 
-                        <text>
-                            <link href="@Url.Content("~/Content/Site.mobile.css")" rel="stylesheet" type="text/css"  />        
-                        </text>
-                       }
-
                     @RenderBody()
                 </div>
             </div>

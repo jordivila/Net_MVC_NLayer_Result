@@ -1,14 +1,26 @@
-﻿
+﻿* { outline:transparent solid 0em;}
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,fieldset,input,hr {margin:0; padding:0;}
+pre,code,address,caption,cite,code,em,strong,th {font-size:1em; font-weight:normal; font-style:normal;}
+ul,ol {list-style:none;}
+fieldset,img,hr{border:none;}
+caption,th {text-align:left;}
+td {vertical-align:top;}
+body{padding:0em 0.5em 0.5em 0.5em;border:0;font-size:1em !important; border:0 !important;}
+pre.ui-widget-content{font-size:1em !important;padding:0.5em;}
+input[type=text], input[type=password], input[type=email], select {padding:0.5em 0em 0.5em 0.5em;margin:0 0 0 0;font-weight:normal !important;}
+select {padding:0.5em 0.5em 0.5em 0.5em;}
+input[type=checkbox].ui-widget-content { border:0px solid transparent !important; }
+
+
 h1 {margin:1em 0 0 0 ;}
-ul {list-style-type:none;}
 
 .ui-wordWrap {white-space: pre-wrap;      /* CSS3 */              white-space: -moz-pre-wrap; /* Firefox */               white-space: -pre-wrap;     /* Opera 7 previous */              white-space: -o-pre-wrap;   /* Opera 7 */               word-wrap: break-word;      /* IE */        }
 .ui-site-accountBar { width:100%;height:100%;border:0; }
 .ui-sitePage{width:98%; margin-left: auto;margin-right: auto;position:relative;}
 .ui-siteVersion {float:left;margin:0.5em;}
-.ui-siteMenu-autoClose { height:1.7em;width:2em;float:right;margin:.,1em 0em 0 0em;border:0 !important; }
-.ui-widget {font-size:1em !important;font-family: inherit !important}
-/*.ui-widget-header {font-weight:bold;padding:1.5em;}*/
+.ui-siteMenu-autoClose { height:1.7em;width:2em;float:right;margin:.1em 0em 0 0em;border:0 !important; }
+.ui-widget {font-size:1em !important;}
+.ui-widget-header {font-weight:bold;padding:1.5em;}
 .ui-dialog-content { padding:3em 0em 3em 1em !important; }
 .ui-carriageReturn {clear:both;float:none !important;}
 .ui-hidden {display:none;}
@@ -166,3 +178,6 @@ table.ui-widgetGrid .ui-widgetGrid-body .ui-widgetGrid-row .ui-widgetGrid-column
 .ui-widgetForm .ui-widgetForm-ValidationSummary span {}
 .ui-widgetForm .ui-widgetForm-ValidationSummary ul {margin:.5em 0 0 0;}
 .ui-widgetForm .ui-widgetForm-ValidationSummary ul li {}
+
+
+

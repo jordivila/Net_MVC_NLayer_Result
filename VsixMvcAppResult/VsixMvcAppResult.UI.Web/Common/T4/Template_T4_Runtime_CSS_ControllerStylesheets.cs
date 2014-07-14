@@ -22,7 +22,7 @@ namespace VsixMvcAppResult.UI.Web.Common.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\jv.io\Documents\GitHub\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.UI.Web\Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.tt"
+    #line 1 "C:\Users\jv.io\Documents\Visual Studio 2013\Projects\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.UI.Web\Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "12.0.0.0")]
     public partial class Template_T4_Runtime_CSS_ControllerStylesheets : Template_T4_Runtime_CSS_ControllerStylesheetsBase
     {
@@ -34,7 +34,7 @@ namespace VsixMvcAppResult.UI.Web.Common.T4
         {
             this.Write("\r\n");
             
-            #line 1 "C:\Users\jv.io\Documents\GitHub\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.UI.Web\Common\T4\BaseInclude.tt"
+            #line 1 "C:\Users\jv.io\Documents\Visual Studio 2013\Projects\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.UI.Web\Common\T4\BaseInclude.tt"
  GenerationEnvironment.Clear(); 
             
             #line default
@@ -42,7 +42,7 @@ namespace VsixMvcAppResult.UI.Web.Common.T4
             this.Write("\r\n");
             this.Write("\r\n\r\n");
             
-            #line 12 "C:\Users\jv.io\Documents\GitHub\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.UI.Web\Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.tt"
+            #line 12 "C:\Users\jv.io\Documents\Visual Studio 2013\Projects\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.UI.Web\Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.tt"
 
 	Type controllerType = this.Session[VsixMvcAppResult.UI.Web.Controllers.ResourceDispatcherController.TTSessionContext_ControllerType] as Type;
 	
@@ -72,7 +72,7 @@ namespace VsixMvcAppResult.UI.Web.Common.T4
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 3 "C:\Users\jv.io\Documents\GitHub\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.UI.Web\Common\T4\BaseInclude.tt"
+        #line 3 "C:\Users\jv.io\Documents\Visual Studio 2013\Projects\VsixMvcAppResult\VsixMvcAppResult\VsixMvcAppResult.UI.Web\Common\T4\BaseInclude.tt"
 
 	
 	public void AppendFiles(string[] filesVirtualPath)
