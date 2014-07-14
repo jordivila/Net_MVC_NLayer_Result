@@ -6737,6 +6737,13 @@
     window.jQuery = window.$ = jQuery;
 })(window);
 /// <reference path="VsixMvcAppResult.A.Intellisense.js" />
+if (!window.console) {
+    console = {
+        log: function (msg) {
+
+        }
+    };
+};
 
 String.prototype.toDateFromAspNet = function () {
     var dte = eval("new " + this.replace(/\//g, '') + ";");
@@ -6752,7 +6759,7 @@ function parseBoolean(value) {
     return value.toBoolean();
 }
 
-var Template = {};
+var VsixMvcAppResult = {};
 
 
 
@@ -8240,8 +8247,12 @@ VsixMvcAppResult.Widgets.Page = {
     cultureGlobalization: null,
     cultureDatePicker: null,
     defaultTheme: null,
-    InitCallback: function () { },
+    _initCallbacks: [],
+    onInit: function (callBack) {
+        this._initCallbacks.push(callBack);
+    },
     Init: function () {
+        var self = this;
         jQuery(this.selector).page({
             allowCssClasses: this.allowCssClasses
             , cultureSelected: this.cultureSelected
@@ -8249,7 +8260,9 @@ VsixMvcAppResult.Widgets.Page = {
             , cultureDatePicker: this.cultureDatePicker
             , defaultTheme: this.defaultTheme
             , initComplete: function () {
-                VsixMvcAppResult.Widgets.Page.InitCallback();
+                for (var i = 0; i < self._initCallbacks.length; i++) {
+                    self._initCallbacks[i]();
+                }
             }
         });
     }
