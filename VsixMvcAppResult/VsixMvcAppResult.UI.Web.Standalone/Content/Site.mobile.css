@@ -6,3 +6,5 @@
 */
 
 html, * {font-size: 110% !important;}
+.ui-widget {font-size: 100% !important;}
+.ui-widget > * {font-size: 100% !important;}
