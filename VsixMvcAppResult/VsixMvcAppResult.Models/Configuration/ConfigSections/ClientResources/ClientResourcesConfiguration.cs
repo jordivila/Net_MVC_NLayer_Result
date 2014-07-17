@@ -40,6 +40,14 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
                                             "~/Scripts/jquery-validation-1.11.0/dist/jquery.validate.min.js",
                                             "~/Scripts/jQuery-globalize/lib/globalize.js"
                 };
+
+
+                //return new List<string>() { 
+                //                            "~/Scripts/jQuery/jquery-1.9.1.min.js",
+                //                            "~/Scripts/jquery-ui-1.10.0/ui/minified/jquery-ui.min.js",
+                //                            "~/Scripts/jquery-validation-1.11.0/dist/jquery.validate.min.js",
+                //                            "~/Scripts/jQuery-globalize/lib/globalize.js"
+                //};
             }
             set
             {
@@ -162,7 +170,10 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
             {
                 return string.Format("~/{0}/{1}/", this.CDN_RootFolderName, this.CDN_JS_RootFolderName);
             }
-            set { }
+            set 
+            { 
+            
+            }
         }
         public string CDN_JS_CommonFileName(CultureInfo culture, string Version)
         {
