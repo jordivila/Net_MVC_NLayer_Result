@@ -443,6 +443,7 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
             TagBuilder tagIconSpan = new TagBuilder("span");
             tagIconSpan.AddCssClass("ui-button-icon-primary ui-icon");
             tagIconSpan.AddCssClass(jQueryHelpers.IconToCssClass(buttonIcon));
+            
 
             TagBuilder tagButton = new TagBuilder("button");
             tagButton.MergeAttributes(htmlAttributes);

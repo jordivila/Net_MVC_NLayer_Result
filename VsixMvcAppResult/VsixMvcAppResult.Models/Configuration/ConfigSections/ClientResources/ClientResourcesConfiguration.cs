@@ -136,6 +136,8 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
             {
                 return new List<string>() { "~/Content/reset.css", 
                                             "~/Content/Site.css", 
+                                            "~/Content/font-awesome-4.1.0/css/font-awesome.css",
+                                            "~/Content/Site.JqueryUI.IconsExtendWithFontAwsome.css",
                                             "~/Scripts/ui-widgetMsg/ui-widgetMsg.css" ,
                                             "~/Scripts/ui-dateSelector/ui-dateSelector.css" ,
                                         };
