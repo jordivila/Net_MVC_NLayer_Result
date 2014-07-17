@@ -1,12 +1,14 @@
 ﻿/* Allow Font Awesome Icons in lieu of jQuery UI and only apply when using a FA icon */
-.ui-icon[class*=" icon-"] {
+.ui-icon{
     /* Remove the jQuery UI Icon */
     background: none repeat scroll 0 0 transparent;
     /* Remove the jQuery UI Text Indent */
-    text-indent: 0;
+    text-indent: 0 !important;
     /* Bump it up - jQuery UI is -8px */
     margin-top: -0.5em;
 }
+
+
 
 .ui-button-icon-only .ui-icon[class*=" icon-"] {
     /* Bump it - jQuery UI is -8px */

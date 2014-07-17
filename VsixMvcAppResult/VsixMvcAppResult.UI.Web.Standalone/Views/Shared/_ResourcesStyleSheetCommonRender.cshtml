@@ -9,10 +9,6 @@
 <link href="@this.Model.BaseViewModelInfo.UserProfile.Theme.Value.ToUri()" rel="Stylesheet" type="text/css" />
 <link href="@Url.StylesheetDispatcher(ResourceDispatcherController.ResourceDispatchParamCommonKey, this.Model.BaseViewModelInfo) " rel="stylesheet" type="text/css"  />
 <link href="@Url.StylesheetDispatcher(this.ViewContext.Controller.GetType().ToString(), this.Model.BaseViewModelInfo) " rel="stylesheet" type="text/css"  />
-
-
-<link href="@Url.Content("~/Scripts/jquery.mobile-1.4.3/jquery.mobile.inline-svg-1.4.3.css")" type="text/css" rel="stylesheet" />
-
 @{
 
     if (HttpContext.Current.Request.Browser.IsMobileDevice)
