@@ -5,6 +5,6 @@
 .ui-siteMenu-TopNav .ui-siteMenu-TopNav-content  ul li {padding:.2em .2em .2em .2em;}
 */
 
-html, * {font-size: 18px !important;}
-.ui-widget {font-size: 18px !important;}
-.ui-widget > * {font-size: 18px !important;}
+html, * {font-size: 25px !important;}
+.ui-widget {font-size: 25px !important;}
+.ui-widget > * {font-size: 25px !important;}
