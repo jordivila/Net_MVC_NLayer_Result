@@ -444,7 +444,7 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
             //tagIconSpan.AddCssClass("ui-button-icon-primary ui-icon");
             //tagIconSpan.AddCssClass(jQueryHelpers.IconToCssClass(buttonIcon));
             tagIconSpan.AddCssClass("ui-button-icon-primary");
-            tagIconSpan.AddCssClass("fa fa-volume-up ui-icon");
+            tagIconSpan.AddCssClass("fa fa-volume-up fa-lg ui-icon");
 
             TagBuilder tagButton = new TagBuilder("button");
             tagButton.MergeAttributes(htmlAttributes);
