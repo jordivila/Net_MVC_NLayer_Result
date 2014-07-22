@@ -5,42 +5,42 @@ using VsixMvcAppResult.Models.Enumerations;
 
 namespace VsixMvcAppResult.UI.Web.Controllers
 {
-    public class ThemeController : Controller
-    {
-        [HttpPost]
-        public JsonResult Set(string theme)
-        {
+    //public class ThemeController : Controller
+    //{
+    //    [HttpPost]
+    //    public JsonResult Set(string theme)
+    //    {
 
-            try
-            {
-                ThemesAvailable themeSelected = (ThemesAvailable)Enum.Parse(typeof(ThemesAvailable), theme);
+    //        try
+    //        {
+    //            ThemesAvailable themeSelected = (ThemesAvailable)Enum.Parse(typeof(ThemesAvailable), theme);
 
-                MvcApplication.UserRequest.UserProfile.Theme = themeSelected;
-                MvcApplication.UserRequest.UserProfile.ApplyClientProperties();
+    //            MvcApplication.UserRequest.UserProfile.Theme = themeSelected;
+    //            MvcApplication.UserRequest.UserProfile.ApplyClientProperties();
 
 
-                //if (!MvcApplication.UserRequest.ContextBag.AllKeys.Contains(UserRequestModel_Keys.WcfClientThemeSelectedCookieName))
-                //{
-                //MvcApplication.UserRequest.Context.Response.Cookies.Add(new HttpCookie(UserRequestModel_Keys.WcfClientThemeSelectedCookieName, theme.ToString()));
-                //}
-                //else
-                //{
-                //MvcApplication.UserRequest.Context.Response.Cookies[UserRequestModel_Keys.WcfClientThemeSelectedCookieName].Value = theme.ToString();
-                //}
+    //            //if (!MvcApplication.UserRequest.ContextBag.AllKeys.Contains(UserRequestModel_Keys.WcfClientThemeSelectedCookieName))
+    //            //{
+    //            //MvcApplication.UserRequest.Context.Response.Cookies.Add(new HttpCookie(UserRequestModel_Keys.WcfClientThemeSelectedCookieName, theme.ToString()));
+    //            //}
+    //            //else
+    //            //{
+    //            //MvcApplication.UserRequest.Context.Response.Cookies[UserRequestModel_Keys.WcfClientThemeSelectedCookieName].Value = theme.ToString();
+    //            //}
 
-                DataResultString result = new DataResultString();
-                result.IsValid = true;
-                result.Data = themeSelected.ToUri();
-                return Json(result);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
+    //            DataResultString result = new DataResultString();
+    //            result.IsValid = true;
+    //            result.Data = themeSelected.ToUri();
+    //            return Json(result);
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            throw ex;
+    //        }
+    //        finally
+    //        {
 
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 }

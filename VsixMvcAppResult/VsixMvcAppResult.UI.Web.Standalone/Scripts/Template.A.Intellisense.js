@@ -7506,30 +7506,19 @@ jQuery.widget("ui.menuCultures", jQuery.ui.menuSite,
 
         var self = this;
 
-
-
         jQuery.ui.menuSite.prototype._init.call(this);
 
         jQuery(this.element)
-        //.removeClass('ui-corner-all')
-        //.addClass("ui-corner-bottom")
             .find('li')
                 .click(function () {
 
                     var culture = jQuery(this).find('div.ui-flag').attr('data-widget-value');
 
-                    VsixMvcAppResult.Ajax.CultureSet(culture,
-                                            function () {
-                                                window.location.reload();
-                                            },
-                                            function () {
-                                                VsixMvcAppResult.Widgets.Dialogs.createErrorMessage(VsixMvcAppResult.Resources.unExpectedError, function () { });
-                                            });
+                    window.location.href = "/Home/CultureSet/" + culture;
                 });
 
         jQuery(this.element)
             .find('div[data-widget-value="' + this.options.cultureSelected + '"]')
-        //.find("span.value:contains('" + this.options.cultureSelected + "')")
             .parents('li:first')
                             .addClass('ui-state-active')
                             .removeClass('ui-state-default');
@@ -7543,7 +7532,7 @@ jQuery.widget("ui.menuCultures", jQuery.ui.menuSite,
 });
 
 
-/// <reference path="VsixMvcAppResult.A.Intellisense.js" />
+///// <reference path="VsixMvcAppResult.A.Intellisense.js" />
 
 jQuery.widget("ui.menuThemes", jQuery.ui.menuSite,
 {
@@ -7573,25 +7562,7 @@ jQuery.widget("ui.menuThemes", jQuery.ui.menuSite,
     }
     , setTheme: function (value) {
 
-        var self = this;
-
-
-
-        VsixMvcAppResult.Ajax.ThemeSet(value,
-                            function (result) {
-
-                                jQuery('head').find('#jQueryThemeLinkId').attr('href', '<link href="' + result.Data + '" rel="stylesheet" type="text/css" />');
-
-                                jQuery(self.element)
-                                            .find("li")
-                                                .removeClass('ui-state-active')
-                                                .end()
-                                            .find("li[data-widget-value='" + value + "']")
-                                                    .addClass('ui-state-active');
-                            },
-                            function () {
-                                VsixMvcAppResult.Widgets.Dialogs.createErrorMessage(VsixMvcAppResult.Resources.unExpectedError, function () { });
-                            });
+        window.location.href = "/Home/ThemeSet/" + value;
     }
 });
 

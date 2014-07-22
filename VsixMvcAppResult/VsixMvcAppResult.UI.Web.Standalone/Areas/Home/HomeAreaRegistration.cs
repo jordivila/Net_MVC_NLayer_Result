@@ -28,6 +28,7 @@ namespace VsixMvcAppResult.UI.Web.Areas.Home
                 string.Format("{0}/{{action}}/{{id}}", HomeAreaRegistration.HomeAreaName),
                 new { controller = HomeAreaRegistration.HomeAreaName, action = "Index", id = UrlParameter.Optional }
             );
+
         }
     }
 }

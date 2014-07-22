@@ -280,6 +280,8 @@
     <Content Include="Areas\Test\Views\Shared\Test_WidgetTreeNest.cshtml" />
     <Content Include="Areas\Test\Views\Shared\Test_WidgetMessages.cshtml" />
     <Content Include="packages.config" />
+    <Content Include="Areas\Home\Views\Home\ThemeSet.cshtml" />
+    <Content Include="Areas\Home\Views\Home\CultureSet.cshtml" />
     <None Include="Common\T4\BuildEventBatchFiles\Template_T4_BuildEvent__TransformBatchItem.cmd" />
     <None Include="Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
