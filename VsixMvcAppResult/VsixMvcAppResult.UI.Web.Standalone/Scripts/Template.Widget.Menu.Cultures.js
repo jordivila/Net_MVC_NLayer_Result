@@ -1,6 +1,4 @@
-﻿/// <reference path="VsixMvcAppResult.A.Intellisense.js" />
-
-
+﻿
 jQuery.widget("ui.menuCultures", jQuery.ui.menuSite,
 {
     options: {

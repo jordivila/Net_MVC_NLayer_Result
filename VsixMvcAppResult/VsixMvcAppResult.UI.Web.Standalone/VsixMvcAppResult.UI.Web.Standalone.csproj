@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1D8447C3-053B-4E7A-82D0-7256882B4E77}</ProjectGuid>
+    <ProjectGuid>{8DCD0376-F53E-4AB2-88F8-C6C6F4912E20}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -180,9 +180,7 @@
     <Compile Include="Controllers\ControllerExtended.cs" />
     <Compile Include="Controllers\ControllerFactory.cs" />
     <Compile Include="Controllers\ControllerHelper.cs" />
-    <Compile Include="Controllers\CultureController.cs" />
     <Compile Include="Controllers\ResourceDispatcherController.cs" />
-    <Compile Include="Controllers\ThemeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,6 +227,8 @@
     <Content Include="Areas\Error\Views\Web.config" />
     <Content Include="Areas\Home\Views\Home\About.cshtml" />
     <Content Include="Areas\Home\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Home\Views\Home\CultureSet.cshtml" />
+    <Content Include="Areas\Home\Views\Home\ThemeSet.cshtml" />
     <Content Include="Areas\Home\Views\Web.config" />
     <Content Include="Areas\Test\Content\Test_WidgetTreeNest.js" />
     <Content Include="Areas\Test\Content\Test_WidgetTreeSortable.js" />
@@ -280,8 +280,6 @@
     <Content Include="Areas\Test\Views\Shared\Test_WidgetTreeNest.cshtml" />
     <Content Include="Areas\Test\Views\Shared\Test_WidgetMessages.cshtml" />
     <Content Include="packages.config" />
-    <Content Include="Areas\Home\Views\Home\ThemeSet.cshtml" />
-    <Content Include="Areas\Home\Views\Home\CultureSet.cshtml" />
     <None Include="Common\T4\BuildEventBatchFiles\Template_T4_BuildEvent__TransformBatchItem.cmd" />
     <None Include="Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -1081,7 +1079,7 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>2159</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52382/</IISUrl>
+          <IISUrl>http://localhost:53393/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

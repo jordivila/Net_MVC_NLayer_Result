@@ -1,6 +1,4 @@
-﻿///// <reference path="VsixMvcAppResult.A.Intellisense.js" />
-
-jQuery.widget("ui.menuThemes", jQuery.ui.menuSite,
+﻿jQuery.widget("ui.menuThemes", jQuery.ui.menuSite,
 {
     options: {
         defaultTheme: ''

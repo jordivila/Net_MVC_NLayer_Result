@@ -180,9 +180,7 @@
     <Compile Include="Controllers\ControllerExtended.cs" />
     <Compile Include="Controllers\ControllerFactory.cs" />
     <Compile Include="Controllers\ControllerHelper.cs" />
-    <Compile Include="Controllers\CultureController.cs" />
     <Compile Include="Controllers\ResourceDispatcherController.cs" />
-    <Compile Include="Controllers\ThemeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1075,7 +1073,7 @@
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>2159</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62791/</IISUrl>
+          <IISUrl>http://localhost:53391/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
