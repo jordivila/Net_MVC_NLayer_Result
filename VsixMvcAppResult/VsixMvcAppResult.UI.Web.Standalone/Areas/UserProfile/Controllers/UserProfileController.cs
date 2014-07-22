@@ -61,6 +61,8 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserProfile.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    
+
                     DataResultUserProfile result = this.ProviderProfile.Update(model.UserProfileResult.Data);
                     model.UserProfileResultUpdated = result;
                     MvcApplication.UserRequest.UserProfile = result.Data;
