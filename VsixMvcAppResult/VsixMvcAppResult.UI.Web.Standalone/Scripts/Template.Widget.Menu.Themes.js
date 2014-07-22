@@ -35,7 +35,7 @@ jQuery.widget("ui.menuThemes", jQuery.ui.menuSite,
         VsixMvcAppResult.Ajax.ThemeSet(value,
                             function (result) {
 
-                                jQuery.ui.menuSite.prototype.addCss.call(this, '<link href="' + result.Data + '" rel="stylesheet" type="text/css" />');
+                                jQuery('head').find('#jQueryThemeLinkId').attr('href', '<link href="' + result.Data + '" rel="stylesheet" type="text/css" />');
 
                                 jQuery(self.element)
                                             .find("li")
