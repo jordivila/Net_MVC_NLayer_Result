@@ -14,7 +14,7 @@
     <RootNamespace>VsixMvcAppResult.UI.Web</RootNamespace>
     <AssemblyName>VsixMvcAppResult.UI.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <MvcBuildViews>true</MvcBuildViews>
+    <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <FileUpgradeFlags>
     </FileUpgradeFlags>

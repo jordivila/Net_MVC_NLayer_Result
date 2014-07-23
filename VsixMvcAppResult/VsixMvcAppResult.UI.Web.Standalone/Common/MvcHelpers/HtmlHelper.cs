@@ -12,11 +12,13 @@ using VsixMvcAppResult.Models;
 using VsixMvcAppResult.Models.Common;
 using VsixMvcAppResult.Models.Enumerations;
 using VsixMvcAppResult.Models.Globalization;
+using VsixMvcAppResult.Resources.Account;
 using VsixMvcAppResult.Resources.General;
 using VsixMvcAppResult.Resources.Helpers;
 using VsixMvcAppResult.UI.Web.Areas.Blog;
 using VsixMvcAppResult.UI.Web.Areas.Home;
 using VsixMvcAppResult.UI.Web.Areas.UserAccount;
+using VsixMvcAppResult.UI.Web.Areas.UserProfile;
 using VsixMvcAppResult.UI.Web.Models;
 
 namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
@@ -560,24 +562,64 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
     #region Menu Extensions
     public static class MenuExtensions
     {
+
+
         public static MenuModel MenuGet(this HtmlHelper Html)
         {
+            baseViewModel viewModel = (baseViewModel)Html.ViewData.Model;
             UrlHelper url = new UrlHelper(Html.ViewContext.RequestContext);
-            MenuModel result = new MenuModel()
-            {
-                MenuItems = new List<MenuItemModel>() { 
-                    new MenuItemModel(){DataAction = HomeUrlHelper.Home_Index(url),Description = GeneralTexts.Home},
-                    new MenuItemModel(){DataAction = BlogUrlHelper.IndexRoot(url),Description = GeneralTexts.Blog},
-                    new MenuItemModel(){DataAction = HomeUrlHelper.Home_About(url),Description = GeneralTexts.About},
-                    new MenuItemModel(){DataAction = UserAccountUrlHelper.Account_Dashboard(url),Description = GeneralTexts.Dashboard}
-                }
-            };
+            
 
-            bool isLoggedIn = MvcApplication.UserRequest.UserIsLoggedIn;
-            if (!isLoggedIn)
+            MenuModel result = new MenuModel();
+
+            if (MvcApplication.UserRequest.UserIsLoggedIn)
             {
-                result.MenuItems.RemoveAll(x => x.DataAction == UserAccountUrlHelper.Account_Dashboard(url));
+                string name = string.IsNullOrEmpty(viewModel.BaseViewModelInfo.UserProfile.FirstName) ?
+                                                            viewModel.BaseViewModelInfo.UserFormsIdentityName :
+                                                            viewModel.BaseViewModelInfo.UserProfile.FirstName;
+
+                result.MenuItems.Add(new MenuItemModel(string.Empty, name, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() 
+                { 
+                    new MenuItemModel(UrlHelperUserProfile.UserProfile_Edit(url), AccountResources.ProfileEdit, new List<SiteRoles>(){  SiteRoles.Guest }, null),
+                    new MenuItemModel(UserAccountUrlHelper.Account_ChangePassword(url), AccountResources.ChangePassword, new List<SiteRoles>(){  SiteRoles.Guest }, null),
+                    new MenuItemModel(UserAccountUrlHelper.Account_LogOff(url), AccountResources.SignOut, new List<SiteRoles>(){  SiteRoles.Guest }, null)
+                }));
             }
+            else
+            {
+                result.MenuItems.Add(new MenuItemModel(UserAccountUrlHelper.Account_LogOn(url), GeneralTexts.LogOn, new List<SiteRoles>() { SiteRoles.Guest }, null));
+            }
+
+
+            result.MenuItems.AddRange(new List<MenuItemModel>()
+                {
+                    new MenuItemModel(HomeUrlHelper.Home_Index(url), GeneralTexts.Home, new List<SiteRoles>(){  SiteRoles.Guest }, null),
+                    new MenuItemModel(BlogUrlHelper.IndexRoot(url), GeneralTexts.Blog, new List<SiteRoles>(){  SiteRoles.Guest }, null),
+                    new MenuItemModel(HomeUrlHelper.Home_About(url),GeneralTexts.About, new List<SiteRoles>(){  SiteRoles.Guest }, null),
+                    new MenuItemModel(UserAccountUrlHelper.Account_Dashboard(url),GeneralTexts.Dashboard, new List<SiteRoles>(){  SiteRoles.Administrator }, null)
+                });
+
+            
+            
+            
+            var cultureMenuItem = new MenuItemModel(string.Empty, GeneralTexts.Languages, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
+            foreach (var item in GlobalizationHelper.CultureInfoAvailableList())
+            {
+                cultureMenuItem.Childs.Add(new MenuItemModel(HomeUrlHelper.Home_CultureSet(url, item.Name), item.DisplayName, new List<SiteRoles>() { SiteRoles.Guest }, null));
+            }
+            result.MenuItems.Add(cultureMenuItem);
+            
+
+            
+            
+            var themesMenuItem = new MenuItemModel(string.Empty, GeneralTexts.SiteThemes, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
+            foreach (var item in viewModel.BaseViewModelInfo.UserProfile.Theme.ToSelectList(typeof(ThemesAvailable)).ToList())
+            {
+                themesMenuItem.Childs.Add(new MenuItemModel(HomeUrlHelper.Home_ThemeSet(url, item.Value), item.Text, new List<SiteRoles>() { SiteRoles.Guest }, null));
+            }
+            result.MenuItems.Add(themesMenuItem);
+
+
 
             return result;
         }
