@@ -5,7 +5,7 @@
 
 @model   VsixMvcAppResult.UI.Web.Models.baseViewModel
 
-@{
+@*@{
     List<CultureInfo> culturesAvailable = GlobalizationHelper.CultureInfoAvailableList();
     List<SelectListItem> themesAvailable = this.Model.BaseViewModelInfo.UserProfile.Theme.ToSelectList(typeof(ThemesAvailable)).ToList();
     }
@@ -47,4 +47,4 @@
             <div class="ui-carriageReturn"></div>
         </div>
         <div class="ui-carriageReturn"></div>
-    </div>
+    </div>*@
