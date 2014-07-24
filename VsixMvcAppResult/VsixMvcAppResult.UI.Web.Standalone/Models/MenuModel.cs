@@ -38,7 +38,7 @@ namespace VsixMvcAppResult.UI.Web.Models
         {
             this.DataAction = dataAction;
             this.Description = description;
-            this.RolesAllowed = rolesAllowed == null? new List<SiteRoles>(): rolesAllowed;
+            this.RolesAllowed = rolesAllowed == null ? new List<SiteRoles>() : rolesAllowed;
             this.Childs = childs == null ? new List<MenuItemModel>() : childs;
         }
 

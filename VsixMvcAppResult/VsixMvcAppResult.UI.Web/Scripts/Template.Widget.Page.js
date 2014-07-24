@@ -1,6 +1,4 @@
-﻿/// <reference path="VsixMvcAppResult.A.Intellisense.js" />
-
-
+﻿
 /*******************************************************************************
                                 HELPER PUBLIC METHODS
 ********************************************************************************/
@@ -25,6 +23,7 @@ VsixMvcAppResult.Widgets.Page = {
             , cultureDatePicker: this.cultureDatePicker
             , defaultTheme: this.defaultTheme
             , initComplete: function () {
+
                 for (var i = 0; i < self._initCallbacks.length; i++) {
                     self._initCallbacks[i]();
                 }

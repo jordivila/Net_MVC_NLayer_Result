@@ -8115,10 +8115,10 @@ VsixMvcAppResult.Widgets.DialogInline =
     }
 };
 
-(function($) {
+(function ($) {
     jQuery.widget("jv.treeList", {
         options: { selectable: true },
-        _create: function() {
+        _create: function () {
 
             var w = this;
             w._initItem(jQuery(this.element).find("li"));
@@ -8130,7 +8130,7 @@ VsixMvcAppResult.Widgets.DialogInline =
 
             jQuery(this.element)
                 .addClass('ui-treeList ui-widget-content ui-corner-all')
-                .bind('click', function(e) {
+                .bind('click', function (e) {
                     var $t = jQuery(e.target);
                     if ($t.hasClass('ui-treeList-toggle')) {
                         var b = $t.siblings('ul').is(':visible');
@@ -8144,7 +8144,7 @@ VsixMvcAppResult.Widgets.DialogInline =
                 })
                 .disableSelection();
         },
-        destroy: function() {
+        destroy: function () {
 
             jQuery(this.element)
             .unbind('click')
@@ -8161,19 +8161,19 @@ VsixMvcAppResult.Widgets.DialogInline =
 
             jQuery.Widget.prototype.destroy.call(this);
         },
-        _initItem: function($lis) {
+        _initItem: function ($lis) {
             $lis.addClass('ui-treeList-item ui-widget-content ui-corner-all ui-state-default')
                   .hover(
-                        function() { jQuery(this).addClass('ui-state-hover').parents('li').removeClass('ui-state-hover'); ; return false; }
-                        , function() { jQuery(this).removeClass('ui-state-hover'); return false; }
+                        function () { jQuery(this).addClass('ui-state-hover').parents('li').removeClass('ui-state-hover');; return false; }
+                        , function () { jQuery(this).removeClass('ui-state-hover'); return false; }
                     );
         },
-        _initChildList: function($uls) {
+        _initChildList: function ($uls) {
             $uls.addClass('ui-treeList-childs')
                     .hide()
                     .before('<div class="ui-treeList-toggle fa fa-arrow-down"></div>');
         },
-        openNode: function($lisOpen) {
+        openNode: function ($lisOpen) {
             if ($lisOpen) {
                 $lisOpen.children('ul')
                                 .show()
@@ -8188,7 +8188,7 @@ VsixMvcAppResult.Widgets.DialogInline =
             }
         }
         ,
-        closeNode: function($lisClose) {
+        closeNode: function ($lisClose) {
             if ($lisClose) {
                 $lisClose.addClass('ui-state-default')
                                 .children('ul')
@@ -8196,7 +8196,7 @@ VsixMvcAppResult.Widgets.DialogInline =
                                 .siblings('div.ui-treeList-toggle').removeClass('ui-icon-triangle-1-n').addClass('fa fa-arrow-down');
             }
         }
-        , selected: function($lis) {
+        , selected: function ($lis) {
             if ($lis) {
                 jQuery(this.element).find('li').removeClass('ui-state-active');
                 $lis.addClass('ui-state-active');
@@ -8293,8 +8293,6 @@ VsixMvcAppResult.Ajax.UserBar = function (onOK, onKO, onComplete) {
 		onComplete();
 	});
 };
-
-/// <reference path="VsixMvcAppResult.A.Intellisense.js" />
 
 
 /*******************************************************************************
@@ -8437,5 +8435,4 @@ jQuery.widget("ui.page", jQuery.ui.widgetBase,
                         .addClass('ui-widget-content');
     }
 });
-
 

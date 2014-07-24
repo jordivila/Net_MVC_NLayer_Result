@@ -248,5 +248,4 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
 
         }
     }
-
 }

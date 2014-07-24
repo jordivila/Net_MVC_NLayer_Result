@@ -568,7 +568,7 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
         {
             baseViewModel viewModel = (baseViewModel)Html.ViewData.Model;
             UrlHelper url = new UrlHelper(Html.ViewContext.RequestContext);
-            
+
 
             MenuModel result = new MenuModel();
 
@@ -599,19 +599,19 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
                     new MenuItemModel(UserAccountUrlHelper.Account_Dashboard(url),GeneralTexts.Dashboard, new List<SiteRoles>(){  SiteRoles.Administrator }, null)
                 });
 
-            
-            
-            
+
+
+
             var cultureMenuItem = new MenuItemModel(string.Empty, GeneralTexts.Languages, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
             foreach (var item in GlobalizationHelper.CultureInfoAvailableList())
             {
                 cultureMenuItem.Childs.Add(new MenuItemModel(HomeUrlHelper.Home_CultureSet(url, item.Name), item.DisplayName, new List<SiteRoles>() { SiteRoles.Guest }, null));
             }
             result.MenuItems.Add(cultureMenuItem);
-            
 
-            
-            
+
+
+
             var themesMenuItem = new MenuItemModel(string.Empty, GeneralTexts.SiteThemes, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
             foreach (var item in viewModel.BaseViewModelInfo.UserProfile.Theme.ToSelectList(typeof(ThemesAvailable)).ToList())
             {
