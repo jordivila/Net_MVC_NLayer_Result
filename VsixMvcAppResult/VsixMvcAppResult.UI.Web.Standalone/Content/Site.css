@@ -71,7 +71,7 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
     .ui-siteContent .ui-menuNav-Expand {width:20%;}
     .ui-menuToggle {display:none !important;}
 }
-@media all and (max-width: 50em) {
+@media all and (orientation: portrait) {
     .ui-siteContent .ui-siteContent-Container{width:100%;}
     .ui-siteContent .ui-siteContent-Container-Expand{}
     .ui-siteContent .ui-siteContent-Container-Collapse{}
