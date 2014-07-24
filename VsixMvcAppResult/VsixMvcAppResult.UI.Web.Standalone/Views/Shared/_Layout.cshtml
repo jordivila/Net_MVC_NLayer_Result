@@ -67,22 +67,20 @@
 
                     $panelMenu.show('slide', function () {
                         if (jQuery(this).is(':visible')) {
-                            jQuery(document).one("click", function (e) {
-                                $panelMenu.hide('slide');
+
+                            jQuery(document).bind("click", function (e) {
+
+                                var menuClicked = jQuery(e.target).parents($panelMenu.selector).length > 0;
+
+                                if (!menuClicked)
+                                {
+                                    $panelMenu.hide('slide');
+                                    jQuery(document).unbind("click");
+                                }
+                                
                             });
                         }
                     });
-
-                    //if (!$panelMenu.hasClass('ui-menuNav-Collapse')) {
-                    //    $panelMenu.switchClass("ui-menuNav-Expand", "ui-menuNav-Collapse", function () {});
-                    //    $panelContent.switchClass("ui-siteContent-Container-Collapse", "ui-siteContent-Container-Expand", function () { });
-                        
-                    //}
-                    //else {
-                    //    $panelMenu.switchClass("ui-menuNav-Collapse", "ui-menuNav-Expand", function () {});
-                    //    $panelContent.switchClass("ui-siteContent-Container-Expand", "ui-siteContent-Container-Collapse", function () { });
-                    //}
-
                 });
             }
 
