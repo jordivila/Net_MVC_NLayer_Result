@@ -103,7 +103,8 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
                                             "~/Scripts/ui-dateSelector/ui-dateSelector.js",
                                             "~/Scripts/ui-widgetMsg/ui-widgetMsg.js",
                                             "~/Scripts/Template.Widget.Dialogs.js",
-                                            "~/Scripts/Template.Widget.DialogInline.js"
+                                            "~/Scripts/Template.Widget.DialogInline.js",
+                                            "~/Scripts/ui-widgetTreeList/ui-widgetTreeList.js"
                 };
             }
             set
@@ -140,6 +141,7 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
                                             "~/Content/Site.JqueryUI.IconsExtendWithFontAwsome.css",
                                             "~/Scripts/ui-widgetMsg/ui-widgetMsg.css" ,
                                             "~/Scripts/ui-dateSelector/ui-dateSelector.css" ,
+                                            "~/Scripts/ui-widgetTreeList/ui-widgetTreeList.css"
                                         };
             }
             set

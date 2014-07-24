@@ -55,15 +55,15 @@
         _initChildList: function($uls) {
             $uls.addClass('ui-treeList-childs')
                     .hide()
-                    .before('<div class="ui-treeList-toggle ui-widget-content ui-icon ui-icon-triangle-1-s"></div>');
+                    .before('<div class="ui-treeList-toggle fa fa-arrow-down"></div>');
         },
         openNode: function($lisOpen) {
             if ($lisOpen) {
                 $lisOpen.children('ul')
                                 .show()
                                 .siblings('div.ui-treeList-toggle')
-                                    .removeClass('ui-icon-triangle-1-s')
-                                    .addClass('ui-icon ui-icon-triangle-1-n')
+                                    .removeClass('fa fa-arrow-down')
+                                    .addClass('fa fa-arrow-up')
                                     .end()
                                 .end()
                                 .find('ul:has(li)')
@@ -77,7 +77,7 @@
                 $lisClose.addClass('ui-state-default')
                                 .children('ul')
                                 .hide()
-                                .siblings('div.ui-treeList-toggle').removeClass('ui-icon-triangle-1-n').addClass('ui-icon ui-icon-triangle-1-s');
+                                .siblings('div.ui-treeList-toggle').removeClass('ui-icon-triangle-1-n').addClass('fa fa-arrow-down');
             }
         }
         , selected: function($lis) {
