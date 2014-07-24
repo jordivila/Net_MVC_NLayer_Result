@@ -61,12 +61,26 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
 
 /* CONTENT */
 .ui-siteContent {padding:1em 1em 1em 1em;margin:1em 0 0 0;overflow:auto;}
-.ui-siteContent .ui-siteContent-Container{float:left;}
-.ui-siteContent .ui-siteContent-Container-Expand{width:100%;}
-.ui-siteContent .ui-siteContent-Container-Collapse{width:75%;}
-.ui-siteContent .ui-menuNav {float:left;margin:0 1em 0 0;}
-.ui-siteContent .ui-menuNav-Collapse {width:0%;display:none;}
-.ui-siteContent .ui-menuNav-Expand {width:20%;display:block;}
+
+@media all and (min-width: 50em) {
+    .ui-siteContent .ui-siteContent-Container{width:auto; margin-left: auto ;margin-right:1em ;}
+    .ui-siteContent .ui-siteContent-Container-Expand{}
+    .ui-siteContent .ui-siteContent-Container-Collapse{width:75%;}
+    .ui-siteContent .ui-menuNav {margin:0 1em 0 0;float:left;display:block !important;}
+    .ui-siteContent .ui-menuNav-Collapse {}
+    .ui-siteContent .ui-menuNav-Expand {width:20%;}
+    .ui-menuToggle {display:none !important;}
+}
+@media all and (max-width: 50em) {
+    .ui-siteContent .ui-siteContent-Container{width:100%;}
+    .ui-siteContent .ui-siteContent-Container-Expand{}
+    .ui-siteContent .ui-siteContent-Container-Collapse{}
+    .ui-siteContent .ui-menuNav {margin:0 1em 0 0;position:absolute;left:0;display:none;}
+    .ui-siteContent .ui-menuNav-Collapse {}
+    .ui-siteContent .ui-menuNav-Expand {width:60%;}
+    .ui-menuToggle {display:block !important;}
+}
+
 
 
 /* FOOTER */
