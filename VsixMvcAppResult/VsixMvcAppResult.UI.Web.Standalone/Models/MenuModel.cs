@@ -13,14 +13,10 @@ namespace VsixMvcAppResult.UI.Web.Models
             this.MenuItems = new List<MenuItemModel>();
         }
         public List<MenuItemModel> MenuItems { get; set; }
-        public IHtmlString Render(string id = null)
+        public IHtmlString Render(object htmlAttributes = null)
         {
             TagBuilder ul = new TagBuilder("ul");
-
-            if (!string.IsNullOrEmpty(id))
-            {
-                ul.Attributes.Add("id", id);
-            }
+            ul.MergeAttributes(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
 
             foreach (var item in this.MenuItems)
             {
