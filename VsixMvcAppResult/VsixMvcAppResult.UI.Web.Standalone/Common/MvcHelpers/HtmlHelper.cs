@@ -32,14 +32,6 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
         {
             return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_MenuTopNavPartial.cshtml");
         }
-        public static MvcHtmlString PartialMenuPreferences(this HtmlHelper htmlHelper)
-        {
-            return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_MenuPreferencesPartial.cshtml");
-        }
-        public static MvcHtmlString PartialMenuPreferencesSwitchers(this HtmlHelper htmlHelper)
-        {
-            return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_MenuPreferencesSwitchersPartial.cshtml");
-        }
         public static MvcHtmlString PartialBreadcrumb(this HtmlHelper htmlHelper)
         {
             return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_Breadcrumb.cshtml");

@@ -54,7 +54,7 @@ jQuery.widget("ui.page", jQuery.ui.widgetBase,
         this.initGlobalization();
         this.initValidate();
         this.initJQueryzer();
-        this.initMenuNav();
+        //this.initMenuNav();
         this.initUserOptions();
     }
     , _create: function () {
@@ -63,9 +63,9 @@ jQuery.widget("ui.page", jQuery.ui.widgetBase,
     , destroy: function () {
         jQuery.ui.widgetBase.prototype.destroy.call(this);
     }
-    , initMenuNav: function () {
-        jQuery(this.element).find('div[data-widget="menuNav"]:first').menuNav({ allowCollapse: true, isCollapsed: true, allowClose: false });
-    }
+    //, initMenuNav: function () {
+    //    jQuery(this.element).find('div[data-widget="menuNav"]:first').menuNav({ allowCollapse: true, isCollapsed: true, allowClose: false });
+    //}
     , initUserOptions: function () {
 
         var self = this;

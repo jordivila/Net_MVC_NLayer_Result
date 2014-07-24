@@ -7388,182 +7388,6 @@ jQuery.widget("ui.widgetButton", jQuery.ui.widgetBase,
 });
 /// <reference path="VsixMvcAppResult.A.Intellisense.js" />
 
-jQuery.widget("ui.menuSite", jQuery.ui.widgetBase,
-        {
-            options: {
-                autoCloseChilds: true
-            },
-            _create: function () {
-                jQuery.ui.widgetBase.prototype._create.call(this)
-            },
-            _init: function () {
-
-                var self = this;
-
-                jQuery(this.element)
-                    .addClass('ui-widget-content ui-corner-all ui-state-default')
-                    .find('li')
-                        .hover(
-                            function () {
-                                jQuery(this).addClass('ui-state-hover');
-                            },
-                            function () {
-                                jQuery(this).removeClass('ui-state-hover');
-                            }
-                        )
-                        .click(function () {
-
-                            if (self.options.autoCloseChilds) {
-                                jQuery(this).find("ul:first").toggle(1, function () {
-                                    if (jQuery(this).is(':visible')) {
-                                        jQuery(document).one("click", function (e) {
-                                            jQuery(self.element).find('ul:first').find('ul').hide();
-                                        });
-                                    }
-                                });
-                            }
-
-                            var url = jQuery(this).attr('data-action');
-                            if (url != undefined) { window.location.href = url; }
-
-                            var action = jQuery(this).attr('data-clientAction');
-                            setTimeout("try{ " + action + "}catch(e){}", 0);
-
-                        })
-                        .find('ul')
-                            .addClass('ui-widget-content ui-corner-all')
-                            .find('li:first')
-                                .addClass('ui-corner-top')
-                                .end()
-                            .find('li:last')
-                                .addClass('ui-corner-bottom')
-                                .end()
-                        .end()
-                    .end()
-                    .find('li:first')
-                        .addClass('ui-corner-all')
-                        .siblings()
-                            .each(function () {
-                                jQuery(this).addClass('ui-corner-all');
-                            })
-                        .end()
-                    .end();
-
-                jQuery.ui.widgetBase.prototype._init.call(this);
-            }
-            ,
-            destroy: function () {
-                jQuery.ui.widgetBase.prototype.destroy.call(this);
-            }
-        });
-
-/// <reference path="VsixMvcAppResult.A.Intellisense.js" />
-
-jQuery.widget("ui.menuNav", jQuery.ui.menuSite,
-    {
-        options: {
-            controllerSelected: ''
-            , actionSelected: ''
-            , allowCollapse: true
-        },
-        _init: function () {
-            jQuery.ui.menuSite.prototype._init.call(this);
-        }
-        , _create: function () {
-
-            jQuery.ui.menuSite.prototype._create.call(this)
-
-            this.options.controllerSelected = jQuery(this.element).attr('data-widget-controllerSelected');
-            this.options.actionSelected = jQuery(this.element).attr('data-widget-controllerAction');
-
-            if (this.options.controllerSelected != "") {
-                jQuery(this.element)
-                .find("li[data-action*='" + this.options.controllerSelected + "'][data-action*='" + this.options.actionSelected + "']")
-                            .each(function () {
-                                if (jQuery(this).parents('li:last').length > 0) {
-                                    jQuery(this).parents('li:last').addClass('ui-corner-all ui-state-active');
-                                }
-                                else {
-                                    jQuery(this).addClass('ui-corner-all ui-state-active');
-                                }
-                            });
-            }
-        },
-        destroy: function () {
-            jQuery.ui.menuSite.prototype.destroy.call(this);
-        }
-    });
-
-
-jQuery.widget("ui.menuCultures", jQuery.ui.menuSite,
-{
-    options: {
-        cultureSelected: null
-    }
-    , _init: function () {
-
-        var self = this;
-
-        jQuery.ui.menuSite.prototype._init.call(this);
-
-        jQuery(this.element)
-            .find('li')
-                .click(function () {
-
-                    var culture = jQuery(this).find('div.ui-flag').attr('data-widget-value');
-
-                    window.location.href = "/Home/CultureSet/" + culture;
-                });
-
-        jQuery(this.element)
-            .find('div[data-widget-value="' + this.options.cultureSelected + '"]')
-            .parents('li:first')
-                            .addClass('ui-state-active')
-                            .removeClass('ui-state-default');
-    }
-    , _create: function () {
-        jQuery.ui.menuSite.prototype._create.call(this);
-    },
-    destroy: function () {
-        jQuery.ui.menuSite.prototype.destroy.call(this);
-    }
-});
-
-
-jQuery.widget("ui.menuThemes", jQuery.ui.menuSite,
-{
-    options: {
-        defaultTheme: ''
-    }
-    , _create: function () {
-
-        jQuery.ui.menuSite.prototype._create.call(this);
-
-    }
-    , _init: function () {
-
-        jQuery.ui.menuSite.prototype._init.call(this);
-
-        var self = this;
-
-        jQuery(this.element)
-            .find('li')
-                .click(function () {
-                    var value = jQuery(this).attr('data-widget-value');
-                    self.setTheme(value);
-                });
-    },
-    destroy: function () {
-        jQuery.ui.menuSite.prototype.destroy.call(this);
-    }
-    , setTheme: function (value) {
-
-        window.location.href = "/Home/ThemeSet/" + value;
-    }
-});
-
-/// <reference path="VsixMvcAppResult.A.Intellisense.js" />
-
 jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
 {
     options: {
@@ -7582,10 +7406,10 @@ jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
                             function (data, textStatus, jqXHR) {
                                 jQuery(self.element).html(data);
                                 VsixMvcAppResult.Widgets.jQueryzer(self.element);
-                                self._initTheme();
-                                self._initMenuCultures();
-                                self._initUserMenu();
-                                self._preparePreferences();
+                                //self._initTheme();
+                                //self._initMenuCultures();
+                                //self._initUserMenu();
+                                //self._preparePreferences();
                             }
                             , function (jqXHR, textStatus, errorThrown) {
 
@@ -7608,70 +7432,70 @@ jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
     destroy: function () {
         jQuery.ui.widgetBase.prototype.destroy.call(this);
     }
-    , _initMenuCultures: function () {
-        jQuery(this.element)
-            .find('div[data-widget="menuCultures"]:first')
-                .each(function (index, ui) {
-                    jQuery(this).menuCultures({ cultureSelected: jQuery(this).attr('data-widget-cultureSelected') });
-                });
-    }
-    , _initTheme: function () {
-        jQuery(this.element)
-            .find('div[data-widget="menuThemes"]:first')
-            .each(function (index, ui) {
-                jQuery(ui).menuThemes({
-                    defaultTheme: jQuery(ui).attr('data-widget-defaultTheme'),
-                    cdnBaseUrl: jQuery(ui).attr('data-widget-cdnBaseUrl')
-                });
-            });
-    }
-    , _initUserMenu: function () {
-        jQuery(this.element)
-            .find('div[data-widget="menuSite"]:first')
-                .menuSite({
-                    autoCloseChilds: false
-                });
-    }
-    , _preparePreferences: function () {
+    //, _initMenuCultures: function () {
+    //    jQuery(this.element)
+    //        .find('div[data-widget="menuCultures"]:first')
+    //            .each(function (index, ui) {
+    //                jQuery(this).menuCultures({ cultureSelected: jQuery(this).attr('data-widget-cultureSelected') });
+    //            });
+    //}
+    //, _initTheme: function () {
+    //    jQuery(this.element)
+    //        .find('div[data-widget="menuThemes"]:first')
+    //        .each(function (index, ui) {
+    //            jQuery(ui).menuThemes({
+    //                defaultTheme: jQuery(ui).attr('data-widget-defaultTheme'),
+    //                cdnBaseUrl: jQuery(ui).attr('data-widget-cdnBaseUrl')
+    //            });
+    //        });
+    //}
+    //, _initUserMenu: function () {
+    //    jQuery(this.element)
+    //        .find('div[data-widget="menuSite"]:first')
+    //            .menuSite({
+    //                autoCloseChilds: false
+    //            });
+    //}
+    //, _preparePreferences: function () {
 
-        var $cultures = jQuery(this.element).find('div[data-widget="menuCultures"]');
-        var $themes = jQuery(this.element).find('div[data-widget="menuThemes"]');
-        var $menuUser = jQuery(this.element).find('div[data-widget="menuSite"]');
-        var hideAll = function () {
-            $cultures.hide();
-            $themes.hide();
-            $menuUser = hide();
-        };
+    //    var $cultures = jQuery(this.element).find('div[data-widget="menuCultures"]');
+    //    var $themes = jQuery(this.element).find('div[data-widget="menuThemes"]');
+    //    var $menuUser = jQuery(this.element).find('div[data-widget="menuSite"]');
+    //    var hideAll = function () {
+    //        $cultures.hide();
+    //        $themes.hide();
+    //        $menuUser = hide();
+    //    };
 
-        var showMenu = function ($menuElement) {
-            jQuery($menuElement)
-                .show('fast'
-                    , function () {
-                        jQuery(document).one('click', null, null, function () {
-                            $menuElement.hide();
-                        });
-                    });
-        };
+    //    var showMenu = function ($menuElement) {
+    //        jQuery($menuElement)
+    //            .show('fast'
+    //                , function () {
+    //                    jQuery(document).one('click', null, null, function () {
+    //                        $menuElement.hide();
+    //                    });
+    //                });
+    //    };
 
-        jQuery(this.element)
-                .find('div.ui-login-UserInfo:first')
-                    .find('button')
-                        .click(function () {
-                            showMenu($menuUser);
-                        })
-                    .end()
-                .end()
-                .find('div.ui-sitePreferences-Info')
-                    .find('button#btnLanguageSwitcher')
-                        .click(function () {
-                            showMenu($cultures);
-                        })
-                    .end()
-                    .find('button#btnThemeSwitcher')
-                        .click(function () {
-                            showMenu($themes);
-                        });
-    }
+    //    jQuery(this.element)
+    //            .find('div.ui-login-UserInfo:first')
+    //                .find('button')
+    //                    .click(function () {
+    //                        showMenu($menuUser);
+    //                    })
+    //                .end()
+    //            .end()
+    //            .find('div.ui-sitePreferences-Info')
+    //                .find('button#btnLanguageSwitcher')
+    //                    .click(function () {
+    //                        showMenu($cultures);
+    //                    })
+    //                .end()
+    //                .find('button#btnThemeSwitcher')
+    //                    .click(function () {
+    //                        showMenu($themes);
+    //                    });
+    //}
 });
 
 /// <reference path="../../Scripts.T4Templates/VsixMvcAppResult.Js.Intellisense.js" />
@@ -8350,7 +8174,7 @@ jQuery.widget("ui.page", jQuery.ui.widgetBase,
         this.initGlobalization();
         this.initValidate();
         this.initJQueryzer();
-        this.initMenuNav();
+        //this.initMenuNav();
         this.initUserOptions();
     }
     , _create: function () {
@@ -8359,9 +8183,9 @@ jQuery.widget("ui.page", jQuery.ui.widgetBase,
     , destroy: function () {
         jQuery.ui.widgetBase.prototype.destroy.call(this);
     }
-    , initMenuNav: function () {
-        jQuery(this.element).find('div[data-widget="menuNav"]:first').menuNav({ allowCollapse: true, isCollapsed: true, allowClose: false });
-    }
+    //, initMenuNav: function () {
+    //    jQuery(this.element).find('div[data-widget="menuNav"]:first').menuNav({ allowCollapse: true, isCollapsed: true, allowClose: false });
+    //}
     , initUserOptions: function () {
 
         var self = this;
