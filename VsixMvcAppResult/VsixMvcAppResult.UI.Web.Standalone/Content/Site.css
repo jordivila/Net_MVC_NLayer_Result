@@ -39,7 +39,7 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
 /* header */
 .ui-site-header {position: relative;margin:0.5em 0em 0em 0em ;border:0 !important;width:100%;padding:0;min-height:2.5em;z-index:999;}
 .ui-site-header .ui-menuToggle {float:left;margin:0.2em 0.5em 0em 0.5em;}
-.ui-site-header .ui-siteVersion {float:left;}
+.ui-site-header .ui-siteVersion {float:left;margin:0.2em 0.5em 0em 0.5em;}
 
 /*
 .ui-site-userOptions {float:right;display:table;margin:0 0em 0 auto;width:100%;text-align:right;}
