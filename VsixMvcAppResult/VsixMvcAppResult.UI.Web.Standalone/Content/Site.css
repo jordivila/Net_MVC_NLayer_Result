@@ -90,7 +90,7 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
     .ui-siteContent .ui-menuNav {margin:0 1em 0 0;float:left;display:block !important;}
     .ui-siteContent .ui-menuNav-Collapse {}
     .ui-siteContent .ui-menuNav-Expand {width:25%;}
-    .ui-menuToggle {display:block !important;}
+    .ui-menuToggle {display:none !important;}
 
     @media screen and (min-resolution: 300dpi), screen and (-webkit-min-device-pixel-ratio: 2) 
     { 
