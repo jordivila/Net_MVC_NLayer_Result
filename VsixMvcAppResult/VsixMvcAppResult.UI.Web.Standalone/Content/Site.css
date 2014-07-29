@@ -61,7 +61,9 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
 
 /* CONTENT */
 .ui-siteContent {padding:1em 1em 1em 1em;margin:1em 0 0 0;overflow:auto;}
-.ui-siteContent .ui-menuNav li:first-letter { margin:0.1em 0.1em 0.1em 0.1em;}
+.ui-siteContent .ui-menuNav li { font-weight:normal; }
+.ui-siteContent .ui-menuNav li:first-letter { margin:0.1em 0.1em 0.1em 0.5em;}
+
 
 @media all and (orientation: portrait) 
 {
@@ -89,7 +91,6 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
     { 
         html {font-size:1em !important;}
     }
-
 }
 
 
