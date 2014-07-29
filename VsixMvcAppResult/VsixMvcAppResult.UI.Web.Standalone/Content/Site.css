@@ -61,11 +61,13 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
 
 /* CONTENT */
 .ui-siteContent {padding:1em 1em 1em 1em;margin:1em 0 0 0;overflow:auto;}
-.ui-siteContent .ui-menuNav li { font-weight:normal; }
-.ui-siteContent .ui-menuNav li:first-letter { margin:0.1em 0.1em 0.1em 0.5em;}
+.ui-siteContent .ui-menuNav { padding:0.3em; }
+.ui-siteContent .ui-menuNav li { margin:0.3em 0.1em 0.1em 0.1em;padding:0.3em 0.1em 0.3em 0.3em;background-image:none;}
+.ui-siteContent .ui-menuNav li ul {margin:0.1em 0.1em 0.1em 0.1em;padding:0.1em 0.1em 0.1em 0.3em;background-image:none;}
+.ui-siteContent .ui-menuNav li:first-letter { margin:0.1em 0.1em 0.1em 0.1em;}
 
 
-@media all and (orientation: portrait) 
+@media all and (orientation: portrait)
 {
     .ui-siteContent .ui-siteContent-Container{width:100%;}
     .ui-siteContent .ui-siteContent-Container-Expand{}
