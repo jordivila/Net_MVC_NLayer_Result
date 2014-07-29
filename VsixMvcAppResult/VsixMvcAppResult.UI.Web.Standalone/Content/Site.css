@@ -62,25 +62,30 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
 /* CONTENT */
 .ui-siteContent {padding:1em 1em 1em 1em;margin:1em 0 0 0;overflow:auto;}
 
-@media all and (min-width: 50em) and (orientation: landscape) {
-    .ui-siteContent .ui-siteContent-Container{width:auto; margin-left: auto ;margin-right:1em ;}
-    .ui-siteContent .ui-siteContent-Container-Expand{}
-    .ui-siteContent .ui-siteContent-Container-Collapse{width:75%;}
-    .ui-siteContent .ui-menuNav {margin:0 1em 0 0;float:left;display:block !important;}
-    .ui-siteContent .ui-menuNav-Collapse {}
-    .ui-siteContent .ui-menuNav-Expand {width:20%;}
-    .ui-menuToggle {display:none !important;}
-}
 
-@media all and (orientation: portrait) {
+@media all and (orientation: portrait) 
+{
     .ui-siteContent .ui-siteContent-Container{width:100%;}
     .ui-siteContent .ui-siteContent-Container-Expand{}
     .ui-siteContent .ui-siteContent-Container-Collapse{}
     .ui-siteContent .ui-menuNav {margin:0 1em 0 0;position:absolute;left:0;display:none;}
     .ui-siteContent .ui-menuNav-Collapse {}
     .ui-siteContent .ui-menuNav-Expand {width:60%;}
-    .ui-menuToggle {display:block !important;}
+    .ui-menuToggle {display:block !important;cursor:pointer;}
 }
+
+
+@media all and (orientation: landscape) 
+{
+    .ui-siteContent .ui-siteContent-Container{width:auto; margin-left: auto ;margin-right:1em ;}
+    .ui-siteContent .ui-siteContent-Container-Expand{}
+    .ui-siteContent .ui-siteContent-Container-Collapse{width:65%;float:left;}
+    .ui-siteContent .ui-menuNav {margin:0 1em 0 0;float:left;display:block !important;}
+    .ui-siteContent .ui-menuNav-Collapse {}
+    .ui-siteContent .ui-menuNav-Expand {width:25%;}
+    .ui-menuToggle {display:none !important;}
+}
+
 
 
 
