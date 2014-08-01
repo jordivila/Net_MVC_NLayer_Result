@@ -17,7 +17,6 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
 .ui-wordWrap {white-space: pre-wrap;      /* CSS3 */              white-space: -moz-pre-wrap; /* Firefox */               white-space: -pre-wrap;     /* Opera 7 previous */              white-space: -o-pre-wrap;   /* Opera 7 */               word-wrap: break-word;      /* IE */        }
 .ui-site-accountBar { width:100%;height:100%;border:0; }
 .ui-sitePage{width:98%; margin-left: auto;margin-right: auto;position:relative;}
-.ui-siteVersion {float:left;margin:0.5em;}
 .ui-siteMenu-autoClose { height:1.7em;width:2em;float:right;margin:.1em 0em 0 0em;border:0 !important; }
 .ui-widget {font-size:1em !important;}
 .ui-widget-header {font-weight:bold;padding:1.5em;}
@@ -39,11 +38,14 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
 
 /* header */
 .ui-site-header {position: relative;margin:0.5em 0em 0em 0em ;border:0 !important;width:100%;padding:0;min-height:2.5em;z-index:999;}
+.ui-site-header .ui-menuToggle {float:left;margin:0.2em 0.5em 0em 0.5em;}
+.ui-site-header .ui-siteVersion {float:left;margin:0.2em 0.5em 0em 0.5em;}
 
+/*
 .ui-site-userOptions {float:right;display:table;margin:0 0em 0 auto;width:100%;text-align:right;}
 .ui-site-userOptions button {margin:0.4em 1em 0 0;}
 .ui-site-userOptions button span.ui-button-text{padding:.1em 1em .1em 2.1em;}
-.ui-site-userOptions .ui-message {/*width:25em;*/margin:0em 0 0 0;float:right;}
+.ui-site-userOptions .ui-message {margin:0em 0 0 0;float:right;}
 .ui-site-userOptions .ui-message .ui-widget {border:0 !important;}
 .ui-site-userOptions .ui-message .ui-icon {display:none;}
 .ui-site-userOptions .ui-sitePreferences-Info {position: relative;float:right;}
@@ -52,35 +54,51 @@ input[type=checkbox].ui-widget-content { border:0px solid transparent !important
 .ui-site-userOptions .ui-login-UserInfo .ui-login-userInfo-child {display:none;width:15em; padding: 0em !important;border:0 !important;position:absolute;left:0;}
 .ui-site-userOptions .ui-login-UserInfo .ui-login-userInfo-child li {text-align:left;padding:0em;cursor:pointer;border:0 !important; }
 .ui-site-userOptions .ui-login-UserInfo .ui-login-userInfo-child li li {padding:0.5em 0.5em 0.5em 0.5em;}
+*/
 
 /* preferences switchers */
+/*
 .ui-cultureSwitcher, .ui-themeSwitcher {display:none;}
 .ui-themeSwitcher li {height:2em;}
 .ui-themeSwitcher li span {display:inline-block;}
+*/
 
 
 /* CONTENT */
 .ui-siteContent {padding:1em 1em 1em 1em;margin:1em 0 0 0;overflow:auto;}
+.ui-siteContent .ui-menuNav { padding:0.3em; }
+.ui-siteContent .ui-menuNav li { margin:0.3em 0.1em 0.1em 0.1em;padding:0.3em 0.1em 0.3em 0.3em;background-image:none;}
+.ui-siteContent .ui-menuNav li ul {margin:0.1em 0.1em 0.1em 0.1em;padding:0.1em 0.1em 0.1em 0.3em;background-image:none;}
+.ui-siteContent .ui-menuNav li:first-letter { margin:0em 0em 0em 0.1em;}
 
-@media all and (min-width: 50em) and (orientation: landscape) {
-    .ui-siteContent .ui-siteContent-Container{width:auto; margin-left: auto ;margin-right:1em ;}
-    .ui-siteContent .ui-siteContent-Container-Expand{}
-    .ui-siteContent .ui-siteContent-Container-Collapse{width:75%;}
-    .ui-siteContent .ui-menuNav {margin:0 1em 0 0;float:left;display:block !important;}
-    .ui-siteContent .ui-menuNav-Collapse {}
-    .ui-siteContent .ui-menuNav-Expand {width:20%;}
-    .ui-menuToggle {display:none !important;}
-}
 
-@media all and (orientation: portrait) {
+@media all and (orientation: portrait)
+{
     .ui-siteContent .ui-siteContent-Container{width:100%;}
     .ui-siteContent .ui-siteContent-Container-Expand{}
     .ui-siteContent .ui-siteContent-Container-Collapse{}
     .ui-siteContent .ui-menuNav {margin:0 1em 0 0;position:absolute;left:0;display:none;}
     .ui-siteContent .ui-menuNav-Collapse {}
     .ui-siteContent .ui-menuNav-Expand {width:60%;}
-    .ui-menuToggle {display:block !important;}
+    .ui-menuToggle {display:block !important;cursor:pointer;}
 }
+
+@media all and (orientation: landscape)
+{
+    .ui-siteContent .ui-siteContent-Container{width:auto; margin-left: auto ;margin-right:1em ;}
+    .ui-siteContent .ui-siteContent-Container-Expand{}
+    .ui-siteContent .ui-siteContent-Container-Collapse{width:65%;float:left;}
+    .ui-siteContent .ui-menuNav {margin:0 1em 0 0;float:left;display:block !important;}
+    .ui-siteContent .ui-menuNav-Collapse {}
+    .ui-siteContent .ui-menuNav-Expand {width:25%;}
+    .ui-menuToggle {display:none !important;}
+
+    @media screen and (min-resolution: 300dpi), screen and (-webkit-min-device-pixel-ratio: 2) 
+    { 
+        html {font-size:1.3em !important;}
+    }
+}
+
 
 
 
@@ -204,6 +222,3 @@ table.ui-widgetGrid .ui-widgetGrid-body .ui-widgetGrid-row .ui-widgetGrid-column
 .ui-widgetForm .ui-widgetForm-ValidationSummary span {}
 .ui-widgetForm .ui-widgetForm-ValidationSummary ul {margin:.5em 0 0 0;}
 .ui-widgetForm .ui-widgetForm-ValidationSummary ul li {}
-
-
-

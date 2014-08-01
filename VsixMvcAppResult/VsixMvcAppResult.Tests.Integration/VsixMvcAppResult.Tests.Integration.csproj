@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8A69A082-CE46-4FD3-B21F-8D407795E388}</ProjectGuid>
+    <ProjectGuid>{5C1C356C-2C9A-401C-82D3-190510D0A456}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VsixMvcAppResult.Tests.Integration</RootNamespace>
