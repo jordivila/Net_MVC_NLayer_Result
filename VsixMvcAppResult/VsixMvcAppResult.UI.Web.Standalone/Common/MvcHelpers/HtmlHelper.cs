@@ -18,6 +18,7 @@ using VsixMvcAppResult.Resources.General;
 using VsixMvcAppResult.Resources.Helpers;
 using VsixMvcAppResult.UI.Web.Areas.Blog;
 using VsixMvcAppResult.UI.Web.Areas.Home;
+using VsixMvcAppResult.UI.Web.Areas.Test;
 using VsixMvcAppResult.UI.Web.Areas.UserAccount;
 using VsixMvcAppResult.UI.Web.Areas.UserProfile;
 using VsixMvcAppResult.UI.Web.Models;
@@ -944,7 +945,8 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
                     new MenuItemModel(HomeUrlHelper.Home_Index(url), GeneralTexts.Home, new List<SiteRoles>(){  SiteRoles.Guest }, null),
                     new MenuItemModel(BlogUrlHelper.IndexRoot(url), GeneralTexts.Blog, new List<SiteRoles>(){  SiteRoles.Guest }, null),
                     new MenuItemModel(HomeUrlHelper.Home_About(url),GeneralTexts.About, new List<SiteRoles>(){  SiteRoles.Guest }, null),
-                    new MenuItemModel(UserAccountUrlHelper.Account_Dashboard(url),GeneralTexts.Dashboard, new List<SiteRoles>(){  SiteRoles.Administrator }, null)
+                    new MenuItemModel(UserAccountUrlHelper.Account_Dashboard(url),GeneralTexts.Dashboard, new List<SiteRoles>(){  SiteRoles.Administrator }, null),
+                    new MenuItemModel(TestsUrlHelper.Index(url), "UI Tests", new List<SiteRoles>(){  SiteRoles.Guest }, null)
                 });
 
 
