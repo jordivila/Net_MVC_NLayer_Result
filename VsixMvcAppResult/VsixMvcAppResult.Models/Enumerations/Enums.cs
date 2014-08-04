@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace VsixMvcAppResult.Models.Enumerations
 {
@@ -7,7 +8,10 @@ namespace VsixMvcAppResult.Models.Enumerations
     [Flags]
     public enum SiteRoles
     {
+        [EnumMember(Value = "Administrator")]
         Administrator = 1,
+
+        [EnumMember(Value = "Guest")]
         Guest = 2
     }
     public enum MediaType

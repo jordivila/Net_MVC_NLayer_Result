@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Linq;
+using VsixMvcAppResult.Resources.Enumerations;
 
 
 namespace VsixMvcAppResult.Models.Enumerations
@@ -11,7 +12,7 @@ namespace VsixMvcAppResult.Models.Enumerations
         public static string EnumDescription(Enum enumerator)
         {
             string key = String.Format("{0}.{1}", enumerator.GetType(), enumerator).Replace(".", "_");
-            string localizedDescription = VsixMvcAppResult.Resources.Enumerations.EnumerationsTexts.ResourceManager.GetString(key);
+            string localizedDescription = EnumerationsTexts.ResourceManager.GetString(key);
 
             if (localizedDescription == null)
             {
