@@ -33,6 +33,11 @@
     margin-top: -18%;
 }
 
+
+.ui-treeList .ui-treeList-toggle {width:2em; height:2em;}
+
+
+
 /* Allow use of icon-large to be properly aligned */
 
 
