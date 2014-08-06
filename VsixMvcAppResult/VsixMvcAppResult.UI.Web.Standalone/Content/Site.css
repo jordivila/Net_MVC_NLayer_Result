@@ -88,7 +88,7 @@ input[type='radio'] {height:1em;width:1em;}
 
     @media screen and (-webkit-min-device-pixel-ratio: 2)
     {
-        html {font-size:0.9em !important;}
+        html {font-size:1em !important;}
         body {background-color: blue !important;}
     }
 }
