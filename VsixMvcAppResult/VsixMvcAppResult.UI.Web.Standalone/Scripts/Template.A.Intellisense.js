@@ -6914,24 +6914,26 @@ jQuery.widget("ui.widgetBase",
 
             jQuery(this.element)
                 .find('div.ui-widget-header:first')
+                    .wrapInner("<div class='ui-widget-headerText'></div>")
+                    
                     .append('<div class="ui-widget-collapse ui-icon ui-icon-triangle-1-s"></div>')
-                    .end()
-                  .click(function (e) {
+                .end()
+                .click(function (e) {
 
-                      var $c = jQuery(e.target);
+                    var $c = jQuery(e.target);
 
-                      if ($c.is("div") && $c.hasClass("ui-widget-collapse")) {
-                          collapseFunc();
-                      }
-                      else {
-                          if ($c.is("span") && $c.parents("div:first").hasClass("ui-widget-collapse")) {
-                              collapseFunc();
-                          }
-                      }
-                  })
-                .find('div.ui-widget-collapse')
-                    .removeClass('ui-icon-triangle-1-n')
-                    .addClass('ui-icon-triangle-1-s');
+                    if ($c.is("div") && $c.hasClass("ui-widget-collapse")) {
+                        collapseFunc();
+                    }
+                    else {
+                        if ($c.is("span") && $c.parents("div:first").hasClass("ui-widget-collapse")) {
+                            collapseFunc();
+                        }
+                    }
+                })
+            .find('div.ui-widget-collapse')
+                .removeClass('ui-icon-triangle-1-n')
+                .addClass('ui-icon-triangle-1-s');
 
             if (self.options.isCollapsed) {
                 collapseFunc();
