@@ -9,6 +9,7 @@ using VsixMvcAppResult.Models.Membership;
 using VsixMvcAppResult.Models.Profile;
 using VsixMvcAppResult.Models.Unity;
 using VsixMvcAppResult.Resources.Account;
+using VsixMvcAppResult.Resources.General;
 using VsixMvcAppResult.UI.Web.Areas.Home;
 using VsixMvcAppResult.UI.Web.Areas.LogViewer;
 using VsixMvcAppResult.UI.Web.Areas.Test;
@@ -307,6 +308,8 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
                     }
                 }
             };
+
+            model.BaseViewModelInfo.Title = GeneralTexts.Dashboard;
 
             return View(model);
         }
