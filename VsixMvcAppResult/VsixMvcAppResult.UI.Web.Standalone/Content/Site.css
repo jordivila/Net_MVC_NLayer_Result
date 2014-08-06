@@ -88,7 +88,7 @@ input[type='radio'] {height:1em;width:1em;}
 
     @media screen and (-webkit-min-device-pixel-ratio: 2)
     {
-        html {font-size:1.3em !important;}
+        /*html {font-size:1.3em !important;}*/
         body {background-color: blue !important;}
     }
 }
@@ -99,13 +99,13 @@ input[type='radio'] {height:1em;width:1em;}
     .ui-siteContent .ui-siteContent-Container-Expand{}
     .ui-siteContent .ui-siteContent-Container-Collapse{width:65%;float:left;}
     .ui-siteContent .ui-menuNav {margin:0 1em 0 0;float:left;display:block !important;}
-    .ui-siteContent .ui-menuNav-Collapse {}
+    .ui-siteContent .ui-menuNav-Collapse {} 
     .ui-siteContent .ui-menuNav-Expand {width:25%;}
     .ui-menuToggle {display:none !important;}
 
     @media screen and (min-resolution: 300dpi), screen and (-webkit-min-device-pixel-ratio: 2)
     {
-        html {font-size:0.9em !important;}
+        /*html {font-size:0.9em !important;}*/
         body {background-color: red !important;}
     }
 }
