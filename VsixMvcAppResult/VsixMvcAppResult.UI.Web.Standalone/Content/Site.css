@@ -97,9 +97,10 @@ input[type='radio'] {height:1em;width:1em;}
     .ui-siteContent .ui-menuNav-Expand {width:25%;}
     .ui-menuToggle {display:none !important;}
 
-    @media screen and (min-resolution: 300dpi), screen and (-webkit-min-device-pixel-ratio: 2) 
-    { 
+    @media screen and (min-resolution: 300dpi), screen and (-webkit-min-device-pixel-ratio: 2)
+    {
         html {font-size:0.8em !important;}
+        body {background-color: red !important;}
     }
 }
 
