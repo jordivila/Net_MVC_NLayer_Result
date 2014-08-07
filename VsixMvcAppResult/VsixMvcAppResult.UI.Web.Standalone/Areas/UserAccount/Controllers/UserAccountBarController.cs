@@ -7,7 +7,7 @@ using VsixMvcAppResult.UI.Web.Models;
 
 namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
 {
-    public class UserAccountBarController : Controller, IControllerWithClientResources
+    public class UserUpdateLastActivityController : Controller, IControllerWithClientResources
     {
         public string[] GetControllerJavascriptResources
         {
@@ -21,7 +21,7 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
 
         private IProfileProxy providerProfile;
 
-        public UserAccountBarController()
+        public UserUpdateLastActivityController()
         {
             this.providerProfile = DependencyFactory.Resolve<IProfileProxy>();
         }
@@ -36,7 +36,7 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult UserAccountBar()
+        public ActionResult UserUpdateLastActivity()
         {
             baseViewModel model = new baseViewModel();
 

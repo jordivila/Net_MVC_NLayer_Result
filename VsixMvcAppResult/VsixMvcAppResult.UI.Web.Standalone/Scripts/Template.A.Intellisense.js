@@ -6811,7 +6811,7 @@ VsixMvcAppResult.Ajax.CultureSet = function (culture, onOK, onKO) {
 };
 VsixMvcAppResult.Ajax.UserBar = function (onOK, onKO, onComplete) {
     var jqxhr = jQuery.ajax({
-			url: "/UserAccountBar/UserAccountBar"
+			url: "/UserUpdateLastActivity/UserUpdateLastActivity"
             , type: "GET"
             , data: {}
             , dataType: "html"
@@ -7304,12 +7304,15 @@ jQuery.widget("ui.widgetGrid", jQuery.ui.widgetBase,
 //    }
 });
 
-/// <reference path="VsixMvcAppResult.A.Intellisense.js" />
 
 VsixMvcAppResult.Widgets.AjaxProgress = function () {
 
+
+    
+
     var me = {},
-        $ajaxProgress = jQuery('<div class="ui-ajaxProgress-box"><div class="ui-ajaxProgress-boxChild ui-widget ui-widget-content ui-state-active">Plase wait while loading</div></div>');
+        $ajaxProgress = jQuery('<div class="ui-ajaxProgress-box"><div class="ui-ajaxProgress-boxChild ui-widget ui-widget-content ui-state-active">Plase wait while loading</div></div>')
+                        .hide();
 
     me.Create = function () {
         jQuery('body').append($ajaxProgress);
@@ -7407,7 +7410,7 @@ jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
 
         VsixMvcAppResult.Ajax.UserBar(
                             function (data, textStatus, jqXHR) {
-                                jQuery(self.element).html(data);
+                                jQuery(self.element).append(data);
                                 VsixMvcAppResult.Widgets.jQueryzer(self.element);
                             }
                             , function (jqXHR, textStatus, errorThrown) {
@@ -7427,6 +7430,9 @@ jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
                             , function () {
                                 self._trigger('complete', null, null);
                             });
+
+        //self._trigger('complete', null, null);
+
     },
     destroy: function () {
         jQuery.ui.widgetBase.prototype.destroy.call(this);
@@ -7833,7 +7839,7 @@ VsixMvcAppResult.Widgets.Dialogs =
     }
 }
 
-/// <reference path="VsixMvcAppResult.A.Intellisense.js" />
+
 VsixMvcAppResult.Widgets.DialogInline =
 {
     MsgTypes: {
@@ -7843,22 +7849,6 @@ VsixMvcAppResult.Widgets.DialogInline =
         , Confirm: 3
     }
     , Create: function (selector, msgType, onAnswered) {
-        /// <summary>
-        ///     Display the Inline messages
-        ///     &#10;1 - Create(selector) 
-        ///     &#10;2 - Create(selector, msgType) 
-        ///     &#10;3 - Create(selector, msgType, callback)
-        /// </summary>
-        /// <param name="selector" type="String">
-        ///     jQuery selector
-        /// </param>
-        /// <param name="msgType" type="VsixMvcAppResult.Widget.InlineMsg.MsgTypes">
-        ///     A string indicating which message type must be used
-        /// </param>
-        /// <param name="callback" type="Function">
-        ///     A function to call once the message has been closed or answered
-        /// </param>
-        /// <returns type="jQuery" />
         jQuery(selector).widgetMsg({
             msgType: msgType
             , answered: function (e, args) {
@@ -8030,7 +8020,7 @@ VsixMvcAppResult.Ajax.CultureSet = function (culture, onOK, onKO) {
 };
 VsixMvcAppResult.Ajax.UserBar = function (onOK, onKO, onComplete) {
     var jqxhr = jQuery.ajax({
-			url: "/UserAccountBar/UserAccountBar"
+			url: "/UserUpdateLastActivity/UserUpdateLastActivity"
             , type: "GET"
             , data: {}
             , dataType: "html"

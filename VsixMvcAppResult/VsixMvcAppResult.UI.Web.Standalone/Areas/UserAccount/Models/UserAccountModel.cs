@@ -130,7 +130,7 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Models
     }
 
     [NonValidateModelOnHttpGet]
-    public class UserAccountBarModel
+    public class UserUpdateLastActivityModel
     {
 
     }
