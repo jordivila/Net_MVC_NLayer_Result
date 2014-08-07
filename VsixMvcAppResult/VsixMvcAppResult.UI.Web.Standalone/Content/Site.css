@@ -47,7 +47,7 @@ input[type='radio'] {height:1em;width:1em;}
 
 /* header */
 .ui-site-header {position: relative;margin:0.5em 0em 0em 0em ;border:0 !important;width:100%;padding:0em;min-height:2.5em;}
-.ui-site-header .ui-menuToggle{float:right;margin:.13em .5em 0 .5em;width:6em;}
+.ui-site-header .ui-menuToggle{float:right;margin:.2em .5em 0 .5em;width:6em;}
 .ui-site-header .ui-menuToggle .ui-menuToggle-icon {float:left;}
 .ui-site-header .ui-menuToggle .ui-menuToggle-text {float:left;margin:0.4em 0 0 0.5em;font-weight:normal;}
 
@@ -78,7 +78,7 @@ input[type='radio'] {height:1em;width:1em;}
 /* CONTENT */
 .ui-siteContent {padding:1em 1em 1em 1em;margin:1em 0 0 0;overflow:auto;}
 .ui-siteContent .ui-menuNav { padding:0.3em; z-index:9999;}
-.ui-siteContent .ui-menuNav .ui-treeList-toggle{margin:0em 0 0 0 !important;padding:0 0 0 0;width:1em;height:1em;}
+.ui-siteContent .ui-menuNav .ui-treeList-toggle{margin:-0.45em 0.5em 0 0 !important;padding: 0.5em;border:0;}
 .ui-siteContent .ui-menuNav li { margin:0.3em 0.1em 0.1em 0.1em;padding:0.7em 0.1em 0.7em 0.3em;background-image:none;}
 .ui-siteContent .ui-menuNav li ul {margin:0.1em 0.1em 0.1em 0.1em;padding:0.1em 0.1em 0.1em 0.3em;background-image:none;}
 .ui-siteContent .ui-menuNav li:first-letter { margin:0em 0em 0em 0.1em;}

@@ -7430,9 +7430,6 @@ jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
                             , function () {
                                 self._trigger('complete', null, null);
                             });
-
-        //self._trigger('complete', null, null);
-
     },
     destroy: function () {
         jQuery.ui.widgetBase.prototype.destroy.call(this);
