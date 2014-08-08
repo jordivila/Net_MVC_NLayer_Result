@@ -14,7 +14,7 @@ jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
 
         var self = this;
 
-        VsixMvcAppResult.Ajax.UserBar(
+        VsixMvcAppResult.Ajax.UserUpdateLastActivity(
                             function (data, textStatus, jqXHR) {
                                 jQuery(self.element).append(data);
                                 VsixMvcAppResult.Widgets.jQueryzer(self.element);

@@ -44,7 +44,7 @@ VsixMvcAppResult.Ajax.CultureSet = function (culture, onOK, onKO) {
         onKO(jqXHR);
     });
 };
-VsixMvcAppResult.Ajax.UserBar = function (onOK, onKO, onComplete) {
+VsixMvcAppResult.Ajax.UserUpdateLastActivity = function (onOK, onKO, onComplete) {
     var jqxhr = jQuery.ajax({
 			url: "/UserUpdateLastActivity/UserUpdateLastActivity"
             , type: "GET"

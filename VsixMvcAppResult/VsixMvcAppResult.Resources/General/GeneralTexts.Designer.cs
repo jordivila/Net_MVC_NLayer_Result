@@ -133,6 +133,23 @@ namespace VsixMvcAppResult.Resources.General {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;
+        ///    This web site was created using &lt;a href=&quot;https://github.com/jordivila/Net_MVC_NLayer_Generator&quot;&gt;Net_MVC_NLayer_Generator&lt;/a&gt;.
+        ///    The template allows you to create a Visual Studio 2013 solution based on 2 possibilities:
+        ///    &lt;ul class=&quot;ui-list&quot;&gt;
+        ///        &lt;li&gt;an ASP NET MVC web site&lt;/li&gt;
+        ///        &lt;li&gt;a .NET Multi-Tier application with an ASP NET MVC front-end website and WCF back-end application&lt;/li&gt;
+        ///    &lt;/ul&gt;
+        ///
+        ///    The resulting solution can be desployed to Azure Web Sites or Azure Cloud Service [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string HomeIndexText {
+            get {
+                return ResourceManager.GetString("HomeIndexText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Languages.
         /// </summary>
         public static string Languages {

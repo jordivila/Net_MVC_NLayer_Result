@@ -6809,7 +6809,7 @@ VsixMvcAppResult.Ajax.CultureSet = function (culture, onOK, onKO) {
         onKO(jqXHR);
     });
 };
-VsixMvcAppResult.Ajax.UserBar = function (onOK, onKO, onComplete) {
+VsixMvcAppResult.Ajax.UserUpdateLastActivity = function (onOK, onKO, onComplete) {
     var jqxhr = jQuery.ajax({
 			url: "/UserUpdateLastActivity/UserUpdateLastActivity"
             , type: "GET"
@@ -7408,7 +7408,7 @@ jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
 
         var self = this;
 
-        VsixMvcAppResult.Ajax.UserBar(
+        VsixMvcAppResult.Ajax.UserUpdateLastActivity(
                             function (data, textStatus, jqXHR) {
                                 jQuery(self.element).append(data);
                                 VsixMvcAppResult.Widgets.jQueryzer(self.element);
@@ -8015,7 +8015,7 @@ VsixMvcAppResult.Ajax.CultureSet = function (culture, onOK, onKO) {
         onKO(jqXHR);
     });
 };
-VsixMvcAppResult.Ajax.UserBar = function (onOK, onKO, onComplete) {
+VsixMvcAppResult.Ajax.UserUpdateLastActivity = function (onOK, onKO, onComplete) {
     var jqxhr = jQuery.ajax({
 			url: "/UserUpdateLastActivity/UserUpdateLastActivity"
             , type: "GET"

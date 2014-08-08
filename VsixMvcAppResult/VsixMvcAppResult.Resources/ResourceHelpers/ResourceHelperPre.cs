@@ -329,6 +329,7 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public const String Dates = "Dates";
 		public const String Documentation = "Documentation";
 		public const String Home = "Home";
+		public const String HomeIndexText = "HomeIndexText";
 		public const String Languages = "Languages";
 		public const String LogOff = "LogOff";
 		public const String LogOn = "LogOn";
@@ -377,6 +378,7 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public  string Dates {	get{	return GeneralTexts.Dates;	}	}
 		public  string Documentation {	get{	return GeneralTexts.Documentation;	}	}
 		public  string Home {	get{	return GeneralTexts.Home;	}	}
+		public  string HomeIndexText {	get{	return GeneralTexts.HomeIndexText;	}	}
 		public  string Languages {	get{	return GeneralTexts.Languages;	}	}
 		public  string LogOff {	get{	return GeneralTexts.LogOff;	}	}
 		public  string LogOn {	get{	return GeneralTexts.LogOn;	}	}
