@@ -625,6 +625,7 @@
     <Content Include="Views\Shared\EditorTemplates\Float.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\_ResourcesStyleSheetCommonRender.cshtml" />
+    <Content Include="Scripts\Template.Widget.NavMenu.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fontawesome-webfont.eot" />

@@ -100,6 +100,7 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
                                             "~/Scripts/ui-widgetMsg/ui-widgetMsg.js",
                                             "~/Scripts/Template.Widget.Dialogs.js",
                                             "~/Scripts/Template.Widget.DialogInline.js",
+                                            "~/Scripts/Template.Widget.NavMenu.js",
                                             "~/Scripts/ui-widgetTreeList/ui-widgetTreeList.js"
                 };
             }
