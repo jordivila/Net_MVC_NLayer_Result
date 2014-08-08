@@ -118,6 +118,10 @@
         		return jQuery(this.element).find('li.ui-state-active');
         	}
         }
+        , collapseAll: function () {
+            this.closeNode(jQuery(this.element).find('li'));
+        }
+
 	});
 
 })(jQuery);

@@ -7856,7 +7856,7 @@ VsixMvcAppResult.Widgets.DialogInline =
 };
 
 (function ($) {
-	jQuery.widget("jv.navMenu", {
+	jQuery.widget("ui.navMenu", {
 		options: { selectable: true },
 		_create: function () {
 
@@ -7906,20 +7906,6 @@ VsixMvcAppResult.Widgets.DialogInline =
                 			}
                 		}
                 	}
-
-                	//if ($t.hasClass('ui-treeList-toggle')) {
-                	//	var b = $t.siblings('ul').is(':visible');
-                	//	if (b) w.closeNode($t.parents('li:first'));
-                	//	else w.openNode($t.parents('li:first'));
-                	//}
-                	//if ($t.hasClass('ui-treeList-item')) {
-                	//	w.selected($t);
-
-                	//	if ($t.find('ul:first').length > 0)
-                	//	{
-
-                	//	}
-                	//}
 
                 })
                 .disableSelection();
@@ -7988,6 +7974,10 @@ VsixMvcAppResult.Widgets.DialogInline =
         		return jQuery(this.element).find('li.ui-state-active');
         	}
         }
+        , collapseAll: function () {
+            this.closeNode(jQuery(this.element).find('li'));
+        }
+
 	});
 
 })(jQuery);
