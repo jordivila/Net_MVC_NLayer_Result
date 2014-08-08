@@ -1,12 +1,44 @@
-﻿@{Layout = "~/Views/Shared/_Layout.cshtml";}
+﻿@model VsixMvcAppResult.UI.Web.Models.baseViewModel
+
+@{Layout = "~/Views/Shared/_Layout.cshtml";}
 
 
 @section InlineStyles{
-
+    <style type="text/css">
+        .ui-cultureSet-boxInfo li { margin:1em; }
+        .ui-cultureSet-boxInfoTable td { padding:0.5em;}
+    </style>
 }
 
 @section ScriptsToAdd{
 
 }
 
+@{ 
+    var d = DateTime.Now;
+    var a = 1234567890.12345;
+}
 
+<h2>@this.Model.BaseViewModelInfo.UserProfile.Culture.DisplayName</h2>
+<br />
+<h3>@VsixMvcAppResult.Resources.General.GeneralTexts.Dates</h3>
+<br />
+<ul class="ui-cultureSet-boxInfo">
+    <li>@string.Format("{0} {1}", VsixMvcAppResult.Resources.General.GeneralTexts.DatePattern, this.Model.BaseViewModelInfo.UserProfile.Culture.DateTimeFormat.ShortDatePattern)</li>
+    <li>@string.Format("{0} {1}",VsixMvcAppResult.Resources.General.GeneralTexts.TodayIs, d.ToLongDateString())</li>
+    <li>@string.Format("{0} {1}",VsixMvcAppResult.Resources.General.GeneralTexts.TodayIs, d.ToString())</li>
+</ul>
+<br />
+<h3>@VsixMvcAppResult.Resources.General.GeneralTexts.Numbers</h3>
+<br />
+<table class="ui-cultureSet-boxInfoTable">
+    <tr>
+        <td>@a.ToString()</td><td>@VsixMvcAppResult.Resources.General.GeneralTexts.TheNumber</td>
+    </tr>
+    <tr>
+        <td>@a.ToString("C")</td><td>@VsixMvcAppResult.Resources.General.GeneralTexts.TheNumberFormattedAsCurrency</td>
+    </tr>
+    <tr>
+        <td>@a.ToString("N")</td><td>@VsixMvcAppResult.Resources.General.GeneralTexts.TheNumberFormattedAsNumber</td>
+    </tr>
+</table>

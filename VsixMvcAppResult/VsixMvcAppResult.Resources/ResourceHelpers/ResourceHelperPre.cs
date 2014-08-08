@@ -325,6 +325,8 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public const String Blog = "Blog";
 		public const String BreadcrumbNavigation = "BreadcrumbNavigation";
 		public const String Dashboard = "Dashboard";
+		public const String DatePattern = "DatePattern";
+		public const String Dates = "Dates";
 		public const String Documentation = "Documentation";
 		public const String Home = "Home";
 		public const String Languages = "Languages";
@@ -334,6 +336,7 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public const String MenuSite = "MenuSite";
 		public const String NoDataFound = "NoDataFound";
 		public const String NotFound404 = "NotFound404";
+		public const String Numbers = "Numbers";
 		public const String OnlineSince = "OnlineSince";
 		public const String PermissionDenied = "PermissionDenied";
 		public const String PleaseReviewForm = "PleaseReviewForm";
@@ -346,6 +349,11 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public const String Showing = "Showing";
 		public const String SiteAdmin = "SiteAdmin";
 		public const String SiteThemes = "SiteThemes";
+		public const String TheNumber = "TheNumber";
+		public const String TheNumberFormattedAsCurrency = "TheNumberFormattedAsCurrency";
+		public const String TheNumberFormattedAsNumber = "TheNumberFormattedAsNumber";
+		public const String TodayIs = "TodayIs";
+		public const String TotalAmountIs = "TotalAmountIs";
 		public const String TotalRecordsFound = "TotalRecordsFound";
 		public const String TraceDataSource = "TraceDataSource";
 		public const String UnAuthorizedError = "UnAuthorizedError";
@@ -365,6 +373,8 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public  string Blog {	get{	return GeneralTexts.Blog;	}	}
 		public  string BreadcrumbNavigation {	get{	return GeneralTexts.BreadcrumbNavigation;	}	}
 		public  string Dashboard {	get{	return GeneralTexts.Dashboard;	}	}
+		public  string DatePattern {	get{	return GeneralTexts.DatePattern;	}	}
+		public  string Dates {	get{	return GeneralTexts.Dates;	}	}
 		public  string Documentation {	get{	return GeneralTexts.Documentation;	}	}
 		public  string Home {	get{	return GeneralTexts.Home;	}	}
 		public  string Languages {	get{	return GeneralTexts.Languages;	}	}
@@ -374,6 +384,7 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public  string MenuSite {	get{	return GeneralTexts.MenuSite;	}	}
 		public  string NoDataFound {	get{	return GeneralTexts.NoDataFound;	}	}
 		public  string NotFound404 {	get{	return GeneralTexts.NotFound404;	}	}
+		public  string Numbers {	get{	return GeneralTexts.Numbers;	}	}
 		public  string OnlineSince {	get{	return GeneralTexts.OnlineSince;	}	}
 		public  string PermissionDenied {	get{	return GeneralTexts.PermissionDenied;	}	}
 		public  string PleaseReviewForm {	get{	return GeneralTexts.PleaseReviewForm;	}	}
@@ -386,6 +397,11 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public  string Showing {	get{	return GeneralTexts.Showing;	}	}
 		public  string SiteAdmin {	get{	return GeneralTexts.SiteAdmin;	}	}
 		public  string SiteThemes {	get{	return GeneralTexts.SiteThemes;	}	}
+		public  string TheNumber {	get{	return GeneralTexts.TheNumber;	}	}
+		public  string TheNumberFormattedAsCurrency {	get{	return GeneralTexts.TheNumberFormattedAsCurrency;	}	}
+		public  string TheNumberFormattedAsNumber {	get{	return GeneralTexts.TheNumberFormattedAsNumber;	}	}
+		public  string TodayIs {	get{	return GeneralTexts.TodayIs;	}	}
+		public  string TotalAmountIs {	get{	return GeneralTexts.TotalAmountIs;	}	}
 		public  string TotalRecordsFound {	get{	return GeneralTexts.TotalRecordsFound;	}	}
 		public  string TraceDataSource {	get{	return GeneralTexts.TraceDataSource;	}	}
 		public  string UnAuthorizedError {	get{	return GeneralTexts.UnAuthorizedError;	}	}
