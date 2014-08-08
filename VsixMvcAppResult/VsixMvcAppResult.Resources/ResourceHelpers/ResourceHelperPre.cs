@@ -347,6 +347,7 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public const String SelectSourceToGetDetails = "SelectSourceToGetDetails";
 		public const String SessionExpired = "SessionExpired";
 		public const String SessionExpiredPleaseLogin = "SessionExpiredPleaseLogin";
+		public const String SettingsApplied = "SettingsApplied";
 		public const String Showing = "Showing";
 		public const String SiteAdmin = "SiteAdmin";
 		public const String SiteThemes = "SiteThemes";
@@ -396,6 +397,7 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public  string SelectSourceToGetDetails {	get{	return GeneralTexts.SelectSourceToGetDetails;	}	}
 		public  string SessionExpired {	get{	return GeneralTexts.SessionExpired;	}	}
 		public  string SessionExpiredPleaseLogin {	get{	return GeneralTexts.SessionExpiredPleaseLogin;	}	}
+		public  string SettingsApplied {	get{	return GeneralTexts.SettingsApplied;	}	}
 		public  string Showing {	get{	return GeneralTexts.Showing;	}	}
 		public  string SiteAdmin {	get{	return GeneralTexts.SiteAdmin;	}	}
 		public  string SiteThemes {	get{	return GeneralTexts.SiteThemes;	}	}

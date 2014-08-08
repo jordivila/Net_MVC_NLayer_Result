@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using VsixMvcAppResult.Models.Enumerations;
 using VsixMvcAppResult.Models.Globalization;
+using VsixMvcAppResult.Resources.General;
 using VsixMvcAppResult.UI.Web.Controllers;
 using VsixMvcAppResult.UI.Web.Models;
 
@@ -30,14 +31,14 @@ namespace VsixMvcAppResult.UI.Web.Areas.Home.Controllers
         public ActionResult About()
         {
             baseViewModel model = new baseViewModel();
-            model.BaseViewModelInfo.Title = "About";
+            model.BaseViewModelInfo.Title = GeneralTexts.About;
             return View(model);
         }
 
         private ActionResult SettingsApplied()
         {
             baseViewModel model = new baseViewModel();
-            model.BaseViewModelInfo.Title = "Settings applied";
+            model.BaseViewModelInfo.Title = GeneralTexts.SettingsApplied;
             return View(model);
         }
 
