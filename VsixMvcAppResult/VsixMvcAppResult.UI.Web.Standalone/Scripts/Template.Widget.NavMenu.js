@@ -87,7 +87,8 @@
 		},
 		openNode: function ($lisOpen) {
 			if ($lisOpen) {
-				$lisOpen.children('ul')
+			    $lisOpen.removeClass('ui-state-default')
+                            .children('ul')
                                 .show()
                                 .siblings('div.ui-treeList-toggle')
                                     .removeClass('ui-icon ui-icon-triangle-1-s')

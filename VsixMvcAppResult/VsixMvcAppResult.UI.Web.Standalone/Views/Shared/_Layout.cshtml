@@ -21,24 +21,23 @@
                         <div class="ui-menuToggle-text">Menu</div>
                         <div class="ui-carriageReturn"></div>
                     </div>
+                    <div class="ui-site-title">
+                        <a href="/">@VsixMvcAppResult.Models.Configuration.ApplicationConfiguration.DomainInfoSettingsSection.DomainName</a>
+                    </div>
                 </div>
                 <div class="ui-carriageReturn"></div>
             </div>
             <div class="ui-carriageReturn"></div>
 
-
-
+            <div class="ui-site-title">
+                <h1>@this.Model.BaseViewModelInfo.Title</h1>
+            </div>
 
             @Html.PartialBreadcrumb()
             
             <div class="ui-siteContent">
-                
                 @Html.MenuGet().Render(new { id = "panelMenu", @class = "ui-menuNav ui-menuNav-Expand" })
-                
                 <div id="panelContent" class="ui-siteContent-Container ui-siteContent-Container-Collapse">
-                    <div class="ui-site-title">
-                        <h1>Jordi Vila - @this.Model.BaseViewModelInfo.Title</h1>
-                    </div>
                     @RenderBody()
                 </div>
             </div>
@@ -65,46 +64,10 @@
                     VsixMvcAppResult.Widgets.Page.cultureGlobalization = "@this.Model.BaseViewModelInfo.LocalizationResources.CultureGlobalization";
                     VsixMvcAppResult.Widgets.Page.cultureDatePicker = "@this.Model.BaseViewModelInfo.LocalizationResources.CultureDatePicker";
                     VsixMvcAppResult.Widgets.Page.defaultTheme = "@this.Model.BaseViewModelInfo.UserProfile.Theme.Value";
-                    VsixMvcAppResult.Widgets.Page.onInit(function () { afterEverythingLoads(); });
+                    VsixMvcAppResult.Widgets.Page.onInit(function () { jQuery('body').removeClass('ui-hidden'); });
                     VsixMvcAppResult.Widgets.Page.Init();
                 });
-
             })(jQuery);
-
-            function afterEverythingLoads() {
-
-                jQuery('body').removeClass('ui-hidden');
-
-                var $panelMenu = jQuery('#panelMenu');
-                var $panelContent = jQuery('#panelContent');
-
-                $panelMenu.navMenu();
-                //$panelMenu.menu();
-
-
-                jQuery('#menuToggle').click(function () {
-
-                    $panelMenu.show('slide', function () {
-                        if (jQuery(this).is(':visible')) {
-
-                            jQuery(document).bind("click", function (e) {
-
-                                var menuClicked = jQuery(e.target).parents($panelMenu.selector).length > 0;
-
-                                if (!menuClicked)
-                                {
-                                    $panelMenu.hide('slide');
-                                    jQuery(document).unbind("click");
-
-                                    $panelMenu.navMenu('collapseAll');
-                                }
-                                
-                            });
-                        }
-                    });
-                });
-            }
-
         </script>
     </body>
 </html>
