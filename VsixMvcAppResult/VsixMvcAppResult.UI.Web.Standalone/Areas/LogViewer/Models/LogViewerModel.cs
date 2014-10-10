@@ -10,6 +10,7 @@ using VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses;
 using VsixMvcAppResult.Resources.LogViewer;
 using VsixMvcAppResult.UI.Web.Models;
 using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
+using System.Linq;
 
 
 namespace VsixMvcAppResult.UI.Web.Areas.LogViewer.Models
@@ -18,23 +19,21 @@ namespace VsixMvcAppResult.UI.Web.Areas.LogViewer.Models
     {
         public LogViewerModel()
         {
-            this.Severities = new List<SelectListItem>() 
-            { 
-                new SelectListItem(){ Text= LogViewerTexts.Severity_All, Value=string.Empty, Selected=true },
-            };
+            this.Severities = new List<SelectListItem>() { new SelectListItem() { Text = LogViewerTexts.Severity_All, Value = string.Empty, Selected = true }, }
+                                .Union(((Enum)LoggerSeverities.Error).ToSelectList(typeof(LoggerSeverities)))
+                                .Select(c => { c.Selected = false; return c; })
+                                .ToList();
 
-            this.Severities.AddRange(((Enum)LoggerSeverities.Error).ToSelectList(typeof(LoggerSeverities)));
-
-
-
-             this.Categories = new List<SelectListItem>() 
-            { 
-                new SelectListItem(){ Text= LogViewerTexts.Severity_All, Value=string.Empty, Selected=true },
-            };
-
-            this.Categories.AddRange(((Enum)LoggerCategories.UIGeneral).ToSelectList(typeof(LoggerCategories)));
+            this.Severities.Where(x => x.Value == string.Empty).First().Selected = true;
 
 
+
+            this.Categories = new List<SelectListItem>() { new SelectListItem() { Text = LogViewerTexts.Severity_All, Value = string.Empty, Selected = true } }
+                                .Union(((Enum)LoggerCategories.UIGeneral).ToSelectList(typeof(LoggerCategories)))
+                                .Select(c => { c.Selected = false; return c; })
+                                .ToList();
+
+            this.Categories.Where(x => x.Value == string.Empty).First().Selected = true;
             
         }
 
