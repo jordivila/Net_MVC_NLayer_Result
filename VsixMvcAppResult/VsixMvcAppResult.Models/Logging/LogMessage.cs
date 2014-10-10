@@ -39,7 +39,7 @@ namespace VsixMvcAppResult.Models.Logging
         public LogMessageModel(LogEntry logEntry)
             : this(
                 logEntry.Message,
-                logEntry.Categories.Count() > 0 ? logEntry.Categories.First() : LoggerCategories.UIGeneral,
+                logEntry.Categories.Count() > 0 ? logEntry.Categories.First() : LoggerCategories.UIGeneral.ToString(),
                 logEntry.Priority,
                 logEntry.EventId,
                 logEntry.Severity,

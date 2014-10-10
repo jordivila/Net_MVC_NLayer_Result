@@ -95,7 +95,7 @@ namespace VsixMvcAppResult.UI.Web.Areas.Error.Controllers
                     paramLogger.Add("clientSideError_ParentUrl", clientSideError_ParentUrl);
                     paramLogger.Add("clientSideError_UserAgent", clientSideError_UserAgent);
                     Dictionary<string, object> parameters = paramLogger.Concat(paramVariables).ToDictionary(x => x.Key, x => x.Value);
-                    LogEntry lEntry = new LogEntry(LogTitle, LoggerCategories.UIClientSideJavascriptError, 1, 1, TraceEventType.Error, LogTitle, parameters);
+                    LogEntry lEntry = new LogEntry(LogTitle, LoggerCategories.UIClientSideJavascriptError.ToString(), 1, 1, TraceEventType.Error, LogTitle, parameters);
                     LoggingHelper.Write(lEntry);
                 }
                 catch (Exception ex)

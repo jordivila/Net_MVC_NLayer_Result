@@ -262,7 +262,6 @@
     <Content Include="Areas\Error\Views\Error\FaultExceptionUnExpected.cshtml" />
     <Content Include="Areas\LogViewer\Views\LogViewer\LogViewerById.cshtml" />
     <Content Include="Areas\UserProfile\Views\Shared\EditorTemplates\UserProfileModel.cshtml" />
-    <Content Include="Areas\LogViewer\Views\LogViewer\LogViewerBySourceName.cshtml" />
     <Content Include="Areas\UserAccount\Views\UserAccount\Dashboard.cshtml" />
     <Content Include="Areas\UserProfile\Views\UserProfile\Edit.cshtml" />
     <Content Include="Areas\LogViewer\Views\Web.config" />

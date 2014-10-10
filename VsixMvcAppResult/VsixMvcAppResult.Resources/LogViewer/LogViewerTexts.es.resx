@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Categories" xml:space="preserve">
+    <value>Categorías</value>
+  </data>
   <data name="CreationDateFrom" xml:space="preserve">
     <value>Fecha de creación </value>
   </data>
@@ -128,5 +131,17 @@
   </data>
   <data name="LogMessagesSearch" xml:space="preserve">
     <value>Búsqueda de 'Logs'</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>Gravedad</value>
+  </data>
+  <data name="Severity_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Severity_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Severity_Information" xml:space="preserve">
+    <value>Información</value>
   </data>
 </root>

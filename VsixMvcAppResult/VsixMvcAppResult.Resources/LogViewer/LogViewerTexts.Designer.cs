@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VsixMvcAppResult.Resources.LogViewer
-{
+namespace VsixMvcAppResult.Resources.LogViewer {
     using System;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,93 +22,122 @@ namespace VsixMvcAppResult.Resources.LogViewer
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class LogViewerTexts
-    {
-
+    public class LogViewerTexts {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal LogViewerTexts()
-        {
+        internal LogViewerTexts() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("VsixMvcAppResult.Resources.LogViewer.LogViewerTexts", typeof(LogViewerTexts).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to Creation date from.
+        ///   Looks up a localized string similar to Categories.
         /// </summary>
-        public static string CreationDateFrom
-        {
-            get
-            {
+        public static string Categories {
+            get {
+                return ResourceManager.GetString("Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creation date.
+        /// </summary>
+        public static string CreationDateFrom {
+            get {
                 return ResourceManager.GetString("CreationDateFrom", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to to.
         /// </summary>
-        public static string CreationDateTo
-        {
-            get
-            {
+        public static string CreationDateTo {
+            get {
                 return ResourceManager.GetString("CreationDateTo", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to &quot;Creation date (from)&quot; must be smaller than &quot;Creation date (to)&quot;.
         /// </summary>
-        public static string CreationDateToGreaterThanFrom
-        {
-            get
-            {
+        public static string CreationDateToGreaterThanFrom {
+            get {
                 return ResourceManager.GetString("CreationDateToGreaterThanFrom", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Log Message Search.
         /// </summary>
-        public static string LogMessagesSearch
-        {
-            get
-            {
+        public static string LogMessagesSearch {
+            get {
                 return ResourceManager.GetString("LogMessagesSearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Severity.
+        /// </summary>
+        public static string Severity {
+            get {
+                return ResourceManager.GetString("Severity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string Severity_All {
+            get {
+                return ResourceManager.GetString("Severity_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Severity_Error {
+            get {
+                return ResourceManager.GetString("Severity_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string Severity_Information {
+            get {
+                return ResourceManager.GetString("Severity_Information", resourceCulture);
             }
         }
     }

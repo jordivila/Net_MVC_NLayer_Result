@@ -7,7 +7,7 @@ using VsixMvcAppResult.Models.Unity;
 
 namespace VsixMvcAppResult.BL.LoggingServices
 {
-    public class LoggingBL : BaseBL, ILoggingBL
+    public class LoggingBL : BaseBL, ILoggingProxy
     {
         private ILoggingDAL _dal;
 

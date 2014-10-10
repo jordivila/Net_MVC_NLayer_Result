@@ -15,7 +15,6 @@ namespace VsixMvcAppResult.Models.Logging
     [Serializable]
     public class DataFilterLogger : baseModel, IDataFilter
     {
-
         [DataMember]
         [XmlElement]
         public string LogTraceListenerSelected { get; set; }
@@ -27,9 +26,18 @@ namespace VsixMvcAppResult.Models.Logging
         [DataMember]
         [Date(ErrorMessageResourceName = DataAnnotationsResourcesKeys.DateAttribute_Invalid, ErrorMessageResourceType = typeof(DataAnnotationsResources))]
         [Display(ResourceType = typeof(LogViewerTexts), Name = LogViewerTextsKeys.CreationDateFrom)]
-        [Required]
+        //[Required]
         [XmlElement]
-        public DateTime CreationDate { get; set; }
+        public DateTime? CreationDate { get; set; }
+
+        [DataMember]
+        [XmlElement]
+        public string Severity { get; set; }
+
+        //[DataMember]
+        //[XmlElement]
+        //public string Category { get; set; }
+
 
         //[DataMember]
         //[Date(ErrorMessageResourceName = DataAnnotationsResourcesKeys.DateAttribute_Invalid, ErrorMessageResourceType = typeof(DataAnnotationsResources))]

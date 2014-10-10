@@ -34,7 +34,7 @@ namespace VsixMvcAppResult.Models.Logging
 
         public static void Write(Exception exception)
         {
-            LoggingHelper.Write(new LogEntry(exception, LoggerCategories.WCFGeneral, 1, 1, TraceEventType.Error, string.Format("{0} (DetailException)", baseModel.GetInvokingMethod().DeclaringType.FullName), null));
+            LoggingHelper.Write(new LogEntry(exception, LoggerCategories.WCFGeneral.ToString(), 1, 1, TraceEventType.Error, string.Format("{0} (DetailException)", baseModel.GetInvokingMethod().DeclaringType.FullName), null));
         }
 
     }

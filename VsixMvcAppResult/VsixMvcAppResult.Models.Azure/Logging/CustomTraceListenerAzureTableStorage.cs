@@ -178,7 +178,7 @@ namespace VsixMvcAppResult.Models.Logging
 
                     TableQuery.GenerateFilterCondition("PartitionKey",
                                                         QueryComparisons.Equal,
-                                                        dataFilter.CreationDate.ToString("yyyyMMdd"))
+                                                        dataFilter.CreationDate.Value.ToString("yyyyMMdd"))
                     );
 
             List<AzureTableStorageListenerEntity> resultsList = table.ExecuteQuery<AzureTableStorageListenerEntity>(rangeQuery).ToList();

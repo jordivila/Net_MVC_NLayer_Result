@@ -6,7 +6,9 @@ namespace VsixMvcAppResult.UI.Web.Areas.LogViewer
     {
         public static string LogViewer(this UrlHelper helper)
         {
-            return helper.Action("Index", "LogViewer", new { Area = LogViewerAreaRegistration.LogViewerAreaName });
+            //return helper.Action("Index", "LogViewer", new { Area = LogViewerAreaRegistration.LogViewerAreaName });
+
+            return helper.Action("LogViewerByDatabaseTraceListener", "LogViewer", new { Area = LogViewerAreaRegistration.LogViewerAreaName });
         }
         public static string LogGetById(this UrlHelper helper, string guid)
         {

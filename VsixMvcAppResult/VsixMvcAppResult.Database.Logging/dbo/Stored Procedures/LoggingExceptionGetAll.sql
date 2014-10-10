@@ -1,4 +1,3 @@
-
 Create procedure [dbo].[LoggingExceptionGetAll]
 	@filter xml
 as
@@ -10,6 +9,8 @@ begin
 
 	declare @logTraceSourceSelected varchar(255)
 	declare @logDateCreationFrom datetime, @logDateCreationTo datetime
+	declare @severity varchar(32)
+
 	declare @sqlcommand nvarchar(max)
 	declare @sqlcommandWhereClause nvarchar(max)
 	declare @sqlCommandParametersDefinition nvarchar(max);
@@ -24,30 +25,48 @@ begin
 	select	
 			@logTraceSourceSelected = r.rootnode.value('LogTraceSourceSelected[1][not(@xsi:nil = "true")]', 'nvarchar(255)'),
 			@logDateCreationFrom = r.rootnode.value('CreationDate[1][not(@xsi:nil = "true")]', 'datetime'),
+			@severity = r.rootnode.value('Severity[1][not(@xsi:nil = "true")]', 'varchar(32)'),
+
 			@pageIndex = r.rootnode.value('Page[1][not(@xsi:nil = "true")]', 'int'),
 			@pageSize = r.rootnode.value('PageSize[1][not(@xsi:nil = "true")]', 'int'),
 			@sortBy = r.rootnode.value('SortBy[1][not(@xsi:nil = "true")]', 'nvarchar(255)'),
 			@sortAscending = r.rootnode.value('SortAscending[1][not(@xsi:nil = "true")]', 'bit')
 	from	@filter.nodes('/DataFilterLogger') as r(rootnode)
 	
-	set @logDateCreationTo =  DATEADD(DAY, 1, @logDateCreationFrom)
+
+
+	if(@logDateCreationFrom is not null)
+	begin
+		set @logDateCreationTo =  DATEADD(DAY, 1, @logDateCreationFrom)
+	end
 	
+	--select 
+	--		@sortBy = ISNULL(@sortBy, 'LogID'), 
+	--		@sortAscendingDescription = 
+	--		case 
+	--			when (ISNULL(@sortAscending, 1)) = 0 then 'desc' 
+	--			else 'asc' 
+	--		end
+
+
 	select 
-			@sortBy = ISNULL(@sortBy, 'LogID'), 
-			@sortAscendingDescription = 
-			case 
-				when (ISNULL(@sortAscending, 1)) = 0 then 'desc' 
-				else 'asc' 
-			end
+			@sortBy = 'LogID', 
+			@sortAscendingDescription = 'desc' 
+
+	set @sqlcommandWhereClause = N' from 
+										[log] 
+										inner JOIN CategoryLog on CategoryLog.CategoryLogID = [Log].LogID 
+										inner join Category on Category.CategoryID = CategoryLog.CategoryID 
+									where 
+										[Timestamp] between IsNull(@logDateCreationFrom,[Timestamp])  and IsNull(@logDateCreationTo, [Timestamp])
+										and Severity = IsNull(@severity, Severity)
+										and CategoryName = IsNull(@logTraceSourceSelected, CategoryName)
+										'
+										--
 
 
-	set @sqlcommandWhereClause = N' from
-										[log]
-										inner JOIN CategoryLog on CategoryLog.CategoryLogID = [Log].LogID
-										inner join Category on Category.CategoryID = CategoryLog.CategoryID
-									where
-										CategoryName = @logTraceSourceSelected
-										and [Timestamp] between @logDateCreationFrom and @logDateCreationTo'
+										
+
 
 	set @sqlcommand = N'
 						select	count(*) TotalCount,
@@ -80,15 +99,15 @@ begin
 						-- order by ' + @sortby + ' ' + @sortAscendingDescription;
 
 
-	set @sqlCommandParametersDefinition = N'@logTraceSourceSelected varchar(256), @logDateCreationFrom datetime, @logDateCreationTo datetime, @pageIndex int , @pageSize int';
+	set @sqlCommandParametersDefinition = N'@logTraceSourceSelected varchar(256), @logDateCreationFrom datetime, @logDateCreationTo datetime, @severity varchar(32), @pageIndex int , @pageSize int';
 
 	execute sp_executesql @sqlcommand, 
 							@sqlCommandParametersDefinition, 
 							@logTraceSourceSelected = @logTraceSourceSelected,
 							@logDateCreationFrom = @logDateCreationFrom,
 							@logDateCreationTo = @logDateCreationTo,
+							@severity = @severity,
 							@pageIndex = @pageIndex,
 							@pageSize = @pageSize
 
 end
-

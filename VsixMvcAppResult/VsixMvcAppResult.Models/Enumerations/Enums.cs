@@ -64,15 +64,35 @@ namespace VsixMvcAppResult.Models.Enumerations
         UI_Lightness,
         Vader
     }
-    public static class LoggerCategories
+
+    //public static class LoggerCategories
+    //{
+    //    public static string WCFGeneral = "WCFGeneral";
+    //    public static string WCFBeginRequest = "WCFBeginRequest";
+    //    public static string UIGeneral = "UIGeneral";
+    //    public static string UIBeginRequest = "UIBeginRequest";
+    //    public static string UIServerSideUnhandledException = "UIServerSideUnhandledException";
+    //    public static string UIClientSideJavascriptError = "UIClientSideJavascriptError";
+    //}
+
+
+    public enum LoggerCategories
     {
-        public static string WCFGeneral = "WCFGeneral";
-        public static string WCFBeginRequest = "WCFBeginRequest";
-        public static string UIGeneral = "UIGeneral";
-        public static string UIBeginRequest = "UIBeginRequest";
-        public static string UIServerSideUnhandledException = "UIServerSideUnhandledException";
-        public static string UIClientSideJavascriptError = "UIClientSideJavascriptError";
+        WCFGeneral, //, = "WCFGeneral";
+        WCFBeginRequest , //= "WCFBeginRequest";
+        UIGeneral , //= "UIGeneral";
+        UIBeginRequest , //= "UIBeginRequest";
+        UIServerSideUnhandledException , //= "UIServerSideUnhandledException";
+        UIClientSideJavascriptError, //= "UIClientSideJavascriptError";
     }
+
+    public enum LoggerSeverities
+    { 
+        Information = 1,
+        Error = 2
+    }
+
+
     public enum PageSizesAvailable : int
     {
         RowsPerPage10 = 10,

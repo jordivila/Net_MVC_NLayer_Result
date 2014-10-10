@@ -41,7 +41,7 @@ namespace VsixMvcAppResult.WCF.ServicesLibrary
                 {
                     extendedProperties.Add("RequestMessage", OperationContext.Current.RequestContext.RequestMessage);
                 }
-                LoggingHelper.Write(new LogEntry(error, LoggerCategories.WCFGeneral, 1, 1, TraceEventType.Error, string.Format("{0} (DetailException): {1}", Assembly.GetExecutingAssembly().GetName().Name, wrapperException.ExceptionId), extendedProperties));
+                LoggingHelper.Write(new LogEntry(error, LoggerCategories.WCFGeneral.ToString(), 1, 1, TraceEventType.Error, string.Format("{0} (DetailException): {1}", Assembly.GetExecutingAssembly().GetName().Name, wrapperException.ExceptionId), extendedProperties));
                 // LoggingHelper.Write(new LogEntry(error.GetBaseException(), LoggerCategories.General, 1, 1, TraceEventType.Error, string.Format("{0} (BaseException) : {1}", Assembly.GetExecutingAssembly().GetName().Name, wrapperException.ExceptionId), extendedProperties));
             }
             catch (Exception exII)

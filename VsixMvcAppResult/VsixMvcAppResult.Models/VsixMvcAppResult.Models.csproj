@@ -114,7 +114,6 @@
     <Compile Include="Logging\LogMessage.cs" />
     <Compile Include="Logging\LogMessageFilter.cs" />
     <Compile Include="Logging\ILoggingProxy.cs" />
-    <Compile Include="Logging\ILoggingBL.cs" />
     <Compile Include="Logging\ILoggingDAL.cs" />
     <Compile Include="Membership\DataFilterUserList.cs" />
     <Compile Include="Membership\DataResultProviderSettings.cs" />

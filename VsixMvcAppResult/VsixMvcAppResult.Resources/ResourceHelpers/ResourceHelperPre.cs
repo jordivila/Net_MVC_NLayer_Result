@@ -461,17 +461,27 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 	}
 	public class LogViewerTextsKeys
 	{
+		public const String Categories = "Categories";
 		public const String CreationDateFrom = "CreationDateFrom";
 		public const String CreationDateTo = "CreationDateTo";
 		public const String CreationDateToGreaterThanFrom = "CreationDateToGreaterThanFrom";
 		public const String LogMessagesSearch = "LogMessagesSearch";
+		public const String Severity = "Severity";
+		public const String Severity_All = "Severity_All";
+		public const String Severity_Error = "Severity_Error";
+		public const String Severity_Information = "Severity_Information";
 	}
 	public class LogViewerTextsViewModelHelper
 	{
+		public  string Categories {	get{	return LogViewerTexts.Categories;	}	}
 		public  string CreationDateFrom {	get{	return LogViewerTexts.CreationDateFrom;	}	}
 		public  string CreationDateTo {	get{	return LogViewerTexts.CreationDateTo;	}	}
 		public  string CreationDateToGreaterThanFrom {	get{	return LogViewerTexts.CreationDateToGreaterThanFrom;	}	}
 		public  string LogMessagesSearch {	get{	return LogViewerTexts.LogMessagesSearch;	}	}
+		public  string Severity {	get{	return LogViewerTexts.Severity;	}	}
+		public  string Severity_All {	get{	return LogViewerTexts.Severity_All;	}	}
+		public  string Severity_Error {	get{	return LogViewerTexts.Severity_Error;	}	}
+		public  string Severity_Information {	get{	return LogViewerTexts.Severity_Information;	}	}
 	}
 	public class UserAdminTextsKeys
 	{
