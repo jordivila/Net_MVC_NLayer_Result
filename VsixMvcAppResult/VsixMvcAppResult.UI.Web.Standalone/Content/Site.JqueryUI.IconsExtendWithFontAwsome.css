@@ -283,7 +283,8 @@
 .ui-icon-cog:before {
   content: "\f013";
 }
-.ui-icon-trash-o:before {
+
+.ui-icon-trash:before {
   content: "\f014";
 }
 .ui-icon-home:before {
