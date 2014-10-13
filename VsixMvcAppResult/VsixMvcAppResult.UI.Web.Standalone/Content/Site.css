@@ -111,7 +111,7 @@ input[type='radio'] {height:1em;width:1em;}
 {
     .ui-siteContent .ui-siteContent-Container{/*width:auto; margin-left: auto ;margin-right:1em ;*/}
     .ui-siteContent .ui-siteContent-Container-Expand{}
-    .ui-siteContent .ui-siteContent-Container-Collapse{width:65%;float:left;}
+    .ui-siteContent .ui-siteContent-Container-Collapse{width:70%;float:left;}
     .ui-siteContent .ui-menuNav {position:relative;display:block !important;float:left;/*margin:0 1em 0 0;*/}
     .ui-siteContent .ui-menuNav-Collapse {} 
     .ui-siteContent .ui-menuNav-Expand {width:25%;}
