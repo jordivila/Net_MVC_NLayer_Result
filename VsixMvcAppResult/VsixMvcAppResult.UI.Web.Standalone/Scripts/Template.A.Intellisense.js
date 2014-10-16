@@ -7961,13 +7961,6 @@ VsixMvcAppResult.Widgets.DialogInline =
         },
         _initItem: function ($lis) {
             $lis.addClass('ui-treeList-item ui-widget-content ui-corner-all ui-state-default')
-                  //.hover(
-                  //      function () {
-                  //          jQuery(this).addClass('ui-state-hover').parents('li').removeClass('ui-state-hover');
-                  //      }
-                  //      , function () {
-                  //          jQuery(this).removeClass('ui-state-hover');
-                  //      })
 				.find('a:first')
 					.addClass('ui-treeList-link');
 

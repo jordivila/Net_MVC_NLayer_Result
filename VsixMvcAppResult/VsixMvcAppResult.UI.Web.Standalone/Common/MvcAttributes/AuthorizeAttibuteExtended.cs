@@ -92,6 +92,8 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Attributes
                     string sessionCookie = ctx.Request.Headers["Cookie"];
                     if ((null != sessionCookie) && (sessionCookie.IndexOf("ASP.NET_SessionId") >= 0))
                     {
+                        ctx.Response.Cookies["ASP.NET_SessionId"].Expires = DateTime.Now.AddDays(-1D);
+
                         isAuth = false;
                     }
                 }
