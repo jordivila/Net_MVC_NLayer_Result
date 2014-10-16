@@ -55,7 +55,7 @@ begin
 
 	set @sqlcommandWhereClause = N' from 
 										[log] 
-										inner JOIN CategoryLog on CategoryLog.CategoryLogID = [Log].LogID 
+										inner JOIN CategoryLog on CategoryLog.LogID = [Log].LogID 
 										inner join Category on Category.CategoryID = CategoryLog.CategoryID 
 									where 
 										[Timestamp] between IsNull(@logDateCreationFrom,[Timestamp])  and IsNull(@logDateCreationTo, [Timestamp])
