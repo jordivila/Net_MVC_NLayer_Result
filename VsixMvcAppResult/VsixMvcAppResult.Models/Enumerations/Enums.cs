@@ -38,30 +38,79 @@ namespace VsixMvcAppResult.Models.Enumerations
     }
     public enum ThemesAvailable
     {
+        [EnumMember(Value="Base")]
         Base,
+
+        [EnumMember(Value = "Black_Tie")]
         Black_Tie,
+
+        [EnumMember(Value = "Blitzer")]
         Blitzer,
+
+        [EnumMember(Value = "Cupertino")]
         Cupertino,
+
+        [EnumMember(Value = "Dark_Hive")]
         Dark_Hive,
+
+        [EnumMember(Value = "Dot_Luv")]
         Dot_Luv,
+
+        [EnumMember(Value = "Eggplant")]
         Eggplant,
+
+        [EnumMember(Value = "Excite_Bike")]
         Excite_Bike,
+
+        [EnumMember(Value = "Flick")]
         Flick,
+
+        [EnumMember(Value = "Hot_Sneaks")]
         Hot_Sneaks,
+
+        [EnumMember(Value = "Humanity")]
         Humanity,
+
+        [EnumMember(Value = "Le_Frog")]
         Le_Frog,
+
+        [EnumMember(Value = "Mint_Choc")]
         Mint_Choc,
+
+        [EnumMember(Value = "Overcast")]
         Overcast,
+
+        [EnumMember(Value = "Pepper_Grinder")]
         Pepper_Grinder,
+
+        [EnumMember(Value = "Redmond")]
         Redmond,
+
+        [EnumMember(Value = "Smoothness")]
         Smoothness,
+
+        [EnumMember(Value = "South_Street")]
         South_Street,
+
+        [EnumMember(Value = "Start")]
         Start,
+
+        [EnumMember(Value = "Sunny")]
         Sunny,
+
+        [EnumMember(Value = "Swanky_Purse")]
         Swanky_Purse,
+
+        [EnumMember(Value = "Trontastic")]
         Trontastic,
+
+        [EnumMember(Value = "UI_Darkness")]
         UI_Darkness,
+
+        [EnumMember(Value = "UI_Lightness")]
         UI_Lightness,
+
+        [EnumMember(Value = "Vader")]
         Vader
     }
 

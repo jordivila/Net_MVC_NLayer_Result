@@ -9,37 +9,39 @@ using VsixMvcAppResult.Models.Configuration;
 
 namespace VsixMvcAppResult.BL.Mailing
 {
-    public static class MailingHelper
-    {
-        static MailingHelper()
-        {
-            _SmtpClient = DependencyFactory.Resolve<ISmtpClient>();
-            _MailingConfig = ApplicationConfiguration.MailingSettingsSection;
-            _DomainConfig = ApplicationConfiguration.DomainInfoSettingsSection;
-        }
+    //public static class MailingHelper
+    //{
+    //    static MailingHelper()
+    //    {
+    //        _SmtpClient = DependencyFactory.Resolve<ISmtpClient>();
+    //        _MailingConfig = ApplicationConfiguration.MailingSettingsSection;
+    //        _DomainConfig = ApplicationConfiguration.DomainInfoSettingsSection;
+    //    }
 
-        private static ISmtpClient _SmtpClient;
-        public static ISmtpClient SmtpClient
-        {
-            get { return _SmtpClient; }
-        }
+    //    private static ISmtpClient _SmtpClient;
+    //    public static ISmtpClient SmtpClient
+    //    {
+    //        get { return _SmtpClient; }
+    //    }
 
-        private static IMailingConfiguration _MailingConfig;
-        public static IMailingConfiguration MailingConfig
-        {
-            get { return _MailingConfig; }
-        }
+    //    private static IMailingConfiguration _MailingConfig;
+    //    public static IMailingConfiguration MailingConfig
+    //    {
+    //        get { return _MailingConfig; }
+    //    }
 
-        private static IDomainInfoConfiguration _DomainConfig;
-        public static IDomainInfoConfiguration DomainConfig
-        {
-            get { return _DomainConfig; }
-        }
+    //    private static IDomainInfoConfiguration _DomainConfig;
+    //    public static IDomainInfoConfiguration DomainConfig
+    //    {
+    //        get { return _DomainConfig; }
+    //    }
 
-        public static void Send(Func<MailMessage> mailMessage)
-        {
-            _SmtpClient.Send(mailMessage());
-            //_SmtpClient.Dispose();
-        }
-    }
+    //    public static void Send(Func<MailMessage> mailMessage)
+    //    {
+    //        _SmtpClient.Send(mailMessage());
+    //        //_SmtpClient.Dispose();
+    //    }
+
+
+    //}
 }

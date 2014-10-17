@@ -23,6 +23,7 @@ using VsixMvcAppResult.BL.SyndicationServices;
 using VsixMvcAppResult.BL.LoggingServices;
 using VsixMvcAppResult.BL.MembershipServices;
 using VsixMvcAppResult.BL.AuthenticationServices;
+using VsixMvcAppResult.Models.Configuration;
 
 namespace VsixMvcAppResult.UI.Web.Unity
 {
@@ -44,7 +45,14 @@ namespace VsixMvcAppResult.UI.Web.Unity
             /*Front End Interfaces end*/
 
             /*Back End Interfaces begin*/
-            result.RegisterType(typeof(ISmtpClient), typeof(SmtpClientMock), new InjectionMember[0]);
+            if (ApplicationConfiguration.MailingSettingsSection.SmtpIsEnabled)
+            {
+                result.RegisterType(typeof(ISmtpClient), typeof(SmtpClientProxy), new InjectionMember[0]);
+            }
+            else
+            {
+                result.RegisterType(typeof(ISmtpClient), typeof(SmtpClientMock), new InjectionMember[0]);
+            }
             result.RegisterType(typeof(IMembershipDAL), typeof(MembershipDAL), new InjectionMember[0]);
             result.RegisterType(typeof(IRoleAdminDAL), typeof(RoleAdminDAL), new InjectionMember[0]);
             result.RegisterType(typeof(IProfileDAL), typeof(ProfileDAL), new InjectionMember[0]);

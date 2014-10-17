@@ -23,7 +23,7 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Attributes
             string LogTitle = string.Format("{0} {1}", MvcApplication.Name, LoggerCategories.UIServerSideUnhandledException);
             NameValueCollection serverVars = System.Web.HttpContext.Current.Request.ServerVariables;
             Dictionary<string, object> param = (from key in serverVars.AllKeys select new KeyValuePair<string, object>(key, serverVars[key])).ToDictionary(k => k.Key, k => k.Value);
-            LoggingHelper.Write(new LogEntry(filterContext.Exception, LoggerCategories.UIServerSideUnhandledException, 1, 1, TraceEventType.Error, LogTitle, param));
+            LoggingHelper.Write(new LogEntry(filterContext.Exception, LoggerCategories.UIServerSideUnhandledException.ToString(), 1, 1, TraceEventType.Error, LogTitle, param));
 
             if (filterContext.RequestContext.HttpContext.Request.IsAjaxRequest())
             {

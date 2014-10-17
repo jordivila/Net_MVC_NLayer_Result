@@ -20,12 +20,15 @@ using VsixMvcAppResult.Resources.Account;
 using VsixMvcAppResult.Resources.UserAdministration;
 using VsixMvcAppResult.Models.Roles;
 using VsixMvcAppResult.Models.Authentication;
+using VsixMvcAppResult.Models.SmtpModels;
 
 namespace VsixMvcAppResult.BL.MembershipServices
 {
     public class MembershipBL : BaseBL, IMembershipBL
     {
         private IMembershipDAL _dal;
+
+
         public MembershipBL()
         {
             _dal = DependencyFactory.Resolve<IMembershipDAL>();
@@ -60,26 +63,32 @@ namespace VsixMvcAppResult.BL.MembershipServices
                     if (dalResult.IsValid)
                     {
                         tokenServices = new TokenTemporaryPersistenceBL<MembershipUserWrapper>();
-                        TokenTemporaryPersistenceServiceItem<MembershipUserWrapper> token = new TokenTemporaryPersistenceServiceItem<MembershipUserWrapper>(dalResult.Data.User);
+                        TokenTemporaryPersistenceServiceItem<MembershipUserWrapper> token = 
+                            new TokenTemporaryPersistenceServiceItem<MembershipUserWrapper>(dalResult.Data.User);
                         tokenServices.Insert(token);
                         dalResult.Data.ChangePasswordToken = token.Token;
 
-                        MailingHelper.Send(delegate()
-                        {
-                            MailMessage mail = new MailMessage();
-                            mail.From = new MailAddress(MailingHelper.MailingConfig.SupportTeamEmailAddress);
-                            mail.Bcc.Add(new MailAddress(dalResult.Data.User.Email));
-                            mail.Subject = AccountResources.CantAccessYourAccount_EmailTitle;
-                            mail.Body = string.Format(AccountResources.CantAccessYourAccount_Email,
-                                                                        new Uri(string.Format("{0}://{1}/{2}/{3}",
-                                                                                                            ApplicationConfiguration.DomainInfoSettingsSection.SecurityProtocol,
-                                                                                                            ApplicationConfiguration.DomainInfoSettingsSection.DomainName,
-                                                                                                            activateFormVirtualPath,
-                                                                                                            dalResult.Data.ChangePasswordToken.ToString())),
-                                                                        MailingHelper.DomainConfig.DomainName);
-                            return mail;
-                        });
 
+
+                        MailMessage mail = new MailMessage();
+                        mail.From = new MailAddress(ApplicationConfiguration.MailingSettingsSection.SupportTeamEmailAddress);
+                        mail.Bcc.Add(new MailAddress(dalResult.Data.User.Email));
+                        mail.Subject = AccountResources.CantAccessYourAccount_EmailTitle;
+                        mail.Body = string.Format(
+                            AccountResources.CantAccessYourAccount_Email,
+                            new Uri(string.Format("{0}://{1}/{2}/{3}",
+                                                ApplicationConfiguration.DomainInfoSettingsSection.SecurityProtocol,
+                                                ApplicationConfiguration.DomainInfoSettingsSection.DomainName,
+                                                activateFormVirtualPath,
+                                                dalResult.Data.ChangePasswordToken.ToString())),
+                            ApplicationConfiguration.DomainInfoSettingsSection.DomainName);
+
+                        using (ISmtpClient smtp = DependencyFactory.Resolve<ISmtpClient>())
+                        {
+                            // Do not use SendAsync -> otherwise transaction could commit without sending mail
+                            smtp.Send(mail);
+                        }
+                        
                         trans.Complete();
                     }
                     return dalResult;
@@ -146,15 +155,19 @@ namespace VsixMvcAppResult.BL.MembershipServices
                                 result = this._dal.ResetPassword(userChangingPassword, newPassword, confirmNewPassword);
                                 if (result.IsValid)
                                 {
-                                    MailingHelper.Send(delegate()
+
+                                    MailMessage mail = new MailMessage();
+                                    mail.From = new MailAddress(ApplicationConfiguration.MailingSettingsSection.SupportTeamEmailAddress);
+                                    mail.Bcc.Add(new MailAddress(result.Data.User.Email));
+                                    mail.Subject = string.Format(AccountResources.ChangePassword_EmailTitle, ApplicationConfiguration.DomainInfoSettingsSection.DomainName);
+                                    mail.Body = string.Format(AccountResources.ChangePassword_EmailBody, ApplicationConfiguration.DomainInfoSettingsSection.DomainName);
+
+                                    using (ISmtpClient smtp = DependencyFactory.Resolve<ISmtpClient>())
                                     {
-                                        MailMessage mail = new MailMessage();
-                                        mail.From = new MailAddress(MailingHelper.MailingConfig.SupportTeamEmailAddress);
-                                        mail.Bcc.Add(new MailAddress(result.Data.User.Email));
-                                        mail.Subject = string.Format(AccountResources.ChangePassword_EmailTitle, MailingHelper.DomainConfig.DomainName);
-                                        mail.Body = string.Format(AccountResources.ChangePassword_EmailBody, MailingHelper.DomainConfig.DomainName);
-                                        return mail;
-                                    });
+                                        // Do not use SendAsync -> otherwise transaction could commit without sending mail
+                                        smtp.Send(mail);
+                                    }
+
                                     tokenServices.Delete(new TokenTemporaryPersistenceServiceItem<MembershipUserWrapper>() { Token = guid });
                                     trans.Complete();
                                     this.ForceAuthentication(userChangingPassword.UserName);
@@ -248,22 +261,22 @@ namespace VsixMvcAppResult.BL.MembershipServices
 
                             if (newUserRole.Data)
                             {
+                                MailMessage mail = new MailMessage();
+                                mail.From = new MailAddress(ApplicationConfiguration.MailingSettingsSection.SupportTeamEmailAddress);
+                                mail.Bcc.Add(new MailAddress(newUser.Email));
+                                mail.Subject = string.Format(AccountResources.CreateNewAccount_EmailSubject, ApplicationConfiguration.DomainInfoSettingsSection.DomainName);
+                                mail.Body = string.Format(AccountResources.CreateNewAccount_EmailBody,
+                                                                            ApplicationConfiguration.DomainInfoSettingsSection.DomainName,
+                                                                            new Uri(string.Format("{0}://{1}/{2}/{3}",
+                                                                                                                    ApplicationConfiguration.DomainInfoSettingsSection.SecurityProtocol,
+                                                                                                                    ApplicationConfiguration.DomainInfoSettingsSection.DomainName,
+                                                                                                                    activateFormVirtualPath.ToString(),
+                                                                                                                    result.Data.ActivateUserToken)));
 
-                                MailingHelper.Send(delegate()
+                                using (ISmtpClient smtp = DependencyFactory.Resolve<ISmtpClient>())
                                 {
-                                    MailMessage mail = new MailMessage();
-                                    mail.From = new MailAddress(MailingHelper.MailingConfig.SupportTeamEmailAddress);
-                                    mail.Bcc.Add(new MailAddress(newUser.Email));
-                                    mail.Subject = string.Format(AccountResources.CreateNewAccount_EmailSubject, MailingHelper.DomainConfig.DomainName);
-                                    mail.Body = string.Format(AccountResources.CreateNewAccount_EmailBody,
-                                                                                MailingHelper.DomainConfig.DomainName,
-                                                                                new Uri(string.Format("{0}://{1}/{2}/{3}",
-                                                                                                                        ApplicationConfiguration.DomainInfoSettingsSection.SecurityProtocol,
-                                                                                                                        ApplicationConfiguration.DomainInfoSettingsSection.DomainName,
-                                                                                                                        activateFormVirtualPath.ToString(),
-                                                                                                                        result.Data.ActivateUserToken)));
-                                    return mail;
-                                });
+                                    smtp.Send(mail);
+                                }
 
                                 trans.Complete();
                             }

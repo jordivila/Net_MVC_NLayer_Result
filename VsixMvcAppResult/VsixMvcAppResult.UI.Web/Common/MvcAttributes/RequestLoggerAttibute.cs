@@ -23,7 +23,7 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Attributes
                     string LogTitle = string.Format("{0} {1}", MvcApplication.Name, LoggerCategories.UIBeginRequest);
                     NameValueCollection serverVars = System.Web.HttpContext.Current.Request.Params;
                     Dictionary<string, object> param = (from key in serverVars.AllKeys select new KeyValuePair<string, object>(key, serverVars[key])).ToDictionary(k => k.Key, k => k.Value);
-                    LoggingHelper.Write(new LogEntry(LogTitle, LoggerCategories.UIBeginRequest, 1, 1, TraceEventType.Information, LogTitle, param));
+                    LoggingHelper.Write(new LogEntry(LogTitle, LoggerCategories.UIBeginRequest.ToString(), 1, 1, TraceEventType.Information, LogTitle, param));
                 }
             }
             catch (Exception)

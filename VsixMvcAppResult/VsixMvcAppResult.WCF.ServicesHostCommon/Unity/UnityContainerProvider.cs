@@ -20,6 +20,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using VsixMvcAppResult.Models.Configuration;
 
 namespace VsixMvcAppResult.WCF.ServicesHostCommon.Unity
 {
@@ -32,7 +33,16 @@ namespace VsixMvcAppResult.WCF.ServicesHostCommon.Unity
             switch (containerSelected)
             {
                 case BackEndUnityContainerAvailable.Real:
-                    result.RegisterType(typeof(ISmtpClient), typeof(SmtpClientMock), new InjectionMember[0]);
+
+                    if (ApplicationConfiguration.MailingSettingsSection.SmtpIsEnabled)
+                    {
+                        result.RegisterType(typeof(ISmtpClient), typeof(SmtpClientProxy), new InjectionMember[0]);
+                    }
+                    else
+                    {
+                        result.RegisterType(typeof(ISmtpClient), typeof(SmtpClientMock), new InjectionMember[0]);
+                    }
+
                     result.RegisterType(typeof(IMembershipDAL), typeof(MembershipDAL), new InjectionMember[0]);
                     result.RegisterType(typeof(IRoleAdminDAL), typeof(RoleAdminDAL), new InjectionMember[0]);
                     result.RegisterType(typeof(IProfileDAL), typeof(ProfileDAL), new InjectionMember[0]);

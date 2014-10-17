@@ -574,6 +574,7 @@
     <Content Include="Scripts\jquery\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery\jquery-1.9.1.min.js" />
     <Content Include="Scripts\Template.Widget.DialogInline.js" />
+    <Content Include="Scripts\Template.Widget.NavMenu.js" />
     <Content Include="Scripts\Template.Widget.UserOptions.js" />
     <Content Include="Scripts\Template.Widget.Dialogs.js" />
     <Content Include="Scripts\Template.Widget.ButtonWrapper.js" />

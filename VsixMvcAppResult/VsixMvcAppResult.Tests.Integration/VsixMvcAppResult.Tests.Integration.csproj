@@ -103,7 +103,7 @@
       <Name>VsixMvcAppResult.Tests.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\VsixMvcAppResult.UI.Web\VsixMvcAppResult.UI.Web.csproj">
-      <Project>{609ECAEE-9E8F-49FD-AA7C-2E62D72098B8}</Project>
+      <Project>{609ecaee-9e8f-49fd-aa7c-2e62d72098b8}</Project>
       <Name>VsixMvcAppResult.UI.Web</Name>
     </ProjectReference>
   </ItemGroup>
@@ -140,7 +140,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Template.Tests.Integration.testsettings">
+    <None Include="Template.Tests.Integration.Web.testsettings">
     </None>
     <None Include="Template.Tests.Integration.EndScript.bat">
     </None>
