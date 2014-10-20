@@ -267,7 +267,7 @@ namespace VsixMvcAppResult.BL.MembershipServices
                                 mail.Subject = string.Format(AccountResources.CreateNewAccount_EmailSubject, ApplicationConfiguration.DomainInfoSettingsSection.DomainName);
                                 mail.Body = string.Format(AccountResources.CreateNewAccount_EmailBody,
                                                                             ApplicationConfiguration.DomainInfoSettingsSection.DomainName,
-                                                                            new Uri(string.Format("{0}://{1}/{2}/{3}",
+                                                                            new Uri(string.Format("{0}://{1}{2}/{3}",
                                                                                                                     ApplicationConfiguration.DomainInfoSettingsSection.SecurityProtocol,
                                                                                                                     ApplicationConfiguration.DomainInfoSettingsSection.DomainName,
                                                                                                                     activateFormVirtualPath.ToString(),
