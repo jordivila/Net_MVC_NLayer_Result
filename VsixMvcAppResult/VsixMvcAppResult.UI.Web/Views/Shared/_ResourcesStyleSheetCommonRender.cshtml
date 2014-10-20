@@ -6,7 +6,10 @@
 
 @model VsixMvcAppResult.UI.Web.Models.baseViewModel
 
-<link href="@this.Model.BaseViewModelInfo.UserProfile.Theme.Value.ToUri()" rel="Stylesheet" type="text/css" />
+
+
+
+<link href="@this.Model.BaseViewModelInfo.UserProfile.Theme.Value.ToUri(this.Context.Request.Url.Scheme)" rel="Stylesheet" type="text/css" />
 <link href="@Url.StylesheetDispatcher(ResourceDispatcherController.ResourceDispatchParamCommonKey, this.Model.BaseViewModelInfo) " rel="stylesheet" type="text/css"  />
 <link href="@Url.StylesheetDispatcher(this.ViewContext.Controller.GetType().ToString(), this.Model.BaseViewModelInfo) " rel="stylesheet" type="text/css"  />
 @{
