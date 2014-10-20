@@ -146,7 +146,7 @@ Una vez vuelvas a {1}, recibirás instrucciones para cambiar tu contraseña.</va
     <value>Se ha enviado un email con los pasos a seguir a la dirección de correo proporcionada</value>
   </data>
   <data name="CantAccessYourAccount_EmailTitle" xml:space="preserve">
-    <value>{0} Asistente para contraseñas</value>
+    <value>Asistente para contraseñas</value>
   </data>
   <data name="CantAccessYourAccount_PasswordChanged" xml:space="preserve">
     <value>La contraseña ha sido reestablecida</value>

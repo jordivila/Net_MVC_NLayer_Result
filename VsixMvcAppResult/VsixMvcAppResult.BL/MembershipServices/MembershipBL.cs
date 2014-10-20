@@ -73,10 +73,12 @@ namespace VsixMvcAppResult.BL.MembershipServices
                         MailMessage mail = new MailMessage();
                         mail.From = new MailAddress(ApplicationConfiguration.MailingSettingsSection.SupportTeamEmailAddress);
                         mail.Bcc.Add(new MailAddress(dalResult.Data.User.Email));
-                        mail.Subject = AccountResources.CantAccessYourAccount_EmailTitle;
+                        mail.Subject = string.Format("{0}: {1}", 
+                                                    ApplicationConfiguration.DomainInfoSettingsSection.DomainName, 
+                                                    AccountResources.CantAccessYourAccount_EmailTitle);
                         mail.Body = string.Format(
                             AccountResources.CantAccessYourAccount_Email,
-                            new Uri(string.Format("{0}://{1}/{2}/{3}",
+                            new Uri(string.Format("{0}://{1}{2}/{3}",
                                                 ApplicationConfiguration.DomainInfoSettingsSection.SecurityProtocol,
                                                 ApplicationConfiguration.DomainInfoSettingsSection.DomainName,
                                                 activateFormVirtualPath,

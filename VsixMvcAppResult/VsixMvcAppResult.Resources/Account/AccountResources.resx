@@ -144,7 +144,7 @@ If clicking the link doesn't seem to work, you can copy and paste the link into 
     <value>An email was sent to the email address provided</value>
   </data>
   <data name="CantAccessYourAccount_EmailTitle" xml:space="preserve">
-    <value>{0} Password Assistance</value>
+    <value>Password Assistance</value>
   </data>
   <data name="CantAccessYourAccount_PasswordChanged" xml:space="preserve">
     <value>Your password has been successfully changed</value>
