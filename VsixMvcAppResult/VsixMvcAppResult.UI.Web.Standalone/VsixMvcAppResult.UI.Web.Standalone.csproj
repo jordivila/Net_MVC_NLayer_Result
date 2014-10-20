@@ -135,6 +135,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Home\Models\HomeControllerModels.cs" />
     <Compile Include="Common\ApplicationServicesProvider\MembershipUpdateLastActivityAttribute.cs" />
     <Compile Include="Common\ApplicationServicesProvider\MessageInspectorBehaviorExtension.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
@@ -208,7 +209,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Home\Content\" />
-    <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="Areas\UserAccount\Content\" />
     <Folder Include="Areas\UserAccount\Views\Shared\" />
@@ -279,6 +279,8 @@
     <Content Include="Areas\Test\Views\Shared\Test_WidgetTreeNest.cshtml" />
     <Content Include="Areas\Test\Views\Shared\Test_WidgetMessages.cshtml" />
     <Content Include="packages.config" />
+    <Content Include="Areas\Home\Views\Home\CultureSelect.cshtml" />
+    <Content Include="Areas\Home\Views\Home\ThemeSelect.cshtml" />
     <None Include="Common\T4\BuildEventBatchFiles\Template_T4_BuildEvent__TransformBatchItem.cmd" />
     <None Include="Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

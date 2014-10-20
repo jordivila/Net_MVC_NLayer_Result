@@ -28,7 +28,7 @@ input[type='radio'] {height:1em;width:1em;}
 .ui-sitePreferences-Box {float:right;margin:.5em 0 0 .5em;}
 
 .ui-widget {font-size:1em !important;}
-.ui-widget-header {font-weight:bold;padding:1.5em;}
+.ui-widget-header {font-weight:bold;padding:1em 1em 1em 1em;}
 .ui-dialog-content { padding:3em 0em 3em 1em !important; }
 .ui-carriageReturn {clear:both;float:none !important;}
 .ui-hidden {display:none;}

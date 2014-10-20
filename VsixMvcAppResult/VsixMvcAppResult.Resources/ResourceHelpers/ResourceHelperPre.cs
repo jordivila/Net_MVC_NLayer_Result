@@ -322,8 +322,10 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 	public class GeneralTextsKeys
 	{
 		public const String About = "About";
+		public const String AdminTools = "AdminTools";
 		public const String Blog = "Blog";
 		public const String BreadcrumbNavigation = "BreadcrumbNavigation";
+		public const String CulturesAvailable = "CulturesAvailable";
 		public const String Dashboard = "Dashboard";
 		public const String DatePattern = "DatePattern";
 		public const String Dates = "Dates";
@@ -351,6 +353,7 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public const String Showing = "Showing";
 		public const String SiteAdmin = "SiteAdmin";
 		public const String SiteThemes = "SiteThemes";
+		public const String SiteThemesAvailable = "SiteThemesAvailable";
 		public const String TheNumber = "TheNumber";
 		public const String TheNumberFormattedAsCurrency = "TheNumberFormattedAsCurrency";
 		public const String TheNumberFormattedAsNumber = "TheNumberFormattedAsNumber";
@@ -372,8 +375,10 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 	public class GeneralTextsViewModelHelper
 	{
 		public  string About {	get{	return GeneralTexts.About;	}	}
+		public  string AdminTools {	get{	return GeneralTexts.AdminTools;	}	}
 		public  string Blog {	get{	return GeneralTexts.Blog;	}	}
 		public  string BreadcrumbNavigation {	get{	return GeneralTexts.BreadcrumbNavigation;	}	}
+		public  string CulturesAvailable {	get{	return GeneralTexts.CulturesAvailable;	}	}
 		public  string Dashboard {	get{	return GeneralTexts.Dashboard;	}	}
 		public  string DatePattern {	get{	return GeneralTexts.DatePattern;	}	}
 		public  string Dates {	get{	return GeneralTexts.Dates;	}	}
@@ -401,6 +406,7 @@ namespace VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses
 		public  string Showing {	get{	return GeneralTexts.Showing;	}	}
 		public  string SiteAdmin {	get{	return GeneralTexts.SiteAdmin;	}	}
 		public  string SiteThemes {	get{	return GeneralTexts.SiteThemes;	}	}
+		public  string SiteThemesAvailable {	get{	return GeneralTexts.SiteThemesAvailable;	}	}
 		public  string TheNumber {	get{	return GeneralTexts.TheNumber;	}	}
 		public  string TheNumberFormattedAsCurrency {	get{	return GeneralTexts.TheNumberFormattedAsCurrency;	}	}
 		public  string TheNumberFormattedAsNumber {	get{	return GeneralTexts.TheNumberFormattedAsNumber;	}	}

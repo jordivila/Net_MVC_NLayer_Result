@@ -18,8 +18,10 @@ using VsixMvcAppResult.Resources.General;
 using VsixMvcAppResult.Resources.Helpers;
 using VsixMvcAppResult.UI.Web.Areas.Blog;
 using VsixMvcAppResult.UI.Web.Areas.Home;
+using VsixMvcAppResult.UI.Web.Areas.LogViewer;
 using VsixMvcAppResult.UI.Web.Areas.Test;
 using VsixMvcAppResult.UI.Web.Areas.UserAccount;
+using VsixMvcAppResult.UI.Web.Areas.UserAdministration;
 using VsixMvcAppResult.UI.Web.Areas.UserProfile;
 using VsixMvcAppResult.UI.Web.Models;
 
@@ -913,31 +915,59 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
     {
         public static MenuModel MenuGet(this HtmlHelper Html)
         {
+            MenuModel menu = MenuGetAll(Html);
+
+            // Display only top level menu items 
+            // However, menu is prepared to work with multilevel items
+
+            foreach (var item in menu.MenuItems)
+            {
+                if (item.Childs.Count() > 0)
+                {
+                    item.Childs = new List<MenuItemModel>();
+                }
+            }
+
+            menu.MenuItems.RemoveAll(x => string.IsNullOrEmpty(x.DataAction));
+
+            return menu;
+        }
+
+        public static MenuModel MenuDetailed(baseViewModel viewModel, UrlHelper url)
+        {
+            return MenuGetAll(viewModel, url);
+        }
+
+        private static void MenuRemoveItemsByRoleRecursively(MenuItemModel current, List<SiteRoles> userRoles, Predicate<MenuItemModel> removeItemsByRole)
+        {
+            current.Childs.RemoveAll(removeItemsByRole);
+
+            foreach (var item in current.Childs)
+            {
+                MenuRemoveItemsByRoleRecursively(item, userRoles, removeItemsByRole);
+            }
+        }
+
+        private static Predicate<MenuItemModel> MenuGetItemsToRemoveByRole(List<SiteRoles> userRoles)
+        {
+            Predicate<MenuItemModel> removeItemsByRole = x => !x.RolesAllowed.Intersect<SiteRoles>(userRoles).Any();
+
+            return removeItemsByRole;
+        }
+
+        private static MenuModel MenuRemoveItemsByRole(MenuModel menuModel)
+        {
             List<SiteRoles> userRoles = MvcApplication.UserRequest
                                                     .UserRoles
                                                     .Where(x => EnumExtension.ToEnumMember<SiteRoles>(x).HasValue)
                                                     .Select(x => EnumExtension.ToEnumMember<SiteRoles>(x).Value)
                                                     .ToList();
 
-            MenuModel menuModel = MenuGetAll(Html);
-            Predicate<MenuItemModel> removeItemsByRole = x => !x.RolesAllowed.Intersect<SiteRoles>(userRoles).Any();
-            Action<MenuItemModel> removeItemsByRoleRecusively = null;
-
-            removeItemsByRoleRecusively = delegate(MenuItemModel current) 
-            {
-                current.Childs.RemoveAll(removeItemsByRole);
-
-                foreach (var item in current.Childs)
-                {
-                    removeItemsByRoleRecusively(item);
-                }
-            };
-
-            menuModel.MenuItems.RemoveAll(removeItemsByRole);
+            menuModel.MenuItems.RemoveAll(MenuGetItemsToRemoveByRole(userRoles));
 
             foreach (var item in menuModel.MenuItems)
             {
-                removeItemsByRoleRecusively(item);
+                MenuRemoveItemsByRoleRecursively(item, userRoles, MenuGetItemsToRemoveByRole(userRoles));
             }
 
             return menuModel;
@@ -948,21 +978,38 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
             baseViewModel viewModel = (baseViewModel)Html.ViewData.Model;
             UrlHelper url = new UrlHelper(Html.ViewContext.RequestContext);
 
+            return MenuGetAll(viewModel, url);
+        }
 
+        private static MenuModel MenuGetAll(baseViewModel viewModel, UrlHelper url)
+        {
             MenuModel result = new MenuModel();
 
             if (MvcApplication.UserRequest.UserIsLoggedIn)
             {
-                string name = string.IsNullOrEmpty(viewModel.BaseViewModelInfo.UserProfile.FirstName) ?
-                                                            viewModel.BaseViewModelInfo.UserFormsIdentityName :
-                                                            viewModel.BaseViewModelInfo.UserProfile.FirstName;
+                //string name = string.IsNullOrEmpty(viewModel.BaseViewModelInfo.UserProfile.FirstName) ?
+                //                                            viewModel.BaseViewModelInfo.UserFormsIdentityName :
+                //                                            viewModel.BaseViewModelInfo.UserProfile.FirstName;
 
-                result.MenuItems.Add(new MenuItemModel(string.Empty, name, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() 
-                { 
-                    new MenuItemModel(UrlHelperUserProfile.UserProfile_Edit(url), AccountResources.ProfileEdit, new List<SiteRoles>(){  SiteRoles.Guest }, null),
-                    new MenuItemModel(UserAccountUrlHelper.Account_ChangePassword(url), AccountResources.ChangePassword, new List<SiteRoles>(){  SiteRoles.Guest }, null),
-                    new MenuItemModel(UserAccountUrlHelper.Account_LogOff(url), AccountResources.SignOut, new List<SiteRoles>(){  SiteRoles.Guest }, null)
-                }));
+                result.MenuItems.Add(new MenuItemModel(UserAccountUrlHelper.Account_LogOff(url), AccountResources.SignOut, new List<SiteRoles>() { SiteRoles.Guest }, null));
+
+
+                MenuItemModel dashBoardMenuItem = null;
+                dashBoardMenuItem = new MenuItemModel(UserAccountUrlHelper.Account_Dashboard(url), GeneralTexts.Dashboard, new List<SiteRoles>() { SiteRoles.Guest }, null);
+
+                MenuItemModel adminUsersMenuActionsMenuItem = null;
+                adminUsersMenuActionsMenuItem = new MenuItemModel(string.Empty, GeneralTexts.AdminTools, new List<SiteRoles>() { SiteRoles.Administrator }, null);
+                adminUsersMenuActionsMenuItem.Childs.Add(new MenuItemModel(UrlHelperUserAdmin.UserAdminIndex(url), GeneralTexts.UserAdmin, new List<SiteRoles>() { SiteRoles.Administrator }, null));
+                adminUsersMenuActionsMenuItem.Childs.Add(new MenuItemModel(LogViewerUrlHelper.LogViewer(url), GeneralTexts.LogViewer, new List<SiteRoles>() { SiteRoles.Administrator }, null));
+                dashBoardMenuItem.Childs.Add(adminUsersMenuActionsMenuItem);
+
+                MenuItemModel userMenuActionsMenuItem = null;
+                userMenuActionsMenuItem = new MenuItemModel(string.Empty, AccountResources.AccountInformation, new List<SiteRoles>() { SiteRoles.Guest }, null);
+                userMenuActionsMenuItem.Childs.Add(new MenuItemModel(UrlHelperUserProfile.UserProfile_Edit(url), AccountResources.ProfileEdit, new List<SiteRoles>() { SiteRoles.Guest }, null));
+                userMenuActionsMenuItem.Childs.Add(new MenuItemModel(UserAccountUrlHelper.Account_ChangePassword(url), AccountResources.ChangePassword, new List<SiteRoles>() { SiteRoles.Guest }, null));
+                dashBoardMenuItem.Childs.Add(userMenuActionsMenuItem);
+
+                result.MenuItems.Add(dashBoardMenuItem);
             }
             else
             {
@@ -975,33 +1022,27 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
                     new MenuItemModel(HomeUrlHelper.Home_Index(url), GeneralTexts.Home, new List<SiteRoles>(){  SiteRoles.Guest }, null),
                     new MenuItemModel(BlogUrlHelper.IndexRoot(url), GeneralTexts.Blog, new List<SiteRoles>(){  SiteRoles.Guest }, null),
                     new MenuItemModel(HomeUrlHelper.Home_About(url),GeneralTexts.About, new List<SiteRoles>(){  SiteRoles.Guest }, null),
-                    new MenuItemModel(UserAccountUrlHelper.Account_Dashboard(url),GeneralTexts.Dashboard, new List<SiteRoles>(){  SiteRoles.Administrator }, null),
-                    new MenuItemModel(TestsUrlHelper.Index(url), "UI Tests", new List<SiteRoles>(){  SiteRoles.Guest }, null)
+                    new MenuItemModel(TestsUrlHelper.Index(url), "UI Controls", new List<SiteRoles>(){  SiteRoles.Guest }, null)
                 });
 
 
-
-
-            var cultureMenuItem = new MenuItemModel(string.Empty, GeneralTexts.Languages, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
+            MenuItemModel cultureMenuItem = new MenuItemModel(HomeUrlHelper.Home_CultureSelect(url), GeneralTexts.Languages, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
             foreach (var item in GlobalizationHelper.CultureInfoAvailableList())
             {
                 cultureMenuItem.Childs.Add(new MenuItemModel(HomeUrlHelper.Home_CultureSet(url, item.Name), item.DisplayName, new List<SiteRoles>() { SiteRoles.Guest }, null));
             }
             result.MenuItems.Add(cultureMenuItem);
 
-
-
-
-            var themesMenuItem = new MenuItemModel(string.Empty, GeneralTexts.SiteThemes, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
+            MenuItemModel themesMenuItem = new MenuItemModel(HomeUrlHelper.Home_ThemeSelect(url), GeneralTexts.SiteThemes, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
             foreach (var item in viewModel.BaseViewModelInfo.UserProfile.Theme.ToSelectList(typeof(ThemesAvailable)).ToList())
             {
                 themesMenuItem.Childs.Add(new MenuItemModel(HomeUrlHelper.Home_ThemeSet(url, item.Value), item.Text, new List<SiteRoles>() { SiteRoles.Guest }, null));
             }
             result.MenuItems.Add(themesMenuItem);
 
-
-            return result;        
+            return MenuRemoveItemsByRole(result);
         }
+
     }
     #endregion
 

@@ -70,6 +70,15 @@ namespace VsixMvcAppResult.Resources.General {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Admin tools.
+        /// </summary>
+        public static string AdminTools {
+            get {
+                return ResourceManager.GetString("AdminTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blog.
         /// </summary>
         public static string Blog {
@@ -84,6 +93,15 @@ namespace VsixMvcAppResult.Resources.General {
         public static string BreadcrumbNavigation {
             get {
                 return ResourceManager.GetString("BreadcrumbNavigation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cultures available.
+        /// </summary>
+        public static string CulturesAvailable {
+            get {
+                return ResourceManager.GetString("CulturesAvailable", resourceCulture);
             }
         }
         
@@ -335,6 +353,15 @@ namespace VsixMvcAppResult.Resources.General {
         public static string SiteThemes {
             get {
                 return ResourceManager.GetString("SiteThemes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Available site themes .
+        /// </summary>
+        public static string SiteThemesAvailable {
+            get {
+                return ResourceManager.GetString("SiteThemesAvailable", resourceCulture);
             }
         }
         

@@ -120,11 +120,17 @@
   <data name="About" xml:space="preserve">
     <value>Acerca de</value>
   </data>
+  <data name="AdminTools" xml:space="preserve">
+    <value>Herramientas administrativas</value>
+  </data>
   <data name="Blog" xml:space="preserve">
     <value>Blog</value>
   </data>
   <data name="BreadcrumbNavigation" xml:space="preserve">
     <value>Árbol de navegación</value>
+  </data>
+  <data name="CulturesAvailable" xml:space="preserve">
+    <value>Culturas disponibles</value>
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
@@ -227,6 +233,9 @@
   </data>
   <data name="SiteThemes" xml:space="preserve">
     <value>Apariencia</value>
+  </data>
+  <data name="SiteThemesAvailable" xml:space="preserve">
+    <value>Temas del sitio disponibles</value>
   </data>
   <data name="TheNumber" xml:space="preserve">
     <value>El número</value>
