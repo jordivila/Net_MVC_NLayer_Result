@@ -10,9 +10,8 @@ using System.ServiceModel.Dispatcher;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Hosting;
-using Microsoft.Practices.Unity;
+
 using VsixMvcAppResult.Models.UserRequestModel;
-using VsixMvcAppResult.Models.Unity;
 
 
 
