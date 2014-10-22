@@ -1,0 +1,64 @@
+﻿@using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
+@using VsixMvcAppResult.UI.Web.Areas.UserAccount;
+@model VsixMvcAppResult.UI.Web.Areas.UserAccount.Models.LogOnViewModel
+
+@{Layout = "~/Views/Shared/_LayOut.cshtml";}
+
+@section ScriptsToAdd
+{
+    <script type="text/javascript">
+        (function ($) {
+            jQuery(document).ready(function () {
+                VsixMvcAppResult.Widgets.Page.onInit(function () {  
+                    jQuery('#@Html.IdFor(model => model.Email)').focus();
+                });
+            });
+        })(jQuery);
+    </script>
+}
+
+@section InlineStyles{
+
+}
+
+
+@{
+    using (MvcForm form = Html.BeginWidgetForm())
+    {
+        using (MvcWidgetBox divBox = Html.BeginWidgetBox())
+        {
+            using (MvcWidgetBox divBoxHeader = Html.BeginWidgetBoxHeader())
+            { 
+                @VsixMvcAppResult.Resources.Account.AccountResources.SignIn
+            }
+            using (MvcWidgetBox divBoxContent = Html.BeginWidgetBoxContent())
+            {
+            <text>
+                <p>
+                    <a href="@Url.Account_Register()">@VsixMvcAppResult.Resources.Account.AccountResources.Register</a> @VsixMvcAppResult.Resources.Account.AccountResources.IfYouDontHaveAnAccount
+                </p>
+                <br />
+                <p>
+                    <a href="@Url.Account_CantAccessYourAccount()">@VsixMvcAppResult.Resources.Account.AccountResources.CanNotAccessYourAccount</a>
+                </p>
+                <br />
+                @Html.HiddenFor(model => model.UrlReferer)
+                @Html.FormItem(model => model.Email)
+                @Html.FormItem(model => model.Password)
+                @using(MvcWidgetButtonsBox buttonsBox = Html.BeginWidgetButtonsBox())
+                {
+                    @Html.Button(VsixMvcAppResult.Resources.Account.AccountResources.SignIn,
+                                            jQueryHelpers.Icon.ui_icon_key,
+                                            ButtonType.Submit)
+                }
+                @if (!this.ViewData.ModelState.IsValid)
+                {
+                    <br />
+                    @Html.ValidationSummaryCustomized()
+                }
+            </text>
+            }
+        }
+    }
+}
+

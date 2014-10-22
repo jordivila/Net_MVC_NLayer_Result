@@ -1,0 +1,22 @@
+﻿@{Layout = "~/Views/Shared/_Layout.cshtml";}
+
+@section InlineStyles{
+    <style type="text/css">
+        .ui-list {
+            list-style-type: circle;
+            margin: 1em 0 1em 3em;
+            padding: 0;
+        }
+
+        .ui-list li {
+            padding: 0.2em;
+            margin: .2em 0 0 0;
+        }
+    </style>
+}
+
+@section ScriptsToAdd{
+
+}
+
+@System.Web.Mvc.MvcHtmlString.Create(VsixMvcAppResult.Resources.General.GeneralTexts.HomeIndexText) 
