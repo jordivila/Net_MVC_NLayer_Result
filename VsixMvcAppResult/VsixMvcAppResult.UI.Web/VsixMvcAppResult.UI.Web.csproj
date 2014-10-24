@@ -1083,7 +1083,7 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)\Common\T4\BuildEventBatchFiles\Template_T4_BuildEvent__TransformBatch.cmd" "$(ProjectDir)"
+    <PostBuildEvent>
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

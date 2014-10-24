@@ -197,7 +197,7 @@
     <Content Include="Areas\Test\Content\Test_WidgetTree.js" />
     <Content Include="Areas\Test\Content\Test_WidgetTreeNest.js" />
     <Content Include="Areas\Test\Content\Test_WidgetTreeSortable.js" />
-    <Content Include="Areas\UserAdministration\Content\UserAdmin.css" />
+    <EmbeddedResource Include="Areas\UserAdministration\Content\UserAdmin.css" />
     <EmbeddedResource Include="Areas\Blog\Views\Blog\Category.cshtml" />
     <EmbeddedResource Include="Areas\Blog\Views\Blog\Index.cshtml" />
     <EmbeddedResource Include="Areas\Blog\Views\Shared\DisplayTemplates\SyndicationItem.cshtml" />
@@ -270,6 +270,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>Template_T4_Runtime_JS_ControllerScripts.cs</LastGenOutput>
     </None>
+    <EmbeddedResource Include="CDN\Css\Template.CDN.Common.css" />
+    <EmbeddedResource Include="CDN\Scripts\Template.CDN.Common.en-GB.js" />
+    <EmbeddedResource Include="CDN\Scripts\Template.CDN.Common.en-US.js" />
+    <EmbeddedResource Include="CDN\Scripts\Template.CDN.Common.es.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -420,7 +424,7 @@
     <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.es-US.js" />
     <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.es-UY.js" />
     <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.es-VE.js" />
-    <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.es.js" />
+    <EmbeddedResource Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.es.js" />
     <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.et-EE.js" />
     <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.et.js" />
     <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.eu-ES.js" />
@@ -667,7 +671,7 @@
     <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.zu-ZA.js" />
     <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.culture.zu.js" />
     <Content Include="Scripts\jquery-globalize\lib\cultures\globalize.cultures.js" />
-    <Content Include="Scripts\jquery-globalize\lib\globalize.js" />
+    <EmbeddedResource Include="Scripts\jquery-globalize\lib\globalize.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery-ui-i18n.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-af.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-ar-DZ.js" />
@@ -686,7 +690,7 @@
     <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-en-GB.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-en-NZ.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-eo.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-es.js" />
+    <EmbeddedResource Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-es.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-et.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-eu.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\i18n\jquery.ui.datepicker-fa.js" />
@@ -851,7 +855,7 @@
     <Content Include="Scripts\jquery-ui-1.10.0\ui\minified\i18n\jquery.ui.datepicker-zh-CN.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\minified\i18n\jquery.ui.datepicker-zh-HK.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\minified\i18n\jquery.ui.datepicker-zh-TW.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0\ui\minified\jquery-ui.min.js" />
+    <EmbeddedResource Include="Scripts\jquery-ui-1.10.0\ui\minified\jquery-ui.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\minified\jquery.ui.accordion.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\minified\jquery.ui.autocomplete.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.0\ui\minified\jquery.ui.button.min.js" />
@@ -889,7 +893,7 @@
     <Content Include="Scripts\jquery-validation-1.11.0\dist\additional-methods.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\dist\additional-methods.min.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\dist\jquery.validate.js" />
-    <Content Include="Scripts\jquery-validation-1.11.0\dist\jquery.validate.min.js" />
+    <EmbeddedResource Include="Scripts\jquery-validation-1.11.0\dist\jquery.validate.min.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\jquery.validate.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\messages_ar.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\messages_bg.js" />
@@ -898,7 +902,7 @@
     <Content Include="Scripts\jquery-validation-1.11.0\localization\messages_da.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\messages_de.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\messages_el.js" />
-    <Content Include="Scripts\jquery-validation-1.11.0\localization\messages_es.js" />
+    <EmbeddedResource Include="Scripts\jquery-validation-1.11.0\localization\messages_es.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\messages_et.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\messages_eu.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\messages_fa.js" />
@@ -936,27 +940,26 @@
     <Content Include="Scripts\jquery-validation-1.11.0\localization\methods_nl.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\methods_pt.js" />
     <Content Include="Scripts\jquery\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery\jquery-1.9.1.min.js" />
-    <None Include="Scripts\Template.A.Intellisense.js" />
-    <Content Include="Scripts\Template.Init.Ajax.js" />
-    <Content Include="Scripts\Template.Init.js" />
-    <Content Include="Scripts\Template.Init.Widget.js" />
-    <Content Include="Scripts\Template.Widget.AjaxProgress.js" />
-    <Content Include="Scripts\Template.Widget.Base.js" />
-    <Content Include="Scripts\Template.Widget.Boolean.js" />
-    <Content Include="Scripts\Template.Widget.ButtonWrapper.js" />
-    <Content Include="Scripts\Template.Widget.DialogInline.js" />
-    <Content Include="Scripts\Template.Widget.Dialogs.js" />
-    <Content Include="Scripts\Template.Widget.Form.js" />
-    <Content Include="Scripts\Template.Widget.Grid.js" />
-    <Content Include="Scripts\Template.Widget.jQueryzer.js" />
-    <Content Include="Scripts\Template.Widget.NavMenu.js" />
-    <Content Include="Scripts\Template.Widget.Page.js" />
-    <Content Include="Scripts\Template.Widget.UserOptions.js" />
+    <EmbeddedResource Include="Scripts\jquery\jquery-1.9.1.min.js" />
+    <EmbeddedResource Include="Scripts\Template.Init.Ajax.js" />
+    <EmbeddedResource Include="Scripts\Template.Init.js" />
+    <EmbeddedResource Include="Scripts\Template.Init.Widget.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.AjaxProgress.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.Base.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.Boolean.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.ButtonWrapper.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.DialogInline.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.Dialogs.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.Form.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.Grid.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.jQueryzer.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.NavMenu.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.Page.js" />
+    <EmbeddedResource Include="Scripts\Template.Widget.UserOptions.js" />
     <Content Include="Scripts\ui-dateSelector\ui-dateSelector-doc.htm" />
     <Content Include="Scripts\ui-dateSelector\ui-dateSelector-sample.htm" />
     <Content Include="Scripts\ui-dateSelector\ui-dateSelector.css" />
-    <Content Include="Scripts\ui-dateSelector\ui-dateSelector.js" />
+    <EmbeddedResource Include="Scripts\ui-dateSelector\ui-dateSelector.js" />
     <Content Include="Scripts\ui-gmap\demos.css" />
     <Content Include="Scripts\ui-gmap\ui-gMap-doc.htm" />
     <Content Include="Scripts\ui-gmap\ui-gmap-sample.htm" />
@@ -967,7 +970,7 @@
     <Content Include="Scripts\ui-widgetMsg\ui-widgetMsg-doc.htm" />
     <Content Include="Scripts\ui-widgetMsg\ui-widgetMsg-sample.htm" />
     <Content Include="Scripts\ui-widgetMsg\ui-widgetMsg.css" />
-    <Content Include="Scripts\ui-widgetMsg\ui-widgetMsg.js" />
+    <EmbeddedResource Include="Scripts\ui-widgetMsg\ui-widgetMsg.js" />
     <Content Include="Scripts\ui-widgetTreeListNest\demos.css" />
     <Content Include="Scripts\ui-widgetTreeListNest\ui-widgetTreeListNest-doc.htm" />
     <Content Include="Scripts\ui-widgetTreeListNest\ui-widgetTreeListNest-sample.htm" />
@@ -980,7 +983,7 @@
     <Content Include="Scripts\ui-widgetTreeList\ui-widgetTreeList-doc.htm" />
     <Content Include="Scripts\ui-widgetTreeList\ui-widgetTreeList-sample.htm" />
     <Content Include="Scripts\ui-widgetTreeList\ui-widgetTreeList.css" />
-    <Content Include="Scripts\ui-widgetTreeList\ui-widgetTreeList.js" />
+    <EmbeddedResource Include="Scripts\ui-widgetTreeList\ui-widgetTreeList.js" />
     <Content Include="Views\Web.config" />
     <Content Include="web.config">
       <SubType>Designer</SubType>
@@ -1011,8 +1014,6 @@
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="Areas\UserAccount\Content\" />
     <Folder Include="Areas\UserAccount\Views\Shared\" />
-    <Folder Include="CDN\Css\" />
-    <Folder Include="CDN\Scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

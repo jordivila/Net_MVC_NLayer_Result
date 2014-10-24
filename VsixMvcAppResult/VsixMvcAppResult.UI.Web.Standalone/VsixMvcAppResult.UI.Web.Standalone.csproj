@@ -194,20 +194,9 @@
     <Compile Include="Common\MvcAttributes\RequestLoggerAttibute.cs" />
     <Compile Include="Common\MvcHelpers\HtmlHelper.cs" />
     <Compile Include="Common\MvcHelpers\UrlHelper.cs" />
-    <Compile Include="Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.cs">
-      <DependentUpon>Template_T4_Runtime_CSS_ControllerStylesheets.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Common\T4\Template_T4_Runtime_JS_ControllerScripts.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Template_T4_Runtime_JS_ControllerScripts.tt</DependentUpon>
-    </Compile>
     <Compile Include="Unity\UnityContainerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Home\Content\" />
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="Areas\UserAccount\Content\" />
@@ -245,10 +234,6 @@
     <Content Include="Areas\UserAdministration\Views\UserAdministration\Details.cshtml" />
     <Content Include="Areas\UserAdministration\Views\UserAdministration\Index.cshtml" />
     <Content Include="Areas\UserAdministration\Views\Web.config" />
-    <Content Include="CDN\Css\Template.CDN.Common.css" />
-    <Content Include="CDN\Scripts\Template.CDN.Common.en-GB.js" />
-    <Content Include="CDN\Scripts\Template.CDN.Common.en-US.js" />
-    <Content Include="CDN\Scripts\Template.CDN.Common.es.js" />
     <Content Include="Content\Site.mobile.css" />
     <Content Include="Areas\UserAccount\Views\UserAccount\Activate.cshtml" />
     <Content Include="Areas\UserAccount\Views\UserAccount\ResetPassword.cshtml" />
@@ -281,23 +266,6 @@
     <Content Include="packages.config" />
     <Content Include="Areas\Home\Views\Home\CultureSelect.cshtml" />
     <Content Include="Areas\Home\Views\Home\ThemeSelect.cshtml" />
-    <None Include="Common\T4\BuildEventBatchFiles\Template_T4_BuildEvent__TransformBatchItem.cmd" />
-    <None Include="Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Template_T4_Runtime_CSS_ControllerStylesheets.cs</LastGenOutput>
-    </None>
-    <None Include="Common\T4\Template_T4_BuildEvent_CDN_Base.tt" />
-    <None Include="Common\T4\Template_T4_BuildEvent_CDN_CSS_Generator.tt" />
-    <None Include="Common\T4\Template_T4_BuildEvent_CDN_JS_Generator.tt" />
-    <None Include="Common\T4\Template_T4_BuildEvent_Base.tt" />
-    <None Include="Common\T4\BuildEventBatchFiles\Template_T4_BuildEvent__TransformBatch.cmd" />
-    <None Include="Common\T4\Template_T4_BuildEvent_JS_Ajax.tt" />
-    <None Include="Common\T4\BaseInclude.tt" />
-    <None Include="Common\T4\Template_T4_Runtime_JS_ControllerScripts.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Template_T4_Runtime_JS_ControllerScripts.cs</LastGenOutput>
-    </None>
-    <None Include="Common\T4\Template_T4_BuildEvent_JS_Intellisense.tt" />
     <None Include="Scripts\jquery-ui-1.10.0\ui\.jshintrc" />
     <None Include="Scripts\jquery-validation-1.11.0\package.json" />
     <Content Include="Scripts\Template.Init.Widget.js" />
@@ -1090,7 +1058,7 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)\Common\T4\BuildEventBatchFiles\Template_T4_BuildEvent__TransformBatch.cmd" "$(ProjectDir)"
+    <PostBuildEvent>
 </PostBuildEvent>
   </PropertyGroup>
 </Project>
