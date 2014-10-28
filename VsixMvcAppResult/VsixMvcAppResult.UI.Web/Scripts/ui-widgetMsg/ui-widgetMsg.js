@@ -4,7 +4,7 @@
 window.$wMsgGlobal =
 {
     // template used to decorate message content
-    htmlTemplate: '<div class="ui-widget ui-corner-all"><p class="widgetMsgStyleContent"><span class="widgetIcon ui-icon"></span></p></div>'
+    htmlTemplate: '<div class="ui-widget ui-widgetMsgWrapper ui-corner-all"><p class="widgetMsgStyleContent"><span class="widgetIcon ui-icon"></span></p></div>'
     // template used to decorate Yes/No buttons in case widget's type is enumMsgType.ConfirmYesNo
     //, yesNoButtonsTmpl: '<div class="widgetYesNoButtons"><div class="ui-message-yes ui-button ui-state-default ui-corner-all"><span class="ui-icon ui-icon-check"></span>Ok</div><div class="ui-message-no ui-button ui-state-default ui-corner-all"><span class="ui-icon ui-icon-close"></span>Cancel</div></div>'
     , yesNoButtonsTmpl: '<div class="widgetYesNoButtons"><button type="button">Ok</button><button type="button">Cancel</button></div>'
@@ -184,19 +184,14 @@ enumMsgType.GetEnumTypeByNum = function(num){
         allowClose: function () {
                 var self = this;
                 jQuery(this.element)
-                    //.find('div.ui-widget-header:first')
-                        .append('<button class="ui-widget-close" type="button"></button>')
-                    //.end()
-                    .find('button.ui-widget-close')
-                        .button({
-                            text: false,
-                            icons: {
-                                primary: 'ui-icon-close'
-                            }
-                        })
+                    .find('div.ui-widgetMsgWrapper:first')
+                        .append('<div class="ui-widget-close ui-corner-all ui-icon ui-icon-close"></div>')
+                    .end()
+                    .find('div.ui-widget-close')
                         .click(function () {
                             jQuery(self.element).toggle();
-                        });
+                        })
+                        .show();
             }
     });
 

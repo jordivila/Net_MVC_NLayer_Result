@@ -5,18 +5,22 @@ using System.Web.Security;
 using Microsoft.Practices.Unity;
 using VsixMvcAppResult.Models.Authentication;
 using VsixMvcAppResult.Models.Common;
+using VsixMvcAppResult.Models.Enumerations;
 using VsixMvcAppResult.Models.Membership;
 using VsixMvcAppResult.Models.Profile;
 using VsixMvcAppResult.Models.Unity;
 using VsixMvcAppResult.Resources.Account;
+using VsixMvcAppResult.Resources.General;
 using VsixMvcAppResult.UI.Web.Areas.Home;
 using VsixMvcAppResult.UI.Web.Areas.LogViewer;
 using VsixMvcAppResult.UI.Web.Areas.Test;
 using VsixMvcAppResult.UI.Web.Areas.UserAccount.Models;
 using VsixMvcAppResult.UI.Web.Areas.UserAdministration;
 using VsixMvcAppResult.UI.Web.Areas.UserProfile;
+using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
 using VsixMvcAppResult.UI.Web.Controllers;
 using VsixMvcAppResult.UI.Web.Models;
+using System.Linq;
 
 namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
 {
@@ -288,26 +292,14 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
         [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult Dashboard()
         {
-            DashBoardViewModel model = new DashBoardViewModel()
-            {
-                UserProfile = this.FormsProfileService.Get().Data,
-                SiteAdminMenu = new MenuModel()
-                {
-                    MenuItems = new List<MenuItemModel>() { 
-                        new MenuItemModel(){DataAction = UrlHelperUserAdmin.UserAdminIndex(this.Url), Description = Resources.General.GeneralTexts.UserAdmin },
-                        new MenuItemModel(){DataAction = LogViewerUrlHelper.LogViewer(this.Url), Description = Resources.General.GeneralTexts.LogViewer },
-                        new MenuItemModel(){DataAction = TestsUrlHelper.Index(this.Url),Description = "UI Tests"}
-                    }
-                },
-                ProfileMenu = new MenuModel()
-                {
-                    MenuItems = new List<MenuItemModel>() { 
-                        new MenuItemModel(){DataAction = UserAccountUrlHelper.Account_ChangePassword(this.Url), Description = AccountResources.ChangePassword},
-                        new MenuItemModel(){DataAction = UrlHelperUserProfile.UserProfile_Edit(this.Url), Description = Resources.Account.AccountResources.ProfileEdit}
-                    }
-                }
-            };
+            DashBoardViewModel model = new DashBoardViewModel();
+            model.UserProfile = this.FormsProfileService.Get().Data;
 
+            
+
+            model.DashboardMenu = new MenuModel();
+            model.DashboardMenu.MenuItems.AddRange(MenuExtensions.MenuDetailed((baseViewModel)model, this.Url).MenuItems.Where(x => x.DataAction == UserAccountUrlHelper.Account_Dashboard(this.Url)).First().Childs);
+            model.BaseViewModelInfo.Title = GeneralTexts.Dashboard;
             return View(model);
         }
         #endregion

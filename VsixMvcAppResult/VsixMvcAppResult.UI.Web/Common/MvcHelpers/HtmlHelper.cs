@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Serialization;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -17,7 +18,10 @@ using VsixMvcAppResult.Resources.General;
 using VsixMvcAppResult.Resources.Helpers;
 using VsixMvcAppResult.UI.Web.Areas.Blog;
 using VsixMvcAppResult.UI.Web.Areas.Home;
+using VsixMvcAppResult.UI.Web.Areas.LogViewer;
+using VsixMvcAppResult.UI.Web.Areas.Test;
 using VsixMvcAppResult.UI.Web.Areas.UserAccount;
+using VsixMvcAppResult.UI.Web.Areas.UserAdministration;
 using VsixMvcAppResult.UI.Web.Areas.UserProfile;
 using VsixMvcAppResult.UI.Web.Models;
 
@@ -28,10 +32,10 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
         public readonly static string SectionScriptsToAdd = "ScriptsToAdd";
         public readonly static string SectionInlineStyles = "InlineStyles";
 
-        public static MvcHtmlString PartialMenuTopNav(this HtmlHelper htmlHelper)
-        {
-            return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_MenuTopNavPartial.cshtml");
-        }
+        //public static MvcHtmlString PartialMenuTopNav(this HtmlHelper htmlHelper)
+        //{
+        //    return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_MenuTopNavPartial.cshtml");
+        //}
         public static MvcHtmlString PartialBreadcrumb(this HtmlHelper htmlHelper)
         {
             return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_Breadcrumb.cshtml");
@@ -173,179 +177,526 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
     {
         public enum Icon : int
         {
+            [EnumMember(Value = "")]
             None,
+
+            [EnumMember(Value = "")]
             ui_icon_carat_1_n,
+            
+            [EnumMember(Value = "")]
             ui_icon_carat_1_ne,
+
+            [EnumMember(Value = "")]
             ui_icon_carat_1_e,
+
+            [EnumMember(Value = "")]
             ui_icon_carat_1_se,
+
+            [EnumMember(Value = "")]
             ui_icon_carat_1_s,
+
+            [EnumMember(Value = "")]
             ui_icon_carat_1_sw,
+
+            [EnumMember(Value = "")]
             ui_icon_carat_1_w,
+
+            [EnumMember(Value = "")]
             ui_icon_carat_1_nw,
+
+            [EnumMember(Value = "")]
             ui_icon_carat_2_n_s,
+
+            [EnumMember(Value = "")]
             ui_icon_carat_2_e_w,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_1_n,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_1_ne,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_1_e,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_1_se,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_1_s,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_1_sw,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_1_w,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_1_nw,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_2_n_s,
+
+            [EnumMember(Value = "")]
             ui_icon_triangle_2_e_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_1_n,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_1_ne,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_1_e,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_1_se,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_1_s,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_1_sw,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_1_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_1_nw,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_2_n_s,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_2_ne_sw,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_2_e_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_2_se_nw,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowstop_1_n,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowstop_1_e,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowstop_1_s,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowstop_1_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_1_n,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_1_ne,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_1_e,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_1_se,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_1_s,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_1_sw,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_1_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_1_nw,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_2_n_s,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_2_ne_sw,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_2_e_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthick_2_se_nw,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthickstop_1_n,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthickstop_1_e,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthickstop_1_s,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowthickstop_1_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowreturnthick_1_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowreturnthick_1_n,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowreturnthick_1_e,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowreturnthick_1_s,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowreturn_1_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowreturn_1_n,
+            
+            [EnumMember(Value = "")]
             ui_icon_arrowreturn_1_e,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowreturn_1_s,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowrefresh_1_w,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowrefresh_1_n,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowrefresh_1_e,
+
+            [EnumMember(Value = "")]
             ui_icon_arrowrefresh_1_s,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_4,
+
+            [EnumMember(Value = "")]
             ui_icon_arrow_4_diag,
+
+            [EnumMember(Value = "")]
             ui_icon_extlink,
+
+            [EnumMember(Value = "")]
             ui_icon_newwin,
+
+            [EnumMember(Value = "")]
             ui_icon_refresh,
+
+            [EnumMember(Value = "")]
             ui_icon_shuffle,
+
+            [EnumMember(Value = "")]
             ui_icon_transfer_e_w,
+
+            [EnumMember(Value = "")]
             ui_icon_transferthick_e_w,
+
+            [EnumMember(Value = "")]
             ui_icon_folder_collapsed,
+
+            [EnumMember(Value = "")]
             ui_icon_folder_open,
+
+            [EnumMember(Value = "")]
             ui_icon_document,
+
+            [EnumMember(Value = "")]
             ui_icon_document_b,
+
+            [EnumMember(Value = "")]
             ui_icon_note,
+
+            [EnumMember(Value = "")]
             ui_icon_mail_closed,
+
+            [EnumMember(Value = "")]
             ui_icon_mail_open,
+
+            [EnumMember(Value = "")]
             ui_icon_suitcase,
+
+            [EnumMember(Value = "")]
             ui_icon_comment,
+
+            [EnumMember(Value="fa-male")]
             ui_icon_person,
+
+            [EnumMember(Value = "")]
             ui_icon_print,
+
+            [EnumMember(Value = "")]
             ui_icon_trash,
+
+            [EnumMember(Value = "")]
             ui_icon_locked,
+
+            [EnumMember(Value = "")]
             ui_icon_unlocked,
+
+            [EnumMember(Value = "")]
             ui_icon_bookmark,
+
+            [EnumMember(Value = "")]
             ui_icon_tag,
+
+            [EnumMember(Value = "")]
             ui_icon_home,
+
+            [EnumMember(Value = "")]
             ui_icon_flag,
+
+            [EnumMember(Value = "")]
             ui_icon_calculator,
+
+            [EnumMember(Value = "")]
             ui_icon_cart,
+
+            [EnumMember(Value = "")]
             ui_icon_pencil,
+
+            [EnumMember(Value = "")]
             ui_icon_clock,
+
+            [EnumMember(Value = "")]
             ui_icon_disk,
+
+            [EnumMember(Value = "")]
             ui_icon_calendar,
+
+            [EnumMember(Value = "")]
             ui_icon_zoomin,
+
+            [EnumMember(Value = "")]
             ui_icon_zoomout,
+
+            [EnumMember(Value = "")]
             ui_icon_search,
+
+            [EnumMember(Value = "")]
             ui_icon_wrench,
+
+            [EnumMember(Value = "")]
             ui_icon_gear,
+
+            [EnumMember(Value = "")]
             ui_icon_heart,
+
+            [EnumMember(Value = "")]
             ui_icon_star,
+
+            [EnumMember(Value = "")]
             ui_icon_link,
+
+            [EnumMember(Value = "")]
             ui_icon_cancel,
+
+            [EnumMember(Value = "")]
             ui_icon_plus,
+
+            [EnumMember(Value = "")]
             ui_icon_plusthick,
+
+            [EnumMember(Value = "")]
             ui_icon_minus,
+
+            [EnumMember(Value = "")]
             ui_icon_minusthick,
+
+            [EnumMember(Value = "")]
             ui_icon_close,
+
+            [EnumMember(Value = "")]
             ui_icon_closethick,
+
+            [EnumMember(Value = "fa-key")]
             ui_icon_key,
+
+            [EnumMember(Value = "")]
             ui_icon_lightbulb,
+
+            [EnumMember(Value = "")]
             ui_icon_scissors,
+
+            [EnumMember(Value = "")]
             ui_icon_clipboard,
+
+            [EnumMember(Value = "")]
             ui_icon_copy,
+
+            [EnumMember(Value = "")]
             ui_icon_contact,
+
+            [EnumMember(Value = "")]
             ui_icon_image,
+
+            [EnumMember(Value = "")]
             ui_icon_video,
+
+            [EnumMember(Value = "")]
             ui_icon_script,
+
+            [EnumMember(Value = "")]
             ui_icon_alert,
+
+            [EnumMember(Value = "")]
             ui_icon_info,
+
+            [EnumMember(Value = "")]
             ui_icon_notice,
+
+            [EnumMember(Value = "")]
             ui_icon_help,
+
+            [EnumMember(Value = "")]
             ui_icon_check,
+
+            [EnumMember(Value = "")]
             ui_icon_bullet,
+
+            [EnumMember(Value = "")]
             ui_icon_radio_off,
+
+            [EnumMember(Value = "")]
             ui_icon_radio_on,
+
+            [EnumMember(Value = "")]
             ui_icon_pin_w,
+
+            [EnumMember(Value = "")]
             ui_icon_pin_s,
+
+            [EnumMember(Value = "")]
             ui_icon_play,
+
+            [EnumMember(Value = "")]
             ui_icon_pause,
+
+            [EnumMember(Value = "")]
             ui_icon_seek_next,
+
+            [EnumMember(Value = "")]
             ui_icon_seek_prev,
+
+            [EnumMember(Value = "")]
             ui_icon_seek_end,
+
+            [EnumMember(Value = "")]
             ui_icon_seek_first,
+
+            [EnumMember(Value = "")]
             ui_icon_stop,
+
+            [EnumMember(Value = "")]
             ui_icon_eject,
+
+            [EnumMember(Value = "")]
             ui_icon_volume_off,
+
+            [EnumMember(Value = "")]
             ui_icon_volume_on,
+
+            [EnumMember(Value = "")]
             ui_icon_power,
+
+            [EnumMember(Value = "")]
             ui_icon_signal_diag,
+
+            [EnumMember(Value = "")]
             ui_icon_signal,
+            
+            [EnumMember(Value = "")]
             ui_icon_battery_0,
+
+            [EnumMember(Value = "")]
             ui_icon_battery_1,
+
+            [EnumMember(Value = "")]
             ui_icon_battery_2,
+
+            [EnumMember(Value = "")]
             ui_icon_battery_3,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_plus,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_minus,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_close,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_triangle_e,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_triangle_s,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_triangle_w,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_triangle_n,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_arrow_e,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_arrow_s,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_arrow_w,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_arrow_n,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_zoomin,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_zoomout,
+
+            [EnumMember(Value = "")]
             ui_icon_circle_check,
+
+            [EnumMember(Value = "")]
             ui_icon_circlesmall_plus,
+
+            [EnumMember(Value = "")]
             ui_icon_circlesmall_minus,
+
+            [EnumMember(Value = "")]
             ui_icon_circlesmall_close,
+
+            [EnumMember(Value = "")]
             ui_icon_squaresmall_plus,
+
+            [EnumMember(Value = "")]
             ui_icon_squaresmall_minus,
+
+            [EnumMember(Value = "")]
             ui_icon_squaresmall_close,
+
+            [EnumMember(Value = "")]
             ui_icon_grip_dotted_vertical,
+
+            [EnumMember(Value = "")]
             ui_icon_grip_dotted_horizontal,
+
+            [EnumMember(Value = "")]
             ui_icon_grip_solid_vertical,
+
+            [EnumMember(Value = "")]
             ui_icon_grip_solid_horizontal,
+
+            [EnumMember(Value = "")]
             ui_icon_gripsmall_diagonal_se,
+
+            [EnumMember(Value = "")]
             ui_icon_grip_diagonal_se,
         }
 
@@ -354,6 +705,12 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
             string result = buttonIcon.ToString().Replace("_", "-");
             return result;
         }
+
+        public static string IconToFontawsomeClass(Icon buttonIcon)
+        {
+            return string.Format("{0} fa {1}", IconToCssClass(buttonIcon), buttonIcon.ToEnumMemberString());
+        }
+
     }
     #endregion
 
@@ -397,7 +754,7 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
                 }
 
                 TagBuilder tgDivTitle = new TagBuilder("span");
-                tgDivTitle.InnerHtml = VsixMvcAppResult.Resources.General.GeneralTexts.PleaseReviewForm; //htmlHelper.ResourceTexts().ResourceTextsGeneral.PleaseReviewForm;
+                tgDivTitle.InnerHtml = GeneralTexts.PleaseReviewForm; //htmlHelper.ResourceTexts().ResourceTextsGeneral.PleaseReviewForm;
 
                 TagBuilder tgDivBox = new TagBuilder("div");
                 tgDivBox.Attributes.Add("data-widget", "widgetFormSummary");
@@ -435,10 +792,12 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
             tagTextSpan.InnerHtml = string.IsNullOrEmpty(htmlContent) ? "&nbsp;" : htmlContent;
 
             TagBuilder tagIconSpan = new TagBuilder("span");
-            //tagIconSpan.AddCssClass("ui-button-icon-primary ui-icon");
-            //tagIconSpan.AddCssClass(jQueryHelpers.IconToCssClass(buttonIcon));
-            tagIconSpan.AddCssClass("ui-button-icon-primary");
-            tagIconSpan.AddCssClass("fa fa-volume-up fa-lg ui-icon");
+            tagIconSpan.AddCssClass("ui-button-icon-primary ui-icon");
+            tagIconSpan.AddCssClass(jQueryHelpers.IconToCssClass(buttonIcon));
+            //tagIconSpan.AddCssClass(jQueryHelpers.IconToFontawsomeClass(buttonIcon));
+            
+            //tagIconSpan.AddCssClass("ui-button-icon-primary");
+            //tagIconSpan.AddCssClass("fa fa-volume-up fa-lg ui-icon");
 
             TagBuilder tagButton = new TagBuilder("button");
             tagButton.MergeAttributes(htmlAttributes);
@@ -554,28 +913,103 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
     #region Menu Extensions
     public static class MenuExtensions
     {
-
-
         public static MenuModel MenuGet(this HtmlHelper Html)
+        {
+            MenuModel menu = MenuGetAll(Html);
+
+            // Display only top level menu items 
+            // However, menu is prepared to work with multilevel items
+
+            foreach (var item in menu.MenuItems)
+            {
+                if (item.Childs.Count() > 0)
+                {
+                    item.Childs = new List<MenuItemModel>();
+                }
+            }
+
+            menu.MenuItems.RemoveAll(x => string.IsNullOrEmpty(x.DataAction));
+
+            return menu;
+        }
+
+        public static MenuModel MenuDetailed(baseViewModel viewModel, UrlHelper url)
+        {
+            return MenuGetAll(viewModel, url);
+        }
+
+        private static void MenuRemoveItemsByRoleRecursively(MenuItemModel current, List<SiteRoles> userRoles, Predicate<MenuItemModel> removeItemsByRole)
+        {
+            current.Childs.RemoveAll(removeItemsByRole);
+
+            foreach (var item in current.Childs)
+            {
+                MenuRemoveItemsByRoleRecursively(item, userRoles, removeItemsByRole);
+            }
+        }
+
+        private static Predicate<MenuItemModel> MenuGetItemsToRemoveByRole(List<SiteRoles> userRoles)
+        {
+            Predicate<MenuItemModel> removeItemsByRole = x => !x.RolesAllowed.Intersect<SiteRoles>(userRoles).Any();
+
+            return removeItemsByRole;
+        }
+
+        private static MenuModel MenuRemoveItemsByRole(MenuModel menuModel)
+        {
+            List<SiteRoles> userRoles = MvcApplication.UserRequest
+                                                    .UserRoles
+                                                    .Where(x => EnumExtension.ToEnumMember<SiteRoles>(x).HasValue)
+                                                    .Select(x => EnumExtension.ToEnumMember<SiteRoles>(x).Value)
+                                                    .ToList();
+
+            menuModel.MenuItems.RemoveAll(MenuGetItemsToRemoveByRole(userRoles));
+
+            foreach (var item in menuModel.MenuItems)
+            {
+                MenuRemoveItemsByRoleRecursively(item, userRoles, MenuGetItemsToRemoveByRole(userRoles));
+            }
+
+            return menuModel;
+        }
+
+        private static MenuModel MenuGetAll(this HtmlHelper Html)
         {
             baseViewModel viewModel = (baseViewModel)Html.ViewData.Model;
             UrlHelper url = new UrlHelper(Html.ViewContext.RequestContext);
 
+            return MenuGetAll(viewModel, url);
+        }
 
+        private static MenuModel MenuGetAll(baseViewModel viewModel, UrlHelper url)
+        {
             MenuModel result = new MenuModel();
 
             if (MvcApplication.UserRequest.UserIsLoggedIn)
             {
-                string name = string.IsNullOrEmpty(viewModel.BaseViewModelInfo.UserProfile.FirstName) ?
-                                                            viewModel.BaseViewModelInfo.UserFormsIdentityName :
-                                                            viewModel.BaseViewModelInfo.UserProfile.FirstName;
+                //string name = string.IsNullOrEmpty(viewModel.BaseViewModelInfo.UserProfile.FirstName) ?
+                //                                            viewModel.BaseViewModelInfo.UserFormsIdentityName :
+                //                                            viewModel.BaseViewModelInfo.UserProfile.FirstName;
 
-                result.MenuItems.Add(new MenuItemModel(string.Empty, name, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() 
-                { 
-                    new MenuItemModel(UrlHelperUserProfile.UserProfile_Edit(url), AccountResources.ProfileEdit, new List<SiteRoles>(){  SiteRoles.Guest }, null),
-                    new MenuItemModel(UserAccountUrlHelper.Account_ChangePassword(url), AccountResources.ChangePassword, new List<SiteRoles>(){  SiteRoles.Guest }, null),
-                    new MenuItemModel(UserAccountUrlHelper.Account_LogOff(url), AccountResources.SignOut, new List<SiteRoles>(){  SiteRoles.Guest }, null)
-                }));
+                result.MenuItems.Add(new MenuItemModel(UserAccountUrlHelper.Account_LogOff(url), AccountResources.SignOut, new List<SiteRoles>() { SiteRoles.Guest }, null));
+
+
+                MenuItemModel dashBoardMenuItem = null;
+                dashBoardMenuItem = new MenuItemModel(UserAccountUrlHelper.Account_Dashboard(url), GeneralTexts.Dashboard, new List<SiteRoles>() { SiteRoles.Guest }, null);
+
+                MenuItemModel adminUsersMenuActionsMenuItem = null;
+                adminUsersMenuActionsMenuItem = new MenuItemModel(string.Empty, GeneralTexts.AdminTools, new List<SiteRoles>() { SiteRoles.Administrator }, null);
+                adminUsersMenuActionsMenuItem.Childs.Add(new MenuItemModel(UrlHelperUserAdmin.UserAdminIndex(url), GeneralTexts.UserAdmin, new List<SiteRoles>() { SiteRoles.Administrator }, null));
+                adminUsersMenuActionsMenuItem.Childs.Add(new MenuItemModel(LogViewerUrlHelper.LogViewer(url), GeneralTexts.LogViewer, new List<SiteRoles>() { SiteRoles.Administrator }, null));
+                dashBoardMenuItem.Childs.Add(adminUsersMenuActionsMenuItem);
+
+                MenuItemModel userMenuActionsMenuItem = null;
+                userMenuActionsMenuItem = new MenuItemModel(string.Empty, AccountResources.AccountInformation, new List<SiteRoles>() { SiteRoles.Guest }, null);
+                userMenuActionsMenuItem.Childs.Add(new MenuItemModel(UrlHelperUserProfile.UserProfile_Edit(url), AccountResources.ProfileEdit, new List<SiteRoles>() { SiteRoles.Guest }, null));
+                userMenuActionsMenuItem.Childs.Add(new MenuItemModel(UserAccountUrlHelper.Account_ChangePassword(url), AccountResources.ChangePassword, new List<SiteRoles>() { SiteRoles.Guest }, null));
+                dashBoardMenuItem.Childs.Add(userMenuActionsMenuItem);
+
+                result.MenuItems.Add(dashBoardMenuItem);
             }
             else
             {
@@ -588,33 +1022,27 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
                     new MenuItemModel(HomeUrlHelper.Home_Index(url), GeneralTexts.Home, new List<SiteRoles>(){  SiteRoles.Guest }, null),
                     new MenuItemModel(BlogUrlHelper.IndexRoot(url), GeneralTexts.Blog, new List<SiteRoles>(){  SiteRoles.Guest }, null),
                     new MenuItemModel(HomeUrlHelper.Home_About(url),GeneralTexts.About, new List<SiteRoles>(){  SiteRoles.Guest }, null),
-                    new MenuItemModel(UserAccountUrlHelper.Account_Dashboard(url),GeneralTexts.Dashboard, new List<SiteRoles>(){  SiteRoles.Administrator }, null)
+                    new MenuItemModel(TestsUrlHelper.Index(url), "UI Controls", new List<SiteRoles>(){  SiteRoles.Guest }, null)
                 });
 
 
-
-
-            var cultureMenuItem = new MenuItemModel(string.Empty, GeneralTexts.Languages, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
+            MenuItemModel cultureMenuItem = new MenuItemModel(HomeUrlHelper.Home_CultureSelect(url), GeneralTexts.Languages, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
             foreach (var item in GlobalizationHelper.CultureInfoAvailableList())
             {
                 cultureMenuItem.Childs.Add(new MenuItemModel(HomeUrlHelper.Home_CultureSet(url, item.Name), item.DisplayName, new List<SiteRoles>() { SiteRoles.Guest }, null));
             }
             result.MenuItems.Add(cultureMenuItem);
 
-
-
-
-            var themesMenuItem = new MenuItemModel(string.Empty, GeneralTexts.SiteThemes, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
+            MenuItemModel themesMenuItem = new MenuItemModel(HomeUrlHelper.Home_ThemeSelect(url), GeneralTexts.SiteThemes, new List<SiteRoles>() { SiteRoles.Guest }, new List<MenuItemModel>() { });
             foreach (var item in viewModel.BaseViewModelInfo.UserProfile.Theme.ToSelectList(typeof(ThemesAvailable)).ToList())
             {
                 themesMenuItem.Childs.Add(new MenuItemModel(HomeUrlHelper.Home_ThemeSet(url, item.Value), item.Text, new List<SiteRoles>() { SiteRoles.Guest }, null));
             }
             result.MenuItems.Add(themesMenuItem);
 
-
-
-            return result;
+            return MenuRemoveItemsByRole(result);
         }
+
     }
     #endregion
 
@@ -784,7 +1212,7 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
             IHtmlString listHeader = isEmptyGrid ? MvcHtmlString.Empty : this.RenderHeader(/*this.columns, "ui-widget-header ui-priority-secondary"*/);
             IHtmlString listBody = isEmptyGrid ? MvcHtmlString.Empty : this.RenderBody();
             IHtmlString listPager = isEmptyGrid ? MvcHtmlString.Empty : this.RenderPagination();
-            IHtmlString emptyResultsMessage = MvcHtmlString.Create(string.IsNullOrEmpty(this.EmptyResultsMessage) ? VsixMvcAppResult.Resources.General.GeneralTexts.NoDataFound : this.EmptyResultsMessage);
+            IHtmlString emptyResultsMessage = MvcHtmlString.Create(string.IsNullOrEmpty(this.EmptyResultsMessage) ? GeneralTexts.NoDataFound : this.EmptyResultsMessage);
             WebGridStyle webGridStyle = this.webGridStyle;
             int columnsCount = this.columns.Count();
 

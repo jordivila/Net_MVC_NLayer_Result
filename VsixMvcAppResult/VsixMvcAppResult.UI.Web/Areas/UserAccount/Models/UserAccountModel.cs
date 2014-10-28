@@ -124,13 +124,14 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Models
     [NonValidateModelOnHttpGet]
     public class DashBoardViewModel : baseViewModel
     {
-        public MenuModel SiteAdminMenu { get; set; }
-        public MenuModel ProfileMenu { get; set; }
+        //public MenuModel SiteAdminMenu { get; set; }
+        //public MenuModel ProfileMenu { get; set; }
+        public MenuModel DashboardMenu { get; set; }
         public UserProfileModel UserProfile { get; set; }
     }
 
     [NonValidateModelOnHttpGet]
-    public class UserAccountBarModel
+    public class UserUpdateLastActivityModel
     {
 
     }

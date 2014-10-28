@@ -1,35 +1,43 @@
 ﻿@using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
+@using VsixMvcAppResult.UI.Web.Areas.UserAccount;
 
 @model VsixMvcAppResult.UI.Web.Models.baseViewModel
 
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="initial-scale=1.0" />
         <title>@this.Model.BaseViewModelInfo.Title</title>
         @Html.PartialResourcesStylesheetsCommonRender()
         @RenderSection(HtmlHelperExtensions.SectionInlineStyles, true)
     </head>
     <body class="ui-widget-content ui-hidden">
         <div class="ui-sitePage ui-widget">
+            <div data-widget="userOptions" data-widget-url="@Url.Account_UserUpdateLastActivity()">
+                <div class="ui-site-header ui-widget-header ui-widget-content ui-corner-all">
+                    <div id="menuToggle" class="ui-menuToggle">
+                        <div class="ui-menuToggle-icon fa fa-bars fa-2x"></div>
+                        <div class="ui-menuToggle-text">Menu</div>
+                        <div class="ui-carriageReturn"></div>
+                    </div>
+                    <div class="ui-site-nameBox">
+                        <a href="/">@VsixMvcAppResult.Models.Configuration.ApplicationConfiguration.DomainInfoSettingsSection.DomainName</a>
+                    </div>
+                </div>
+                <div class="ui-carriageReturn"></div>
+            </div>
+            <div class="ui-carriageReturn"></div>
 
-            @Html.PartialMenuTopNav()
-
-
-            -->
-            @this.Context.Request.Url.Scheme
-            asdasdasdasd
-
+            <div class="ui-site-title">
+                <h1>@this.Model.BaseViewModelInfo.Title</h1>
+                <hr />
+            </div>
 
             @Html.PartialBreadcrumb()
             
             <div class="ui-siteContent">
-                
                 @Html.MenuGet().Render(new { id = "panelMenu", @class = "ui-menuNav ui-menuNav-Expand" })
-                
                 <div id="panelContent" class="ui-siteContent-Container ui-siteContent-Container-Collapse">
-                    <div class="ui-site-title">
-                        <h1>Jordi Vila - @this.Model.BaseViewModelInfo.Title</h1>
-                    </div>
                     @RenderBody()
                 </div>
             </div>
@@ -38,6 +46,9 @@
                 <div class="ui-widget-header ui-corner-all">
                     <div>Copyright © 2012 Company Co. All rights reserved</div>
                     <div class="ui-siteFooter-html5Logo"></div>
+                    <div class="ui-siteVersion">
+                        v. - @VsixMvcAppResult.UI.Web.MvcApplication.Version
+                    </div>
                 </div>
             </div>
 
@@ -53,44 +64,10 @@
                     VsixMvcAppResult.Widgets.Page.cultureGlobalization = "@this.Model.BaseViewModelInfo.LocalizationResources.CultureGlobalization";
                     VsixMvcAppResult.Widgets.Page.cultureDatePicker = "@this.Model.BaseViewModelInfo.LocalizationResources.CultureDatePicker";
                     VsixMvcAppResult.Widgets.Page.defaultTheme = "@this.Model.BaseViewModelInfo.UserProfile.Theme.Value";
-                    VsixMvcAppResult.Widgets.Page.onInit(function () { afterEverythingLoads(); });
+                    VsixMvcAppResult.Widgets.Page.onInit(function () { jQuery('body').removeClass('ui-hidden'); });
                     VsixMvcAppResult.Widgets.Page.Init();
                 });
-
             })(jQuery);
-
-            function afterEverythingLoads() {
-
-                jQuery('body').removeClass('ui-hidden');
-
-                var $panelMenu = jQuery('#panelMenu');
-                var $panelContent = jQuery('#panelContent');
-
-                $panelMenu.treeList();
-                //$panelMenu.menu();
-
-
-                jQuery('#menuToggle').click(function () {
-
-                    $panelMenu.show('slide', function () {
-                        if (jQuery(this).is(':visible')) {
-
-                            jQuery(document).bind("click", function (e) {
-
-                                var menuClicked = jQuery(e.target).parents($panelMenu.selector).length > 0;
-
-                                if (!menuClicked)
-                                {
-                                    $panelMenu.hide('slide');
-                                    jQuery(document).unbind("click");
-                                }
-                                
-                            });
-                        }
-                    });
-                });
-            }
-
         </script>
     </body>
 </html>

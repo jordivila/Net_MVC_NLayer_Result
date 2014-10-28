@@ -81,7 +81,7 @@
 {
     <div class="ui-logMessageViewer">
 
-        <h2>@this.Model.Filter.LogTraceListenerSelected</h2>
+        @*<h2>@this.Model.Filter.LogTraceListenerSelected</h2>*@
         <br />
         @{
         using (MvcForm form = Html.BeginWidgetForm(new { action = Url.LogViewerByModel() }))
@@ -95,14 +95,14 @@
                 using (MvcWidgetBox divBoxContent = Html.BeginWidgetBoxContent())
                 {
                     <text>
-                        @Html.HiddenFor(model => Model.Filter.Page)
-                        @Html.HiddenFor(Model => Model.Filter.PageSize)
-                        @Html.HiddenFor(model => Model.Filter.SortBy)
-                        @Html.HiddenFor(model => Model.Filter.SortAscending)
-                        @Html.HiddenFor(Model => Model.Filter.IsClientVisible)
+                        @Html.HiddenFor(x => Model.Filter.Page)
+                        @Html.HiddenFor(x => Model.Filter.PageSize)
+                        @Html.HiddenFor(x => Model.Filter.SortBy)
+                        @Html.HiddenFor(x => Model.Filter.SortAscending)
+                        @Html.HiddenFor(x => Model.Filter.IsClientVisible)
 
-                        @Html.HiddenFor(Model => Model.Filter.LogTraceSourceSelected)
-                        @Html.HiddenFor(Model => Model.Filter.LogTraceListenerSelected)
+                        @*@Html.HiddenFor(x => Model.Filter.LogTraceSourceSelected)*@
+                        @Html.HiddenFor(x => Model.Filter.LogTraceListenerSelected)
 
                         @{
                             if (!this.ViewData.ModelState.IsValid)
@@ -113,7 +113,16 @@
 
                         @using (MvcWidgetFieldSet fieldSet = Html.BeginWidgetFieldSet(VsixMvcAppResult.Resources.UserAdministration.UserAdminTexts.Created, new { @class = "" }))
                         {
-                            @Html.FormItem(Model => Model.Filter.CreationDate)
+                            @Html.FormItem(x => Model.Filter.CreationDate)
+                            
+                            @Html.FormItem(x => Model.Filter.Severity,
+                                                Html.DropDownListFor(x => Model.Filter.Severity, Model.Severities),
+                                                string.Empty)
+
+                            @Html.FormItem(x => Model.Categories,
+                                                Html.DropDownListFor(x => Model.Filter.LogTraceSourceSelected, Model.Categories),
+                                                string.Empty)
+                            
                         }
                     </text>
 
@@ -149,11 +158,11 @@
                 Expression<Func<LogViewerModel, LogMessageModel>> expressionObject = m => this.Model.LogMessages.Data[0];
 
                 columns = new List<WebGridColumn>(){
-                            new WebGridColumn(){ ColumnName=ModelMetadata.FromLambdaExpression(expressionCreationDate,ViewData).PropertyName,
+                            @*new WebGridColumn(){ ColumnName=ModelMetadata.FromLambdaExpression(expressionCreationDate,ViewData).PropertyName,
                                                                     Header=ModelMetadata.FromLambdaExpression(expressionCreationDate,ViewData).DisplayName,
                                                                     CanSort=false,
                                                                     Format=@<text>@item.Timestamp</text>
-                                                                    },
+                                                                    },*@
                             new WebGridColumn(){ ColumnName=ModelMetadata.FromLambdaExpression(expressionTitle,ViewData).PropertyName,
                                                                     Header=ModelMetadata.FromLambdaExpression(expressionTitle,ViewData).DisplayName,
                                                                     CanSort=false,

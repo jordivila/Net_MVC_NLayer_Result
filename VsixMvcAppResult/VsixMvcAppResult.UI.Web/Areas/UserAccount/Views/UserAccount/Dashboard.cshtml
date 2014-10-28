@@ -9,69 +9,47 @@
 
 @section ScriptsToAdd
 {
-    
+        <script type="text/javascript">
+            (function ($) {
+                jQuery(document).ready(function () {
+                    VsixMvcAppResult.Widgets.Page.onInit(function () {
+                        jQuery('#dashBoardMenu').navMenu();
+                    });
+                });
+            })(jQuery);
+        </script>    
 }
 
 @section InlineStyles{
     <style type="text/css">
-        .ui-dashboard-box { width:20em; float:left; margin: 1em 1em 1em 1em;}
-        .ui-dashboard-box li { padding:1em 1em 1em 1em; }
+        #dashBoardMenu {border:0px solid transparent;}
     </style>
-}
-
-@{
-    using(MvcForm form = Html.BeginWidgetForm())
-    {
-        using (MvcWidgetBox boxSite = Html.BeginWidgetBox(new { @class = "ui-dashboard-box ui-dashboard-siteAdminBox" }))    
-        {
-            using (MvcWidgetBox divBoxHeader = Html.BeginWidgetBoxHeader())
-            { 
-                @VsixMvcAppResult.Resources.General.GeneralTexts.SiteAdmin
-            }
-            using (MvcWidgetBox divBoxContent = Html.BeginWidgetBoxContent())
-            {
-                <text>
-                    <ul>
-                    @{
-                        foreach (var item in this.Model.SiteAdminMenu.MenuItems)
-                        {
-                            <text>
-                                <li><a href="@item.DataAction">@item.Description</a></li>
-                            </text>
-                        }    
-                    }
-                    </ul>
-                </text>
-            }
-        }
-    }
 }
 
 
 @{
     using (MvcForm form = Html.BeginWidgetForm())
-    {
-        using (MvcWidgetBox boxSite = Html.BeginWidgetBox(new { @class = "ui-dashboard-box ui-dashboard-userPofile" }))    
+    { 
+        using (MvcWidgetBox boxSite = Html.BeginWidgetBox(new { @class = "ui-dashboard-box" }))    
         {
             using (MvcWidgetBox divBoxHeader = Html.BeginWidgetBoxHeader())
             { 
-                @VsixMvcAppResult.Resources.Account.AccountResources.UserProfile
+                <text>
+                    @this.Model.BaseViewModelInfo.UserFormsIdentityName
+                </text>
             }
             using (MvcWidgetBox divBoxContent = Html.BeginWidgetBoxContent())
             {
                 <text>
-                    <ul>
-                    @{
-                        foreach (var item in this.Model.ProfileMenu.MenuItems)
-                        {
-                            <text>
-                                <li><a href="@item.DataAction">@item.Description</a></li>
-                            </text>
-                        }    
-                    }
-                    </ul>
+                    @this.Model.DashboardMenu.Render(new { id ="dashBoardMenu" })
                 </text>
             }
         }
     }
 }
+
+
+
+
+
+

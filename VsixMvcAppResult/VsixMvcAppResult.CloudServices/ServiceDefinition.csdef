@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ServiceDefinition name="MvcApplicationAzureClodServices" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-01.2.3">
+<ServiceDefinition name="MvcApplicationAzureClodServices" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-06.2.4">
   <WebRole name="VsixMvcAppResult.UI.Web" vmsize="ExtraSmall">
     <Sites>
       <Site name="Web">
@@ -19,8 +19,7 @@
     </ConfigurationSettings>
   </WebRole>
   <WorkerRole name="VsixMvcAppResult.WCF.ServicesHostWorkerRole" vmsize="ExtraSmall">
-    <Runtime executionContext="elevated">
-    </Runtime>
+    <Runtime executionContext="elevated"></Runtime>
     <ConfigurationSettings>
       <Setting name="StorageConnectionString" />
       <Setting name="DbCnnStrMembership" />
@@ -31,7 +30,7 @@
       <Import moduleName="Diagnostics" />
     </Imports>
     <Endpoints>
-      <InputEndpoint name="External" protocol="tcp" port="10000" />
+      <InputEndpoint name="External" protocol="tcp" port="1948" />
       <InternalEndpoint name="Internal" protocol="tcp" />
     </Endpoints>
   </WorkerRole>

@@ -135,6 +135,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Home\Models\HomeControllerModels.cs" />
     <Compile Include="Common\ApplicationServicesProvider\MembershipUpdateLastActivityAttribute.cs" />
     <Compile Include="Common\ApplicationServicesProvider\MessageInspectorBehaviorExtension.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
@@ -198,7 +199,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Home\Content\" />
-    <Folder Include="Areas\Home\Models\" />
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="Areas\UserAccount\Content\" />
     <Folder Include="Areas\UserAccount\Views\Shared\" />
@@ -208,7 +208,8 @@
     <Content Include="Areas\Error\Content\ErrorLogged.jpg" />
     <Content Include="Areas\Error\Views\Error\Index.cshtml" />
     <Content Include="Areas\Error\Views\Shared\Layout.cshtml">
-      <SubType>Code</SubType>
+      <SubType>
+      </SubType>
     </Content>
     <Content Include="Areas\LogViewer\Views\LogViewer\Index.cshtml" />
     <Content Include="Areas\Error\Views\Error\NotFound404.cshtml" />
@@ -233,10 +234,6 @@
     <Content Include="Areas\UserAdministration\Views\UserAdministration\Details.cshtml" />
     <Content Include="Areas\UserAdministration\Views\UserAdministration\Index.cshtml" />
     <Content Include="Areas\UserAdministration\Views\Web.config" />
-    <Content Include="CDN\Css\Template.CDN.Common.css" />
-    <Content Include="CDN\Scripts\Template.CDN.Common.en-GB.js" />
-    <Content Include="CDN\Scripts\Template.CDN.Common.en-US.js" />
-    <Content Include="CDN\Scripts\Template.CDN.Common.es.js" />
     <Content Include="Content\Site.mobile.css" />
     <Content Include="Areas\UserAccount\Views\UserAccount\Activate.cshtml" />
     <Content Include="Areas\UserAccount\Views\UserAccount\ResetPassword.cshtml" />
@@ -267,9 +264,14 @@
     <Content Include="Areas\Test\Views\Shared\Test_WidgetTreeSortable.cshtml" />
     <Content Include="Areas\Test\Views\Shared\Test_WidgetTreeNest.cshtml" />
     <Content Include="Areas\Test\Views\Shared\Test_WidgetMessages.cshtml" />
+    <Content Include="favicon.ico" />
     <Content Include="packages.config" />
-    <None Include="Scripts\jquery-ui-1.10.0\ui\.jshintrc" />
-    <None Include="Scripts\jquery-validation-1.11.0\package.json" />
+    <Content Include="Areas\Home\Views\Home\CultureSelect.cshtml" />
+    <Content Include="Areas\Home\Views\Home\CultureSet.cshtml" />
+    <Content Include="Areas\Home\Views\Home\ThemeSelect.cshtml" />
+    <Content Include="Areas\Home\Views\Home\ThemeSet.cshtml" />
+    <Content Include="Scripts\jquery-ui-1.10.0\ui\.jshintrc" />
+    <Content Include="Scripts\jquery-validation-1.11.0\package.json" />
     <Content Include="Scripts\Template.Init.Widget.js" />
     <Content Include="Scripts\Template.Init.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\jquery.validate.js" />
@@ -543,7 +545,7 @@
     <Content Include="Scripts\jquery-validation-1.11.0\localization\methods_de.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\methods_nl.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\methods_pt.js" />
-    <Content Include="Scripts\jquery\jquery-1.9.1-vsdoc.js" />
+    <None Include="Scripts\jquery\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery\jquery-1.9.1.min.js" />
     <Content Include="Scripts\Template.Widget.DialogInline.js" />
@@ -566,13 +568,16 @@
     <Content Include="Views\Shared\EditorTemplates\IEnumerable_CheckboxMultiple.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LogOffButton.cshtml">
-      <SubType>Code</SubType>
+      <SubType>
+      </SubType>
     </Content>
     <Content Include="Views\Shared\_LogOnButton.cshtml">
-      <SubType>Code</SubType>
+      <SubType>
+      </SubType>
     </Content>
     <Content Include="Views\Shared\_LogOnPartial.cshtml">
-      <SubType>Code</SubType>
+      <SubType>
+      </SubType>
     </Content>
     <Content Include="Views\Shared\_MenuTopNavPartial.cshtml" />
     <Content Include="Views\Web.config" />
@@ -1057,6 +1062,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
-</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

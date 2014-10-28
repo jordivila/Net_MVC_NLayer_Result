@@ -4,19 +4,27 @@ jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
 {
     options: {
 
-    },
-    _create: function () {
+    }
+    , _create: function () {
         jQuery.ui.widgetBase.prototype._create.call(this);
-    },
-    _init: function () {
+    }
+    , _init: function () {
 
         jQuery.ui.widgetBase.prototype._init.call(this);
 
+        this.initMenuNav();
+        this.updateUserLastActivity();
+    }
+    , destroy: function () {
+        jQuery.ui.widgetBase.prototype.destroy.call(this);
+    }
+    , updateUserLastActivity: function ()
+    {
         var self = this;
 
-        VsixMvcAppResult.Ajax.UserBar(
+        VsixMvcAppResult.Ajax.UserUpdateLastActivity(
                             function (data, textStatus, jqXHR) {
-                                jQuery(self.element).html(data);
+                                jQuery(self.element).append(data);
                                 VsixMvcAppResult.Widgets.jQueryzer(self.element);
                             }
                             , function (jqXHR, textStatus, errorThrown) {
@@ -36,8 +44,36 @@ jQuery.widget("ui.userOptions", jQuery.ui.widgetBase,
                             , function () {
                                 self._trigger('complete', null, null);
                             });
-    },
-    destroy: function () {
-        jQuery.ui.widgetBase.prototype.destroy.call(this);
+    }
+    , initMenuNav: function () {
+
+        //TODO: load async Menu based on user identity
+
+        var $panelMenu = jQuery('#panelMenu');
+        var $panelContent = jQuery('#panelContent');
+
+        $panelMenu.navMenu();
+
+        jQuery('#menuToggle').click(function () {
+
+            $panelMenu.show('slide', function () {
+                if (jQuery(this).is(':visible')) {
+
+                    jQuery(document).bind("click", function (e) {
+
+                        var menuClicked = jQuery(e.target).parents($panelMenu.selector).length > 0;
+
+                        if (!menuClicked) {
+
+                            $panelMenu.hide('slide', function () {
+                                $panelMenu.navMenu('collapseAll');
+                            });
+
+                            jQuery(document).unbind("click");
+                        }
+                    });
+                }
+            });
+        });
     }
 });

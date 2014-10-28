@@ -96,13 +96,7 @@
         <div class='ui-widgetGrid-pager-Info'>
             <table>
                 <tr>
-                    <td class='ui-widgetGrid-pager-showPages'>
-                        <form method="post">
-                            @VsixMvcAppResult.Resources.General.GeneralTexts.Showing
-                            @buildPageSizeSelector(dataFilter)
-                        </form>
-                    </td>
-                    <td class='ui-widgetGrid-pager-numbers'>
+                    <td class='ui-widgetGrid-pager-numbers' colspan="2">
 
                             <ul style="width:@(Convert.ToInt32((2.9)*(nPagesInPaginator+4)).ToString())em">
                                 @buildPage(0, getCurrentPage(Page), true, "&lt;&lt;", dataFilter)
@@ -119,10 +113,19 @@
                             </ul>
 
                     </td>
+                </tr>
+                <tr>
+                    <td class='ui-widgetGrid-pager-showPages'>
+                        <form method="post">
+                            @VsixMvcAppResult.Resources.General.GeneralTexts.Showing
+                            @buildPageSizeSelector(dataFilter)
+                        </form>
+                    </td>
                     <td class='ui-widgetGrid-pager-totalPages'>
                         @VsixMvcAppResult.Resources.General.GeneralTexts.TotalRecordsFound: @TotalRows
                     </td>
                 </tr>
+
             </table>
             <div class='ui-carriageReturn'></div>
         </div>

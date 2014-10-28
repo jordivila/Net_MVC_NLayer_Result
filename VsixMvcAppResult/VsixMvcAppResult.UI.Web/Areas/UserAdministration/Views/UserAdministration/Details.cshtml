@@ -59,9 +59,9 @@
                         @using (MvcWidgetFieldSet fieldSet = Html.BeginWidgetFieldSet(VsixMvcAppResult.Resources.UserAdministration.UserAdminTexts.Account, new { @class = "ui-widgetForm-account" }))
                         { 
                             <ul>
-                                <li><div>@VsixMvcAppResult.Resources.UserAdministration.UserAdminTexts.Created</div><label>@this.Model.UserOriginal.CreateDate</label></li>
-								<li><div>@VsixMvcAppResult.Resources.UserAdministration.UserAdminTexts.LastLogin</div><label>@this.Model.UserOriginal.LastLoginDate</label></li>
-                                <li><div>@VsixMvcAppResult.Resources.UserAdministration.UserAdminTexts.LastActive</div><label>@this.Model.UserOriginal.LastActivityDate</label></li>
+                                <li class="ui-carriageReturn"><div>@VsixMvcAppResult.Resources.UserAdministration.UserAdminTexts.Created</div><label>@this.Model.UserOriginal.CreateDate</label></li>
+								<li class="ui-carriageReturn"><div>@VsixMvcAppResult.Resources.UserAdministration.UserAdminTexts.LastLogin</div><label>@this.Model.UserOriginal.LastLoginDate</label></li>
+                                <li class="ui-carriageReturn"><div>@VsixMvcAppResult.Resources.UserAdministration.UserAdminTexts.LastActive</div><label>@this.Model.UserOriginal.LastActivityDate</label></li>
 							</ul>
                         }
 
@@ -102,7 +102,7 @@
                             }
 
                             @Html.Button(VsixMvcAppResult.Resources.UserAdministration.UserAdminTexts.DeleteAccount, jQueryHelpers.Icon.ui_icon_trash, ButtonType.Submit, true, new { name = "formAction", value = Actions.Delete })
-                            @Html.Button(VsixMvcAppResult.Resources.General.GeneralTexts.Update, jQueryHelpers.Icon.ui_icon_transfer_e_w, ButtonType.Submit, new { name = "formAction", value = Actions.Update })
+                            @Html.Button(VsixMvcAppResult.Resources.General.GeneralTexts.Update, jQueryHelpers.Icon.ui_icon_disk, ButtonType.Submit, new { name = "formAction", value = Actions.Update })
                         }
                         
                         if (this.Model.ResultLastAction != null)

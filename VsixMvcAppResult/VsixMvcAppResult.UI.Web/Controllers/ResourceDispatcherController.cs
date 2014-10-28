@@ -73,8 +73,8 @@ namespace VsixMvcAppResult.UI.Web.Controllers
 
             return this._objCacheManager.Contains(cacheKey);
         }
-
-
+        
+        
         public JavaScriptResult Javascript()
         {
             string controller = Crypto.Decrypt(Request.Params[ResourceDispatchParamControllerKey], ResourceDispatcherController.ResourceDispatchCryptoPasswordKey);
@@ -144,7 +144,7 @@ namespace VsixMvcAppResult.UI.Web.Controllers
 
             this.AppendFiles(ref sb, scripts.ToArray());
 
-            this.JavascriptResources_Generate(ref sb);
+            this.JavascriptResources_Generate( ref sb);
         }
         private void JavascriptResources_Generate(ref StringBuilder sb)
         {
