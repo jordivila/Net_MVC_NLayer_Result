@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Caching;
 using System.Text;
+using System.Threading;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
 using VsixMvcAppResult.Models.Configuration;
+using VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources;
 using VsixMvcAppResult.Models.Cryptography;
 using VsixMvcAppResult.Models.Enumerations;
+using VsixMvcAppResult.Models.Logging;
 using VsixMvcAppResult.UI.Web.Common.Mvc.Attributes;
-using VsixMvcAppResult.UI.Web.Common.T4;
-
+using System.Linq;
+using VsixMvcAppResult.Resources.Helpers.GeneratedResxClasses;
 
 namespace VsixMvcAppResult.UI.Web.Controllers
 {
     [CacheFilterAttribute(Duration = 9000000)]
     public class ResourceDispatcherController : Controller
     {
-        public const string TTSessionContext_ControllerType = "SessionContext_ControllerType";
         public const string ResourceDispatchParamCommonKey = "Common";
         public const string ResourceDispatchCryptoPasswordKey = "ResourceDispatchCryptoPasswordKey";
         public const string ResourceDispatchParamControllerKey = "controller";
@@ -71,6 +73,8 @@ namespace VsixMvcAppResult.UI.Web.Controllers
 
             return this._objCacheManager.Contains(cacheKey);
         }
+
+
         public JavaScriptResult Javascript()
         {
             string controller = Crypto.Decrypt(Request.Params[ResourceDispatchParamControllerKey], ResourceDispatcherController.ResourceDispatchCryptoPasswordKey);
@@ -82,24 +86,14 @@ namespace VsixMvcAppResult.UI.Web.Controllers
 
                 if (controller == ResourceDispatcherController.ResourceDispatchParamCommonKey)
                 {
-                    sb.Append(System.IO.File.ReadAllText(Server.MapPath(string.Format("{0}{1}",
-                                                                        ApplicationConfiguration.ClientResourcesSettingsSection.CDN_JS_VirtualRoot,
-                                                                        ApplicationConfiguration.ClientResourcesSettingsSection.CDN_JS_CommonFileName(VsixMvcAppResult.UI.Web.MvcApplication.UserRequest.UserProfile.Culture, MvcApplication.Version)))));
+                    this.Javascript_CommonGet(ref sb);
                 }
                 else
                 {
-                    sb.Append(new Template_T4_Runtime_JS_ControllerScripts()
-                    {
-                        Session = new Dictionary<string, object>() 
-                        { 
-                            { ResourceDispatcherController.TTSessionContext_ControllerType, Type.GetType(controller) } 
-                        }
-                    }.TransformText());
-
-                    foreach (var item in ApplicationConfiguration.ClientResourcesSettingsSection.WebSitePageInitScripts)
-                    {
-                        sb.Append(System.IO.File.ReadAllText(Server.MapPath(item)));
-                    }
+                    List<string> files = new List<string>();
+                    files.AddRange(this.Javascript_ControllerGet(Type.GetType(controller)));
+                    files.AddRange(ApplicationConfiguration.ClientResourcesSettingsSection.WebSitePageInitScripts);
+                    this.AppendFiles(ref sb, files.ToArray());
                 }
 
                 this.FileSetCache(sb, cacheKeyJs, MediaType.javascript);
@@ -109,6 +103,74 @@ namespace VsixMvcAppResult.UI.Web.Controllers
             jsResult.Script = (string)this._objCacheManager.Get(cacheKeyJs);
             return jsResult;
         }
+        private string[] Javascript_ControllerGet(Type controllerType)
+        {
+            string[] files = null;
+            object instanceObj = Activator.CreateInstance(controllerType);
+            IControllerWithClientResources userIntendedControllerInstance = instanceObj as IControllerWithClientResources;
+            IDisposable disposableInstance = instanceObj as IDisposable;
+
+            if (userIntendedControllerInstance != null)
+            {
+                files = userIntendedControllerInstance.GetControllerJavascriptResources;
+            }
+
+            if (disposableInstance != null)
+            {
+                disposableInstance.Dispose();
+            }
+
+            if (files != null)
+            {
+                return files;
+            }
+            else
+            {
+                return new string[0];
+            }
+        }
+        private void Javascript_CommonGet(ref StringBuilder sb)
+        {
+
+            LocalizationResourcesHelper cc = new LocalizationResourcesHelper(Thread.CurrentThread.CurrentCulture);
+
+            List<string> scripts = ApplicationConfiguration.ClientResourcesSettingsSection.JQueryLibScripts;
+            scripts.Add(ApplicationConfiguration.ClientResourcesSettingsSection.jQueryUILocalizationPath(cc));
+            scripts.Add(ApplicationConfiguration.ClientResourcesSettingsSection.jQueryGlobalizeLozalizationPath(cc));
+            scripts.Add(ApplicationConfiguration.ClientResourcesSettingsSection.jQueryValidationLocalizationPath(cc));
+            scripts.AddRange(ApplicationConfiguration.ClientResourcesSettingsSection.WebSiteCommonScripts.ToArray());
+            scripts = scripts.Where(x => (!string.IsNullOrEmpty(x))).ToList();
+
+
+            this.AppendFiles(ref sb, scripts.ToArray());
+
+            this.JavascriptResources_Generate(ref sb);
+        }
+        private void JavascriptResources_Generate(ref StringBuilder sb)
+        {
+
+            JavascriptTextsViewModelHelper jsTexts = new JavascriptTextsViewModelHelper();
+            System.Reflection.PropertyInfo[] thisObjectProperties = jsTexts.GetType().GetProperties();
+            sb.Append(Environment.NewLine);
+            sb.Append("VsixMvcAppResult.Resources = {");
+            sb.Append(Environment.NewLine);
+            for (int i = 0; i < thisObjectProperties.Length; i++)
+            {
+                System.Reflection.PropertyInfo info = thisObjectProperties[i];
+                sb.Append("\t");
+                sb.Append(info.Name);
+                sb.Append(": ");
+                sb.Append(string.Format("\"{0}\"", info.GetValue(jsTexts, null).ToString()));
+                if (i < (thisObjectProperties.Length - 1))
+                {
+                    sb.Append(",");
+                }
+                sb.Append(Environment.NewLine);
+            }
+            sb.Append("};");
+        }
+
+
         public FileStreamResult StyleSheet()
         {
             string controller = Crypto.Decrypt(Request.Params[ResourceDispatchParamControllerKey], ResourceDispatcherController.ResourceDispatchCryptoPasswordKey);
@@ -124,19 +186,11 @@ namespace VsixMvcAppResult.UI.Web.Controllers
                 StringBuilder sb = new StringBuilder();
                 if (controller == ResourceDispatcherController.ResourceDispatchParamCommonKey)
                 {
-                    sb.Append(System.IO.File.ReadAllText(Server.MapPath(string.Format("{0}{1}",
-                                                                        ApplicationConfiguration.ClientResourcesSettingsSection.CDN_CSS_VirtualRoot,
-                                                                        ApplicationConfiguration.ClientResourcesSettingsSection.CDN_CSS_CommonFileName(MvcApplication.Version)))));
+                    this.Stylesheet_CommonGet(ref sb);
                 }
                 else
                 {
-                    sb.Append(new Template_T4_Runtime_CSS_ControllerStylesheets()
-                    {
-                        Session = new Dictionary<string, object>() 
-                        { 
-                            { ResourceDispatcherController.TTSessionContext_ControllerType, Type.GetType(controller) }
-                        }
-                    }.TransformText());
+                    this.AppendFiles(ref sb, this.Stylesheet_ControllerGet(Type.GetType(controller)));
                 }
 
                 this.FileSetCache(sb, cacheKeyCss, MediaType.stylesheet);
@@ -145,5 +199,57 @@ namespace VsixMvcAppResult.UI.Web.Controllers
             FileStreamResult fsr = new FileStreamResult(new MemoryStream(UTF8Encoding.UTF8.GetBytes((string)this._objCacheManager.Get(cacheKeyCss))), "text/css");
             return fsr;
         }
+        private string[] Stylesheet_ControllerGet(Type controllerType)
+        {
+            string[] files = null;
+            object instanceObj = Activator.CreateInstance(controllerType);
+            IControllerWithClientResources userIntendedControllerInstance = instanceObj as IControllerWithClientResources;
+            IDisposable disposableInstance = instanceObj as IDisposable;
+
+            if (userIntendedControllerInstance != null)
+            {
+                files = userIntendedControllerInstance.GetControllerStyleSheetResources;
+            }
+
+            if (disposableInstance != null)
+            {
+                disposableInstance.Dispose();
+            }
+
+            if (files != null)
+            {
+                return files;
+            }
+            else
+            {
+                return new string[0];
+            }
+        }
+        private void Stylesheet_CommonGet(ref StringBuilder sb)
+        {
+            List<string> scripts = ApplicationConfiguration.ClientResourcesSettingsSection.WebSiteCommonStyleSheets;
+            this.AppendFiles(ref sb, scripts.ToArray());
+        }
+
+        private void AppendFiles(ref StringBuilder sb, string[] filesVirtualPath)
+        {
+            foreach (string item in filesVirtualPath)
+            {
+                string filePath = Server.MapPath(item);
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    using (StreamReader reader = System.IO.File.OpenText(filePath))
+                    {
+                        sb.Append(reader.ReadToEnd());
+                    }
+                }
+                else
+                {
+                    LoggingHelper.Write(new ArgumentException(string.Format("File not found: {0}", filePath)));
+                }
+            }
+        }
+
     }
 }

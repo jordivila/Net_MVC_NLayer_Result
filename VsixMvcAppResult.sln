@@ -59,6 +59,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{B6B96A2F-2276-
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{02ED933C-CB7C-46AB-898D-8C6B265C8766}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsixMvcAppResult.UI.Web.StandaloneSite", "VsixMvcAppResult\VsixMvcAppResult.UI.Web.StandaloneSite\VsixMvcAppResult.UI.Web.StandaloneSite.csproj", "{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -251,6 +253,16 @@ Global
 		{E6DB647B-9E9E-417A-A491-403E55F75B4B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E6DB647B-9E9E-417A-A491-403E55F75B4B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E6DB647B-9E9E-417A-A491-403E55F75B4B}.Release|x86.ActiveCfg = Release|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -279,5 +291,9 @@ Global
 		{F2A0C613-3B56-40D5-BD46-ADEF62C1F6A1} = {02ED933C-CB7C-46AB-898D-8C6B265C8766}
 		{7A4DD753-6850-4383-88ED-AC08EE0B1699} = {02ED933C-CB7C-46AB-898D-8C6B265C8766}
 		{B6B96A2F-2276-4286-A9D1-613FDFDCBFD2} = {02ED933C-CB7C-46AB-898D-8C6B265C8766}
+		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59} = {B6B96A2F-2276-4286-A9D1-613FDFDCBFD2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45
 	EndGlobalSection
 EndGlobal

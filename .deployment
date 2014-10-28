@@ -1,2 +1,2 @@
 [config]
-project = VsixMvcAppResult/VsixMvcAppResult.UI.Web.Standalone/VsixMvcAppResult.UI.Web.Standalone.csproj
+project = VsixMvcAppResult/VsixMvcAppResult.UI.Web.StandaloneSite/VsixMvcAppResult.UI.Web.StandaloneSite.csproj

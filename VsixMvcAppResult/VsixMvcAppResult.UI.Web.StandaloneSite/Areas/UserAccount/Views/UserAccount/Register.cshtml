@@ -1,0 +1,62 @@
+﻿@using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
+@model VsixMvcAppResult.UI.Web.Areas.UserAccount.Models.RegisterViewModel
+@{Layout = "~/Views/Shared/_LayOut.cshtml";}
+
+@section ScriptsToAdd
+{
+
+}
+@section InlineStyles{
+
+}
+
+@{
+    bool isSuccess = false;
+    if (this.Model.Result!=null)
+    {
+        isSuccess = this.Model.Result.CreateStatus == MembershipCreateStatus.Success;
+    }
+}
+
+@if (!isSuccess)
+{
+    using(MvcForm form = Html.BeginWidgetForm())
+    {
+        using (MvcWidgetBox divBox = Html.BeginWidgetBox())
+        {
+            using (MvcWidgetBox divBoxHeader = Html.BeginWidgetBoxHeader())
+            { 
+                @VsixMvcAppResult.Resources.Account.AccountResources.CreateNewAccount
+            }
+
+            using (MvcWidgetBox divBoxContent = Html.BeginWidgetBoxContent())
+            {
+                <text>
+                    <p>@VsixMvcAppResult.Resources.Account.AccountResources.UserFormBelowToCreateAccount</p><br />
+                    <p>@VsixMvcAppResult.Resources.Account.AccountResources.PasswordRequireToHaveXCharsLength.Replace("{0}", this.Model.PasswordLength.ToString()) </p>
+                    <br />
+                    @Html.FormItem(model => model.Email)
+                    @Html.FormItem(model => model.Password)
+                    @Html.FormItem(model => model.ConfirmPassword)
+                    @using(MvcWidgetButtonsBox buttonsBox = Html.BeginWidgetButtonsBox())
+                    {
+                        @Html.Button(VsixMvcAppResult.Resources.Account.AccountResources.Register,
+                                                jQueryHelpers.Icon.ui_icon_person,
+                                                ButtonType.Submit)
+                    }
+                    @if (!this.ViewData.ModelState.IsValid)
+                    {
+                        <br />
+                        @Html.ValidationSummaryCustomized()
+                    }
+                </text>
+            }
+        }
+    }
+}
+else
+{ 
+    <text>
+        <h3>@VsixMvcAppResult.Resources.Account.AccountResources.CreateNewAccount_EmailSent</h3>
+    </text>
+}

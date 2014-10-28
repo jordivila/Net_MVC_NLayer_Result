@@ -271,7 +271,6 @@
     <Content Include="Scripts\Template.Init.Widget.js" />
     <Content Include="Scripts\Template.Init.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\jquery.validate.js" />
-    <Content Include="Scripts\Template.A.Intellisense.js" />
     <Content Include="Scripts\Template.Init.Ajax.js" />
     <Content Include="Scripts\Template.Widget.Boolean.js" />
     <Content Include="Scripts\Template.Widget.jQueryzer.js" />
@@ -1059,6 +1058,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
-</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

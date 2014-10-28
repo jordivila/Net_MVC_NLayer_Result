@@ -193,16 +193,6 @@
     <Compile Include="Common\MvcAttributes\RequestLoggerAttibute.cs" />
     <Compile Include="Common\MvcHelpers\HtmlHelper.cs" />
     <Compile Include="Common\MvcHelpers\UrlHelper.cs" />
-    <Compile Include="Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.cs">
-      <DependentUpon>Template_T4_Runtime_CSS_ControllerStylesheets.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Common\T4\Template_T4_Runtime_JS_ControllerScripts.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Template_T4_Runtime_JS_ControllerScripts.tt</DependentUpon>
-    </Compile>
     <Compile Include="Unity\UnityContainerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -278,23 +268,6 @@
     <Content Include="Areas\Test\Views\Shared\Test_WidgetTreeNest.cshtml" />
     <Content Include="Areas\Test\Views\Shared\Test_WidgetMessages.cshtml" />
     <Content Include="packages.config" />
-    <None Include="Common\T4\BuildEventBatchFiles\Template_T4_BuildEvent__TransformBatchItem.cmd" />
-    <None Include="Common\T4\Template_T4_Runtime_CSS_ControllerStylesheets.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Template_T4_Runtime_CSS_ControllerStylesheets.cs</LastGenOutput>
-    </None>
-    <None Include="Common\T4\Template_T4_BuildEvent_CDN_Base.tt" />
-    <None Include="Common\T4\Template_T4_BuildEvent_CDN_CSS_Generator.tt" />
-    <None Include="Common\T4\Template_T4_BuildEvent_CDN_JS_Generator.tt" />
-    <None Include="Common\T4\Template_T4_BuildEvent_Base.tt" />
-    <None Include="Common\T4\BuildEventBatchFiles\Template_T4_BuildEvent__TransformBatch.cmd" />
-    <None Include="Common\T4\Template_T4_BuildEvent_JS_Ajax.tt" />
-    <None Include="Common\T4\BaseInclude.tt" />
-    <None Include="Common\T4\Template_T4_Runtime_JS_ControllerScripts.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>Template_T4_Runtime_JS_ControllerScripts.cs</LastGenOutput>
-    </None>
-    <None Include="Common\T4\Template_T4_BuildEvent_JS_Intellisense.tt" />
     <None Include="Scripts\jquery-ui-1.10.0\ui\.jshintrc" />
     <None Include="Scripts\jquery-validation-1.11.0\package.json" />
     <Content Include="Scripts\Template.Init.Widget.js" />

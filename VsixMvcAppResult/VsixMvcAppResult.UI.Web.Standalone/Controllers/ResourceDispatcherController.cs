@@ -151,7 +151,6 @@ namespace VsixMvcAppResult.UI.Web.Controllers
 
             JavascriptTextsViewModelHelper jsTexts = new JavascriptTextsViewModelHelper();
             System.Reflection.PropertyInfo[] thisObjectProperties = jsTexts.GetType().GetProperties();
-            sb.Append("// This file is just for intellisense purposes. Runtime file is build on the fly depending on users culture");
             sb.Append(Environment.NewLine);
             sb.Append("VsixMvcAppResult.Resources = {");
             sb.Append(Environment.NewLine);

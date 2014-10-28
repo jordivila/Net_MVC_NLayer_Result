@@ -15,17 +15,6 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
         List<string> WebSitePageInitScripts { get; set; }
         List<string> WebSiteCommonStyleSheets { get; set; }
         string WebSiteCommonAjax { get; set; }
-
-
-        string CDN_RootFolderName { get; set; }
-
-        string CDN_JS_RootFolderName { get; set; }
-        string CDN_JS_VirtualRoot { get; set; }
-        string CDN_JS_CommonFileName(CultureInfo culture, string Version);
-
-        string CDN_CSS_RootFolderName { get; set; }
-        string CDN_CSS_VirtualRoot { get; set; }
-        string CDN_CSS_CommonFileName(string Version);
     }
 
     public class ClientResourcesConfiguration : IClientResourcesConfiguration
@@ -145,62 +134,6 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.ClientResources
             {
 
             }
-        }
-
-
-        public string CDN_RootFolderName
-        {
-            get
-            {
-                return "CDN";
-            }
-            set { }
-        }
-
-        public string CDN_JS_RootFolderName
-        {
-            get
-            {
-                return "Scripts";
-            }
-            set { }
-        }
-        public string CDN_JS_VirtualRoot
-        {
-            get
-            {
-                return string.Format("~/{0}/{1}/", this.CDN_RootFolderName, this.CDN_JS_RootFolderName);
-            }
-            set
-            {
-
-            }
-        }
-        public string CDN_JS_CommonFileName(CultureInfo culture, string Version)
-        {
-            return string.Format("Template.CDN.Common.{0}.js", culture.Name);
-        }
-
-        public string CDN_CSS_RootFolderName
-        {
-            get
-            {
-                return "Css";
-            }
-            set { }
-        }
-        public string CDN_CSS_VirtualRoot
-        {
-            get
-            {
-                return string.Format("~/{0}/{1}/", this.CDN_RootFolderName, this.CDN_CSS_RootFolderName);
-            }
-            set { }
-        }
-        public string CDN_CSS_CommonFileName(string Version)
-        {
-            return "Template.CDN.Common.css";
-            //return string.Format("Template.CDN.Common.{0}.css", Version);
         }
     }
 

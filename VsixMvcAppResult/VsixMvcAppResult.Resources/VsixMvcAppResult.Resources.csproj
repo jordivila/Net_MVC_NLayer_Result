@@ -212,7 +212,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"$(ProjectDir)T4Templates\ResourceBuildEventPre.cmd" "$(ProjectDir)T4Templates\ResourceBuildEventPre.tt" $(TargetName)</PreBuildEvent>
+    <PreBuildEvent>rem "$(ProjectDir)T4Templates\ResourceBuildEventPre.cmd" "$(ProjectDir)T4Templates\ResourceBuildEventPre.tt" $(TargetName)</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>
