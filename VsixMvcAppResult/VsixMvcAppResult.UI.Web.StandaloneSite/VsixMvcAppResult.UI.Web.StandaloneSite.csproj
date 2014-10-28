@@ -193,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Blog\Content\blog.css" />
+    <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Error\Content\ErrorLogged.jpg" />
     <Content Include="Areas\Test\Content\Test_WidgetTree.js" />
     <Content Include="Areas\Test\Content\Test_WidgetTreeNest.js" />
@@ -828,7 +829,6 @@
     <Content Include="Scripts\jquery-validation-1.11.0\localization\methods_de.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\methods_nl.js" />
     <Content Include="Scripts\jquery-validation-1.11.0\localization\methods_pt.js" />
-    <Content Include="Areas\Blog\Views\web.config" />
     <Content Include="Areas\Blog\Views\Blog\Category.cshtml" />
     <Content Include="Areas\Blog\Views\Blog\Index.cshtml" />
     <Content Include="Areas\Error\Views\web.config" />
@@ -881,6 +881,7 @@
     <Content Include="Areas\UserProfile\Views\Shared\EditorTemplates\UserProfileModel.cshtml" />
     <Content Include="Areas\UserProfile\Views\UserProfile\Edit.cshtml" />
     <Content Include="Areas\UserProfile\Views\UserProfile\Index.cshtml" />
+    <Content Include="Areas\Blog\Views\Shared\DisplayTemplates\SyndicationItem.cshtml" />
     <None Include="Scripts\jquery\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery\jquery-1.9.1.min.js" />
@@ -1059,7 +1060,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\Home\Content\" />
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="Areas\UserAccount\Content\" />
