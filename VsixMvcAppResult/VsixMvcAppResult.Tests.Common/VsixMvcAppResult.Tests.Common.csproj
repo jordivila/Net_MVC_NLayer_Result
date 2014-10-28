@@ -74,10 +74,6 @@
       <Project>{31EA2808-81A4-48CB-8730-6B8883886587}</Project>
       <Name>VsixMvcAppResult.Resources</Name>
     </ProjectReference>
-    <ProjectReference Include="..\VsixMvcAppResult.UI.Web.Standalone\VsixMvcAppResult.UI.Web.Standalone.csproj">
-      <Project>{66b0226e-8576-453a-89c3-9ca9e47f7d87}</Project>
-      <Name>VsixMvcAppResult.UI.Web.Standalone</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
