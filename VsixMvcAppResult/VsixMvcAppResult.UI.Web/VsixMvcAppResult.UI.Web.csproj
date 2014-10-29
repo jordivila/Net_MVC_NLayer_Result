@@ -197,7 +197,6 @@
     <Compile Include="Unity\UnityContainerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Home\Content\" />
     <Folder Include="Areas\Home\Views\Shared\" />
     <Folder Include="Areas\UserAccount\Content\" />

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsixMvcAppResult.Resources", "VsixMvcAppResult\VsixMvcAppResult.Resources\VsixMvcAppResult.Resources.csproj", "{31EA2808-81A4-48CB-8730-6B8883886587}"
 EndProject
@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsixMvcAppResult.WCF.Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsixMvcAppResult.WCF.ServicesHostWorkerRole", "VsixMvcAppResult\VsixMvcAppResult.WCF.ServicesHostWorkerRole\VsixMvcAppResult.WCF.ServicesHostWorkerRole.csproj", "{790F2B30-3000-44CE-BF73-2F4342805BB6}"
 EndProject
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "VsixMvcAppResult.CloudServices", "VsixMvcAppResult\VsixMvcAppResult.CloudServices\VsixMvcAppResult.CloudServices.ccproj", "{E6DB647B-9E9E-417A-A491-403E55F75B4B}"
+Project("{E0F39400-C313-37A7-853B-CAE74DFB31B1}") = "VsixMvcAppResult.CloudServices", "VsixMvcAppResult\VsixMvcAppResult.CloudServices\VsixMvcAppResult.CloudServices.ccproj", "{E6DB647B-9E9E-417A-A491-403E55F75B4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git_files", "git_files", "{BB1CD9C9-9D78-4DFF-BFC9-635CC44CE5A6}"
 	ProjectSection(SolutionItems) = preProject
@@ -58,6 +58,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{02ED933C-CB7C-46AB-898D-8C6B265C8766}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsixMvcAppResult.UI.Web.StandaloneSite", "VsixMvcAppResult\VsixMvcAppResult.UI.Web.StandaloneSite\VsixMvcAppResult.UI.Web.StandaloneSite.csproj", "{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fxCop", "fxCop", "{BF0899C2-C1F4-4994-98CA-A93F3CCACBE9}"
+	ProjectSection(SolutionItems) = preProject
+		VsixMvcAppResult.FxCop = VsixMvcAppResult.FxCop
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
