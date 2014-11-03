@@ -14,7 +14,8 @@
         dataFilterTemp.Page = page;
 
         return MvcHtmlString.Create(
-                            string.Format("<li><form method='post'>{0}{1}{2}</form></li>"
+                            string.Format("<li><form method='post'>{0}{1}{2}{3}</form></li>"
+                                            , Html.AntiForgeryToken()
                                             , string.Format("<input type='hidden'  name='{1}' value=\"{0}\" />", HttpUtility.HtmlEncode(((baseModel)dataFilterTemp).SerializeToJson()), ((string)WebGrid<dynamic, dynamic, dynamic>.WebGrid_HiddenFieldFilterSerializedKey))
                                             , string.Format("<input type='hidden'  name='{1}' value='{0}' />", ((string)WebGrid<dynamic, dynamic, dynamic>.WebGrid_HiddenFieldPaginationEventKey), ((string)WebGrid<dynamic, dynamic, dynamic>.WebGrid_HiddenFieldEventKey))
                                             , Html.Button(text,
@@ -117,6 +118,7 @@
                 <tr>
                     <td class='ui-widgetGrid-pager-showPages'>
                         <form method="post">
+                            @Html.AntiForgeryToken()
                             @VsixMvcAppResult.Resources.General.GeneralTexts.Showing
                             @buildPageSizeSelector(dataFilter)
                         </form>

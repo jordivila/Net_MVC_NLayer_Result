@@ -65,7 +65,18 @@ namespace VsixMvcAppResult.UI.Web.Areas.Blog.Controllers
 
             return result;
         }
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+
+
+        [HttpGet]
+        public ActionResult Category(string categoryName)
+        {
+            return this.Category(categoryName, new BlogModel());
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Category(string categoryName, BlogModel model)
         {
             ActionResult result = null;
@@ -86,6 +97,7 @@ namespace VsixMvcAppResult.UI.Web.Areas.Blog.Controllers
 
             return result;
         }
+
         private BlogModel GetIndexModel()
         {
             BlogModel model = new BlogModel();

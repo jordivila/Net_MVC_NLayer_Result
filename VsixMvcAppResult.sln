@@ -64,6 +64,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fxCop", "fxCop", "{BF0899C2
 		VsixMvcAppResult.FxCop = VsixMvcAppResult.FxCop
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsixMvcAppResult.Tests.Unit", "VsixMvcAppResult\VsixMvcAppResult.Tests.Unit\VsixMvcAppResult.Tests.Unit.csproj", "{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -256,6 +258,16 @@ Global
 		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59}.Release|x86.ActiveCfg = Release|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -284,6 +296,7 @@ Global
 		{7A4DD753-6850-4383-88ED-AC08EE0B1699} = {02ED933C-CB7C-46AB-898D-8C6B265C8766}
 		{B6B96A2F-2276-4286-A9D1-613FDFDCBFD2} = {02ED933C-CB7C-46AB-898D-8C6B265C8766}
 		{12A8F0EA-B42F-4FBE-A249-2B4B45726F59} = {B6B96A2F-2276-4286-A9D1-613FDFDCBFD2}
+		{E06EF4A0-B8E6-467C-B802-5E10405DD7BF} = {9E30EEFE-3244-4FD4-81AD-BC5B06251BF2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45

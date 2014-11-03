@@ -124,7 +124,6 @@
     <Compile Include="TestCases\AuthorizeAttribute\AuthorizeAttributeTests.cs" />
     <Compile Include="TestCases\AuthorizeAttribute\AuthorizedAttributeAdminOnlyController.cs" />
     <Compile Include="TestCases\Configuration\ConfigurationTests.cs" />
-    <Compile Include="TestCases\GenericTests\Ensure_AuthorizeAttribute.cs" />
     <Compile Include="TestCases\UserAccount\UserAccountControllerTest.cs" />
     <Compile Include="TestCases\UserProfile\UserProfileControllerTests.cs" />
     <Compile Include="TestProxies\MembershipProxyTests.cs" />

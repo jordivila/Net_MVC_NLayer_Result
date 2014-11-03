@@ -37,17 +37,19 @@ namespace VsixMvcAppResult.Tests.Integration.TestCases.UserAccount
         {
             ControllerFake<UserAccountController, ChangePasswordViewModel> controller = new ControllerFake<UserAccountController, ChangePasswordViewModel>();
 
-            Expression<Func<ChangePasswordViewModel, ActionResult>> methodChangePassword = m => controller.Controller.ChangePassword(new ChangePasswordViewModel());
+            Expression<Func<ChangePasswordViewModel, ActionResult>> methodChangePasswordGet = m => controller.Controller.ChangePassword();
+            Expression<Func<ChangePasswordViewModel, ActionResult>> methodChangePasswordPost = m => controller.Controller.ChangePassword(new ChangePasswordViewModel());
             Expression<Func<ChangePasswordViewModel, ActionResult>> dashBoard = m => controller.Controller.Dashboard();
 
             List<string> methodsWithAuthorizeAttributeExpected = new List<string>() { 
-                (methodChangePassword.Body as MethodCallExpression).Method.Name 
-                , (dashBoard.Body as MethodCallExpression).Method.Name
+                (methodChangePasswordGet.Body as MethodCallExpression).Method.ToString() 
+                , (methodChangePasswordPost.Body as MethodCallExpression).Method.ToString()
+                , (dashBoard.Body as MethodCallExpression).Method.ToString()
             };
 
             List<MethodInfo> methodsWithAuthorizeAttributeResulted = typeof(UserAccountController)
                                                                 .GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
-                                                                .Where(x => methodsWithAuthorizeAttributeExpected.Contains(x.Name) &&
+                                                                .Where(x => methodsWithAuthorizeAttributeExpected.Contains(x.ToString()) &&
                                                                             x.GetCustomAttributes(typeof(UI.Web.Common.Mvc.Attributes.AuthorizeAttribute), true)
                                                                             .Count() == 1).ToList();
 

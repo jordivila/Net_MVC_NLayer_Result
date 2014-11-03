@@ -38,42 +38,57 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserProfile.Controllers
             this.ProviderProfile = DependencyFactory.Resolve<IProfileProxy>();
         }
 
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
-        public ActionResult Index(UserProfileIndexModel model)
+        [HttpGet]
+        public ActionResult Index()
         {
+            UserProfileIndexModel model = new UserProfileIndexModel();
             model.BaseViewModelInfo.Title = Resources.Account.AccountResources.UserProfile;
             model.UserProfileResult = this.ProviderProfile.Get();
             return View(model);
         }
 
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Index(UserProfileIndexModel model)
+        //{
+        //    model.BaseViewModelInfo.Title = Resources.Account.AccountResources.UserProfile;
+        //    model.UserProfileResult = this.ProviderProfile.Get();
+        //    return View(model);
+        //}
+
+
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            UserProfileIndexModel model = new UserProfileIndexModel();
+            model.BaseViewModelInfo.Title = Resources.Account.AccountResources.UserProfile;
+
+            DataResultUserProfile userProfileResult = this.ProviderProfile.Get();
+            model.UserProfileResult = userProfileResult;
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(UserProfileIndexModel model)
         {
             model.BaseViewModelInfo.Title = Resources.Account.AccountResources.UserProfile;
 
-            if (this.RequestType() == HttpVerbs.Get)
+            if (ModelState.IsValid)
             {
-                DataResultUserProfile userProfileResult = this.ProviderProfile.Get();
-                model.UserProfileResult = userProfileResult;
-                return View(model);
-            }
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    // Set Culture & Theme values currently in use
-                    model.UserProfileResult.Data.CultureName = MvcApplication.UserRequest.UserProfile.CultureName;
-                    model.UserProfileResult.Data.Theme = MvcApplication.UserRequest.UserProfile.Theme;
+                // Set Culture & Theme values currently in use
+                model.UserProfileResult.Data.CultureName = MvcApplication.UserRequest.UserProfile.CultureName;
+                model.UserProfileResult.Data.Theme = MvcApplication.UserRequest.UserProfile.Theme;
 
-                    DataResultUserProfile result = this.ProviderProfile.Update(model.UserProfileResult.Data);
-                    model.UserProfileResultUpdated = result;
-                    MvcApplication.UserRequest.UserProfile = result.Data;
-                    MvcApplication.UserRequest.UserProfile.ApplyClientProperties();
-                    model.BaseViewModelInfo.LocalizationResources = new LocalizationResourcesHelper(MvcApplication.UserRequest.UserProfile.Culture);
-                }
-                return View(model);
+                DataResultUserProfile result = this.ProviderProfile.Update(model.UserProfileResult.Data);
+                model.UserProfileResultUpdated = result;
+                MvcApplication.UserRequest.UserProfile = result.Data;
+                MvcApplication.UserRequest.UserProfile.ApplyClientProperties();
+                model.BaseViewModelInfo.LocalizationResources = new LocalizationResourcesHelper(MvcApplication.UserRequest.UserProfile.Culture);
             }
+            return View(model);
         }
+
     }
 
 }

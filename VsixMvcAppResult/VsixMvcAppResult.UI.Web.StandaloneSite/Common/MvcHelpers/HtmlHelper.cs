@@ -32,10 +32,6 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
         public readonly static string SectionScriptsToAdd = "ScriptsToAdd";
         public readonly static string SectionInlineStyles = "InlineStyles";
 
-        //public static MvcHtmlString PartialMenuTopNav(this HtmlHelper htmlHelper)
-        //{
-        //    return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_MenuTopNavPartial.cshtml");
-        //}
         public static MvcHtmlString PartialBreadcrumb(this HtmlHelper htmlHelper)
         {
             return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_Breadcrumb.cshtml");
@@ -63,37 +59,28 @@ namespace VsixMvcAppResult.UI.Web.Common.Mvc.Html
             return System.Web.Mvc.Html.PartialExtensions.Partial(htmlHelper, "~/Views/Shared/_LogOffButton.cshtml");
         }
         #endregion
-
-        //public static ResourceMvcHelper ResourceTexts(this HtmlHelper htmlHelper)
-        //{
-        //    if (System.Web.HttpContext.Current.Application["ResourceMvcHelper"] == null)
-        //    {
-        //        System.Web.HttpContext.Current.Application["ResourceMvcHelper"] = new ResourceMvcHelper();
-        //    }
-        //    return (ResourceMvcHelper)System.Web.HttpContext.Current.Application["ResourceMvcHelper"];
-        //}
     }
 
     public static class FormsExtension
     {
         public static MvcForm BeginWidgetForm(this HtmlHelper htmlHelper)
         {
-            IDictionary<string, object> htmlAttributes = new Dictionary<string, object>();
-            htmlAttributes.Add("class", "ui-widgetForm");
-            return htmlHelper.BeginForm((string)htmlHelper.ViewContext.RouteData.Values["action"],
-                                        (string)htmlHelper.ViewContext.RouteData.Values["controller"],
-                                        FormMethod.Post,
-                                        htmlAttributes);
+            return BeginWidgetForm(htmlHelper, null);
         }
 
         public static MvcForm BeginWidgetForm(this HtmlHelper htmlHelper, object attributes)
         {
             IDictionary<string, object> htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(attributes);
             htmlAttributes.Add("class", "ui-widgetForm");
-            return htmlHelper.BeginForm((string)htmlHelper.ViewContext.RouteData.Values["action"],
+            MvcForm f = htmlHelper.BeginForm((string)htmlHelper.ViewContext.RouteData.Values["action"],
                                         (string)htmlHelper.ViewContext.RouteData.Values["controller"],
                                         FormMethod.Post,
                                         htmlAttributes);
+
+            htmlHelper.ViewContext.Writer.Write(htmlHelper.AntiForgeryToken());
+
+            return f;
+
         }
 
         public static MvcHtmlString CheckBoxMultiple<TModel>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, IEnumerable<string>>> expression, IEnumerable<SelectListItem> listOfValues)

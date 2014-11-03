@@ -135,45 +135,156 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Home\Models\HomeControllerModels.cs" />
+    <Compile Include="Areas\Home\Models\HomeControllerModels.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Common\ApplicationServicesProvider\MembershipUpdateLastActivityAttribute.cs" />
     <Compile Include="Common\ApplicationServicesProvider\MessageInspectorBehaviorExtension.cs" />
-    <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
-    <Compile Include="Areas\Blog\BlogUrlHelper.cs" />
-    <Compile Include="Areas\Blog\Controllers\BlogController.cs" />
-    <Compile Include="Areas\Blog\Models\BlogModel.cs" />
-    <Compile Include="Areas\Error\Controllers\ErrorController.cs" />
-    <Compile Include="Areas\Error\ErrorAreaRegistration.cs" />
-    <Compile Include="Areas\Error\ErrorUrlHelper.cs" />
-    <Compile Include="Areas\Error\Models\ErrorModels.cs" />
-    <Compile Include="Areas\Home\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
-    <Compile Include="Areas\Home\HomeUrlHelper.cs" />
-    <Compile Include="Areas\LogViewer\Controllers\LogViewerController.cs" />
-    <Compile Include="Areas\LogViewer\LogViewerAreaRegistration.cs" />
-    <Compile Include="Areas\LogViewer\LogViewerUrlHelper.cs" />
-    <Compile Include="Areas\LogViewer\LogViewerViewHelper.cs" />
-    <Compile Include="Areas\LogViewer\Models\LogViewerModel.cs" />
-    <Compile Include="Areas\Test\Controllers\TestController.cs" />
-    <Compile Include="Areas\Test\Models\TestViewModel.cs" />
-    <Compile Include="Areas\Test\TestAreaRegistration.cs" />
-    <Compile Include="Areas\Test\TestUrlHelper.cs" />
-    <Compile Include="Areas\UserAccount\Controllers\UserAccountBarController.cs" />
-    <Compile Include="Areas\UserAccount\Controllers\UserAccountController.cs" />
-    <Compile Include="Areas\UserAccount\Models\UserAccountModel.cs" />
-    <Compile Include="Areas\UserAccount\Models\UserAccountValidation.cs" />
-    <Compile Include="Areas\UserAccount\UserAccountAreaRegistration.cs" />
-    <Compile Include="Areas\UserAccount\UserAccountUrlHelper.cs" />
-    <Compile Include="Areas\UserAdministration\Controllers\UserAdministrationController.cs" />
-    <Compile Include="Areas\UserAdministration\Models\DetailsViewModel.cs" />
-    <Compile Include="Areas\UserAdministration\Models\IndexViewModel.cs" />
-    <Compile Include="Areas\UserAdministration\Models\RoleViewModel.cs" />
-    <Compile Include="Areas\UserAdministration\UserAdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\UserAdministration\UserAdminUrlHelper.cs" />
-    <Compile Include="Areas\UserProfile\Controllers\UserProfileController.cs" />
-    <Compile Include="Areas\UserProfile\Models\UserProfileModels.cs" />
-    <Compile Include="Areas\UserProfile\UserProfileAreaRegistration.cs" />
-    <Compile Include="Areas\UserProfile\UserProfileUrlHelper.cs" />
+    <Compile Include="Areas\Blog\BlogAreaRegistration.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Blog\BlogUrlHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Blog\Controllers\BlogController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Blog\Models\BlogModel.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Error\Controllers\ErrorController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Error\ErrorAreaRegistration.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Error\ErrorUrlHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Error\Models\ErrorModels.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Home\Controllers\HomeController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Home\HomeAreaRegistration.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Home\HomeUrlHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\LogViewer\Controllers\LogViewerController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\LogViewer\LogViewerAreaRegistration.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\LogViewer\LogViewerUrlHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\LogViewer\LogViewerViewHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\LogViewer\Models\LogViewerModel.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Test\Controllers\TestController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Test\Models\TestViewModel.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Test\TestAreaRegistration.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\Test\TestUrlHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAccount\Controllers\UserAccountBarController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAccount\Controllers\UserAccountController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAccount\Models\UserAccountModel.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAccount\Models\UserAccountValidation.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAccount\UserAccountAreaRegistration.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAccount\UserAccountUrlHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAdministration\Controllers\UserAdministrationController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAdministration\Models\DetailsViewModel.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAdministration\Models\IndexViewModel.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAdministration\Models\RoleViewModel.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAdministration\UserAdministrationAreaRegistration.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserAdministration\UserAdminUrlHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserProfile\Controllers\UserProfileController.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserProfile\Models\UserProfileModels.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserProfile\UserProfileAreaRegistration.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Areas\UserProfile\UserProfileUrlHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Models\ClientCultures.cs" />
     <Compile Include="Models\BreadcrumbModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
@@ -192,7 +303,10 @@
     <Compile Include="Common\MvcAttributes\CompressFilter.cs" />
     <Compile Include="Common\MvcAttributes\HandleErrorAttributeExtended.cs" />
     <Compile Include="Common\MvcAttributes\RequestLoggerAttibute.cs" />
-    <Compile Include="Common\MvcHelpers\HtmlHelper.cs" />
+    <Compile Include="Common\MvcHelpers\HtmlHelper.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Common\MvcHelpers\UrlHelper.cs" />
     <Compile Include="Unity\UnityContainerProvider.cs" />
   </ItemGroup>

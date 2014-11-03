@@ -57,67 +57,72 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAdministration.Controllers
             }
         }
 
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
-        public ViewResult Index(IndexViewModel model)
+        [HttpGet]
+        public ViewResult Index()
         {
             ViewResult result = null;
 
-            if (this.RequestType() == HttpVerbs.Get)
+            IndexViewModel model = new IndexViewModel();
+            model.Action = Actions.Search;
+            model.Filter = MvcApplication.UserSession.UserAdministrationController_LastSearch;
+            if (model.Filter == null)
             {
-                model = new IndexViewModel();
-                model.Action = Actions.Search;
-                model.Filter = MvcApplication.UserSession.UserAdministrationController_LastSearch;
-                if (model.Filter == null)
+                model.Filter = new DataFilterUserList()
                 {
-                    model.Filter = new DataFilterUserList()
-                    {
-                        IsClientVisible = true,
-                        PageSize = (int)PageSizesAvailable.RowsPerPage10,
-                    };
-                    model.Filter.IsInRoleName.AddRange(_providerRoles.FindAll().Data);
-                    result = View(model);
-                }
-                else
-                {
-                    result = this.Index_Search(model);
-                }
+                    IsClientVisible = true,
+                    PageSize = (int)PageSizesAvailable.RowsPerPage10,
+                };
+                model.Filter.IsInRoleName.AddRange(_providerRoles.FindAll().Data);
+                result = View(model);
             }
             else
             {
-                if (WebGrid<MembershipUserWrapper, IndexViewModel, DataFilterUserList>.IsWebGridEvent())
-                {
-                    this.ModelState.Clear();
-                    model.Filter = (DataFilterUserList)WebGrid<MembershipUserWrapper, IndexViewModel, DataFilterUserList>.GetDataFilterFromPost();
-                    MvcApplication.UserSession.UserAdministrationController_LastSearch = model.Filter;
-                }
-
-                if (this.ModelState.IsValid)
-                {
-                    switch (model.Action)
-                    {
-                        case Actions.Search:
-                            model.Filter.Page = 0;
-                            model.Filter.SortBy = string.Empty;
-                            model.Filter.SortAscending = true;
-                            model.Filter.IsClientVisible = false;
-                            MvcApplication.UserSession.UserAdministrationController_LastSearch = model.Filter;
-                            break;
-                        default:
-                            break;
-                    }
-
-                    result = this.Index_Search(model);
-                }
-                else
-                {
-                    model.Filter.IsClientVisible = true;
-                    result = View(model);
-                }
-
+                result = this.Index_Search(model);
             }
             model.BaseViewModelInfo.Title = GeneralTexts.UserAdmin;
             return result;
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ViewResult Index(IndexViewModel model)
+        {
+            ViewResult result = null;
+
+            if (WebGrid<MembershipUserWrapper, IndexViewModel, DataFilterUserList>.IsWebGridEvent())
+            {
+                this.ModelState.Clear();
+                model.Filter = (DataFilterUserList)WebGrid<MembershipUserWrapper, IndexViewModel, DataFilterUserList>.GetDataFilterFromPost();
+                MvcApplication.UserSession.UserAdministrationController_LastSearch = model.Filter;
+            }
+
+            if (this.ModelState.IsValid)
+            {
+                switch (model.Action)
+                {
+                    case Actions.Search:
+                        model.Filter.Page = 0;
+                        model.Filter.SortBy = string.Empty;
+                        model.Filter.SortAscending = true;
+                        model.Filter.IsClientVisible = false;
+                        MvcApplication.UserSession.UserAdministrationController_LastSearch = model.Filter;
+                        break;
+                    default:
+                        break;
+                }
+
+                result = this.Index_Search(model);
+            }
+            else
+            {
+                model.Filter.IsClientVisible = true;
+                result = View(model);
+            }
+
+            model.BaseViewModelInfo.Title = GeneralTexts.UserAdmin;
+            return result;
+        }
+
         private ViewResult Index_Search(IndexViewModel model)
         {
             DataResultUserSearch resultSearch = this._providerMembership.GetUserList(model.Filter);
@@ -137,7 +142,14 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAdministration.Controllers
             return View(model);
         }
 
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        [HttpGet]
+        public ActionResult Details(object id)
+        {
+            return this.Details(id, new DetailsViewModel(), Actions.ViewDetail);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Details(object id, DetailsViewModel model, Actions formAction = Actions.ViewDetail)
         {
             switch (formAction)
@@ -193,6 +205,8 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAdministration.Controllers
 
             return View(model);
         }
+
+
         private DetailsViewModel Details_ChangeAproval(DetailsViewModel model, MembershipUserWrapper user, bool IsApproved)
         {
             user.IsApproved = IsApproved;

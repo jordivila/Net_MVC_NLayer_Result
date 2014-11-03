@@ -95,7 +95,7 @@ namespace VsixMvcAppResult.UI.Web.Areas.LogViewer.Controllers
 
             //string sourceName = "WCFGeneral"; // string.Empty;
             //string sourceName = string.Empty;
-            string listenerName = "ListenerOnUIProxied";// string.Empty;
+            string listenerName = "Database Trace Listener";// string.Empty;
 
             //if (!string.IsNullOrEmpty(sourceName))
             //{

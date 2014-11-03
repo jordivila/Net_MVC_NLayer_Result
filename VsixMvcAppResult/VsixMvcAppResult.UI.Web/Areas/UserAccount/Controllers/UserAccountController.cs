@@ -1,26 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
-using Microsoft.Practices.Unity;
 using VsixMvcAppResult.Models.Authentication;
 using VsixMvcAppResult.Models.Common;
-using VsixMvcAppResult.Models.Enumerations;
 using VsixMvcAppResult.Models.Membership;
 using VsixMvcAppResult.Models.Profile;
 using VsixMvcAppResult.Models.Unity;
 using VsixMvcAppResult.Resources.Account;
 using VsixMvcAppResult.Resources.General;
 using VsixMvcAppResult.UI.Web.Areas.Home;
-using VsixMvcAppResult.UI.Web.Areas.LogViewer;
-using VsixMvcAppResult.UI.Web.Areas.Test;
 using VsixMvcAppResult.UI.Web.Areas.UserAccount.Models;
-using VsixMvcAppResult.UI.Web.Areas.UserAdministration;
-using VsixMvcAppResult.UI.Web.Areas.UserProfile;
 using VsixMvcAppResult.UI.Web.Common.Mvc.Html;
 using VsixMvcAppResult.UI.Web.Controllers;
 using VsixMvcAppResult.UI.Web.Models;
-using System.Linq;
 
 namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
 {
@@ -77,44 +70,46 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
         }
 
         #region Login / Logout
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult LogOn()
+        {
+            LogOnViewModel model = new LogOnViewModel();
+            model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.General.GeneralTexts.LogOn;
+            model.UrlReferer = Request.UrlReferrer == null ? string.Empty : Request.UrlReferrer.ToString();
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult LogOn(LogOnViewModel model)
         {
-            if (this.RequestType() == HttpVerbs.Get)
+            if (ModelState.IsValid)
             {
-                model = new LogOnViewModel();
-                model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.General.GeneralTexts.LogOn;
-                model.UrlReferer = Request.UrlReferrer == null ? string.Empty : Request.UrlReferrer.ToString();
-                return View(model);
-            }
-            else
-            {
-                if (ModelState.IsValid)
+                bool isValidUser = this.FormsAuthenticationService.LogIn(model.Email, model.Password, string.Empty, false); //model.RememberMe);
+                if (isValidUser)
                 {
-                    bool isValidUser = this.FormsAuthenticationService.LogIn(model.Email, model.Password, string.Empty, false); //model.RememberMe);
-                    if (isValidUser)
-                    {
-                        this.FormsProfileService.Get().Data.ApplyClientProperties();
+                    this.FormsProfileService.Get().Data.ApplyClientProperties();
 
-                        if (Url.IsLocalUrl(model.UrlReferer))   // Prevents Open Redirection Attacks
-                        {
-                            return new RedirectResult(model.UrlReferer);
-                        }
-                        else
-                        {
-                            return this.RedirectResultOnLogIn();
-                        }
+                    if (Url.IsLocalUrl(model.UrlReferer))   // Prevents Open Redirection Attacks
+                    {
+                        return new RedirectResult(model.UrlReferer);
                     }
                     else
                     {
-                        ModelState.AddModelError("Invalid_Credentials", AccountResources.UserNameOrPasswordInvalid);
+                        return this.RedirectResultOnLogIn();
                     }
                 }
-                model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.General.GeneralTexts.LogOn;
-                return View(model);
+                else
+                {
+                    ModelState.AddModelError("Invalid_Credentials", AccountResources.UserNameOrPasswordInvalid);
+                }
             }
-
+            model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.General.GeneralTexts.LogOn;
+            return View(model);
         }
+
         public ActionResult LogOff()
         {
             FormsAuthenticationService.LogOut();
@@ -123,17 +118,22 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
         #endregion
 
         #region Register
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            RegisterViewModel model = new RegisterViewModel();
+            model.BaseViewModelInfo.Title = Resources.Account.AccountResources.Register;
+            model.PasswordLength = this.FormsMembershipService.Settings().Data.MinRequiredPasswordLength;
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel model)
         {
-            if (this.RequestType() == HttpVerbs.Get)
-            {
-                model = new RegisterViewModel();
-                model.BaseViewModelInfo.Title = Resources.Account.AccountResources.Register;
-                model.PasswordLength = this.FormsMembershipService.Settings().Data.MinRequiredPasswordLength;
-                return View(model);
-            }
-
             if (ModelState.IsValid)
             {
                 DataResultUserCreateResult result = FormsMembershipService.CreateUser(model.Email, model.Password, model.Email, string.Empty, string.Empty, Url.Account_Activate());
@@ -155,6 +155,7 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
                     ModelState.AddModelError("0", result.Message);
                 }
             }
+
             model.BaseViewModelInfo.Title = Resources.Account.AccountResources.Register;
             model.PasswordLength = this.FormsMembershipService.Settings().Data.MinRequiredPasswordLength;
             return View(model);
@@ -162,16 +163,20 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
         #endregion
 
         #region CantAccessYourAccount
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+
+        [HttpGet]
+        public ActionResult CantAccessYourAccount()
+        {
+            CantAccessYourAccountViewModel model = new CantAccessYourAccountViewModel();
+            model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.Account.AccountResources.CanNotAccessYourAccount;
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult CantAccessYourAccount(CantAccessYourAccountViewModel model)
         {
-            if (this.RequestType() == HttpVerbs.Get)
-            {
-                model = new CantAccessYourAccountViewModel();
-                model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.Account.AccountResources.CanNotAccessYourAccount;
-                return View(model);
-            }
-
             model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.Account.AccountResources.CanNotAccessYourAccount;
             if (ModelState.IsValid)
             {
@@ -189,20 +194,26 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
             }
             return View(model);
         }
+
         #endregion
 
         #region ResetPassword
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ResetPassword(object id)
+        {
+            ResetPasswordClientModel model = new ResetPasswordClientModel();
+            model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.Account.AccountResources.ChangePassword;
+            model.MinPasswordLength = this.FormsMembershipService.Settings().Data.MinRequiredPasswordLength;
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public ActionResult ResetPassword(object id, ResetPasswordClientModel model)
         {
-            if (this.RequestType() == HttpVerbs.Get)
-            {
-                model = new ResetPasswordClientModel();
-                model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.Account.AccountResources.ChangePassword;
-                model.MinPasswordLength = this.FormsMembershipService.Settings().Data.MinRequiredPasswordLength;
-                return View(model);
-            }
-
             model.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.Account.AccountResources.ChangePassword;
             model.MinPasswordLength = this.FormsMembershipService.Settings().Data.MinRequiredPasswordLength;
 
@@ -226,47 +237,50 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
                 }
             }
             return View(model);
-
         }
+
         #endregion
 
         #region ChangePassword
+
+        private ChangePasswordViewModel ChangePassword_setCommonValues(ChangePasswordViewModel modelTmp)
+        {
+            modelTmp.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.Account.AccountResources.ChangePassword;
+            modelTmp.MinPasswordLength = this.FormsMembershipService.Settings().Data.MinRequiredPasswordLength;
+            return modelTmp;
+        }
+
+        [HttpGet]
         [VsixMvcAppResult.UI.Web.Common.Mvc.Attributes.Authorize]
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
+        public ActionResult ChangePassword()
+        {
+            ChangePasswordViewModel model = ChangePassword_setCommonValues(new ChangePasswordViewModel());
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [VsixMvcAppResult.UI.Web.Common.Mvc.Attributes.Authorize]
         public ActionResult ChangePassword(ChangePasswordViewModel model)
         {
-            Func<ChangePasswordViewModel, ChangePasswordViewModel> setCommonValues = delegate(ChangePasswordViewModel modelTmp)
-            {
-                modelTmp.BaseViewModelInfo.Title = VsixMvcAppResult.Resources.Account.AccountResources.ChangePassword;
-                modelTmp.MinPasswordLength = this.FormsMembershipService.Settings().Data.MinRequiredPasswordLength;
-                return modelTmp;
-            };
+            model = ChangePassword_setCommonValues(model);
 
-            if (this.RequestType() == HttpVerbs.Get)
+            if (ModelState.IsValid)
             {
-                model = setCommonValues(new ChangePasswordViewModel());
-                return View(model);
-            }
-            else
-            {
-                model = setCommonValues(model);
-
-                if (ModelState.IsValid)
+                FormsIdentity identity = this.FormsAuthenticationService.GetFormsIdentity();
+                DataResultBoolean result = this.FormsMembershipService.ChangePassword(identity.Name, model.OldPassword, model.NewPassword, model.ConfirmPassword);
+                if (result.IsValid)
                 {
-                    FormsIdentity identity = this.FormsAuthenticationService.GetFormsIdentity();
-                    DataResultBoolean result = this.FormsMembershipService.ChangePassword(identity.Name, model.OldPassword, model.NewPassword, model.ConfirmPassword);
-                    if (result.IsValid)
-                    {
-                        model.Result = result;
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("InvalidPassword", result.Message);
-                    }
+                    model.Result = result;
                 }
-                return View(model);
+                else
+                {
+                    ModelState.AddModelError("InvalidPassword", result.Message);
+                }
             }
+            return View(model);
         }
+
         #endregion
 
         #region Activation
@@ -288,15 +302,12 @@ namespace VsixMvcAppResult.UI.Web.Areas.UserAccount.Controllers
         #endregion
 
         #region DashBoard
+        [HttpGet]
         [VsixMvcAppResult.UI.Web.Common.Mvc.Attributes.Authorize]
-        [AcceptVerbs(HttpVerbs.Get | HttpVerbs.Post)]
         public ActionResult Dashboard()
         {
             DashBoardViewModel model = new DashBoardViewModel();
             model.UserProfile = this.FormsProfileService.Get().Data;
-
-            
-
             model.DashboardMenu = new MenuModel();
             model.DashboardMenu.MenuItems.AddRange(MenuExtensions.MenuDetailed((baseViewModel)model, this.Url).MenuItems.Where(x => x.DataAction == UserAccountUrlHelper.Account_Dashboard(this.Url)).First().Childs);
             model.BaseViewModelInfo.Title = GeneralTexts.Dashboard;
