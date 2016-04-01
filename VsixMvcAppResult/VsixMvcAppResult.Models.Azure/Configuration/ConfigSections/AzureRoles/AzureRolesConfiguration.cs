@@ -1,10 +1,11 @@
-﻿using Microsoft.WindowsAzure.ServiceRuntime;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.ServiceRuntime;
 
 namespace VsixMvcAppResult.Models.Configuration.ConfigSections.AzureRoles
 {
@@ -30,6 +31,7 @@ namespace VsixMvcAppResult.Models.Configuration.ConfigSections.AzureRoles
         public string WCF_RoleName { get; set; }
         public string WCF_InternalEndPointName { get; set; }
         public int WCF_InstanceNumber { get; set; }
+
 
 
         private RoleInstanceEndpoint BackEndRoleInstanceEndpointGet()

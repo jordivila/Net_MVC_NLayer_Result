@@ -1,5 +1,4 @@
-﻿using Microsoft.WindowsAzure.ServiceRuntime;
-using VsixMvcAppResult.Models.Configuration;
+﻿using VsixMvcAppResult.Models.Configuration;
 using VsixMvcAppResult.Models.Unity;
 using System;
 using System.ServiceModel;

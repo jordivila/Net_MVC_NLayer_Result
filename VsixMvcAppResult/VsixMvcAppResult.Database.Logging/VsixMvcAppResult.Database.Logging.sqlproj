@@ -74,5 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Template.Database.Logging.publish.xml" />
+    <None Include="VsixMvcAppResult.Database.Logging.publish.xml" />
   </ItemGroup>
 </Project>

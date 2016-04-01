@@ -18,9 +18,8 @@ using Microsoft.WindowsAzure.Storage.Table;
 using VsixMvcAppResult.Models.Common;
 using VsixMvcAppResult.Models.Configuration;
 using System.Globalization;
-using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.Storage.Table.Queryable;
-
+using Microsoft.Azure;
 
 namespace VsixMvcAppResult.Models.Logging
 {
